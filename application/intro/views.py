@@ -26,3 +26,10 @@ def surabhi(request):
 
 def tianrong(request):
     return render(request, 'intro/tianrong.html')
+
+def Note1(request):
+    return render(request, 'intro/Note1.html')
+def Note2(request):
+    return render(request, 'intro/Note2.html')
+def Note3(request):
+    return render(request, 'intro/Note3.html')
