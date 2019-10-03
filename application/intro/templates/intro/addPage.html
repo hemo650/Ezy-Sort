@@ -45,5 +45,9 @@
     <button type="submit">Upload</button>
   </form>
 
+  {% for key in list.result.lineItems %}
+  {{key.descClean|linebreaks}}
+  {% endfor %}
+
 </body>
 </html>
