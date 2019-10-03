@@ -5,7 +5,6 @@ from django.shortcuts \
 def index(request):
     return render(request, 'intro/welcome.html')
 
-
 def anne(request):
     return render(request, 'intro/anne.html')
 
@@ -33,3 +32,9 @@ def Note2(request):
     return render(request, 'intro/Note2.html')
 def Note3(request):
     return render(request, 'intro/Note3.html')
+
+def Login(request):
+    return render(request, 'intro/Login.html')
+
+def addItem(request):
+    return render(request, 'intro/addPage.html')
