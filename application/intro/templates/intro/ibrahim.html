@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+<title>CSS Template</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the header */
+header {
+  background-color: #666;
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+}
+
+/* Create two columns/boxes that floats next to each other */
+nav {
+  float: left;
+  width: 30%;
+  height: 500px; /* only for demonstration, should be removed */
+  background: #ccc;
+  padding: 20px;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+article {
+  float: left;
+  padding: 20px;
+  width: 70%;
+  background-color: #f1f1f1;
+  height: 500px; /* only for demonstration, should be removed */
+}
+
+/* Clear floats after the columns */
+section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the footer */
+footer {
+  background-color: #777;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+@media (max-width: 600px) {
+  nav, article {
+    width: 100%;
+    height: auto;
+  }
+}
+</style>
+</head>
+<body>
+
+<h2>CSC648: SoftwareEngineering M_0, Team:102</h2>
+<p>Ibrahim Aboudamous-Team Leader</p>
+
+<header>
+  <h2>About Me</h2>
+</header>
+
+<section>
+  <nav>
+      <p>Courses I have taken at SFSU:</p>
+      <p>CSC210,CSC220 </p>
+       <p>CSC230, CSC256</p>
+      <p>CSC300,CSC340</p>
+      <p>CSC412,CSC413</p>
+      <p>CSC415, Math 324</p>
+      <p>Math 325, CSC675</p>
+      <p>CSC656</p>
+  </nav>
+
+  <article>
+    <h1>Who I am</h1>
+    <p>My name is Ibrahim Aboudamous, I am a Computer Science senior at San Francisco State University. I am born and raised in the Bay Area. My family imigrated from Palestine 30+years ago. </p>
+    <p>I am very interested in Computer Science because I want to make a change in the world, and knowing I can build something that can change someones life in a good way means the world to me.</p>
+  </article>
+</section>
+
+<footer>
+  <p>Created by Ibrahim Aboudamous</p>
+</footer>
+
+</body>
+
+
+</html>
