@@ -39,9 +39,15 @@
     <p>Email address: </p>
 </div>
 
-<div class="centeredText">
-    <button>Add</button>
-</div>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="myfile" accept="image/*" id="image">
+    <button type="submit">Upload</button>
+  </form>
+
+  {% for key in list.result.lineItems %}
+    {{key.descClean|linebreaks}}
+    {% endfor %}
 
 </body>
 </html>
