@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+         
+        
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -42,12 +44,22 @@
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <input type="file" name="myfile" accept="image/*" id="image">
-    <button type="submit">Upload</button>
+    <button type="submit" name="upload">Upload</button>
   </form>
 
-  {% for key in list.result.lineItems %}
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %} 
+    <input type="text" name="myItem">
+    <button type="submit" name="search">Search</button>
+  </form>
+
+        {{ list2.search_result }}
+
+  <!-- {% for key in list.result.lineItems %}
     {{key.descClean|linebreaks}}
-    {% endfor %}
+    {% endfor %} -->
+
+
 
 </body>
 </html>
