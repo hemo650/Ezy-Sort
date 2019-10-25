@@ -56,7 +56,7 @@ def create_database(cursor):
 
 def addItem(request):
     
-    cnx = mysql.connector.connect(user='root', password='')
+    cnx = mysql.connector.connect(user='websitedb', password='sql2019')
     cursor = cnx.cursor()
 
     
@@ -109,7 +109,7 @@ def addItem(request):
     if 'search' in request.POST:
 
         result_json = {}
-        cnx = mysql.connector.connect(user='root', password='')
+        cnx = mysql.connector.connect(user='websitedb', password='sql2019')
         
         cursor = cnx.cursor()
         
