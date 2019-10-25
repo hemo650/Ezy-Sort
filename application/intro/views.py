@@ -5,7 +5,7 @@ import requests
 import mysql.connector
 from mysql.connector import errorcode
 
-DB_NAME = 'test'
+DB_NAME = 'websitedb'
 
 table_description = "CREATE TABLE Refridgerator (Item_Name VARCHAR(50), Purchase_Date DATE, Expiration_Date DATE, Calories INT)"
 
