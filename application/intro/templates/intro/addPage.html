@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+         
+        
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+<div class="centeredText">
+    <h1>Add Page</h1>
+</div>
+
+<div id = "navigate">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'index' %}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'Login' %}">Prototype</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'addItem' %}">Add Item</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+</div>
+
+<div class="centeredText">
+    <p>Name: Thomas Zhen</p>
+    <p>Number of items: </p>
+    <p>Email address: </p>
+</div>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="myfile" accept="image/*" id="image">
+    <button type="submit" name="upload">Upload</button>
+  </form>
+
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %} 
+    <input type="text" name="myItem">
+    <button type="submit" name="search">Search</button>
+  </form>
+
+        {{ list2.search_result }}
+
+  <!-- {% for key in list.result.lineItems %}
+    {{key.descClean|linebreaks}}
+    {% endfor %} -->
+
+
+
+</body>
+</html>
