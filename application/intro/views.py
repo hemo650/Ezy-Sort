@@ -58,19 +58,11 @@ def create_database(cursor):
 
 
 def addItem(request):
-<<<<<<< HEAD
     
     cnx = mysql.connector.connect(user='root', password='')
     cursor = cnx.cursor()
     
     
-=======
-
-    cnx = mysql.connector.connect(user='websitedb', password='sql2019')
-    cursor = cnx.cursor()
-
-
->>>>>>> 527d0c167581ad9099873e41decd3ccb2e997da8
 
     if 'upload' in request.POST:
         s = {}
