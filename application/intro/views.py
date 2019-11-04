@@ -115,13 +115,9 @@ def addItem(request):
     if 'search' in request.POST:
 
         result_json = {}
-<<<<<<< HEAD
-        cnx = mysql.connector.connect(user='root', password='')
-        
-=======
-        cnx = mysql.connector.connect(user='websitedb', password='sql2019')
 
->>>>>>> 527d0c167581ad9099873e41decd3ccb2e997da8
+        cnx = mysql.connector.connect(user='root', password='')
+
         cursor = cnx.cursor()
 
         item = request.POST.get('myItem')

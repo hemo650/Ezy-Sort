@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Item Page</title>
+    <style>
+    /* Add a black background color to the top navigation */
+    .topnav {
+        width:100%;
+        background-color: #B3D8E0;
+        overflow: hidden; //auto
+        position: fixed;
+    }
+
+    /* Style the links inside the navigation bar */
+    .topnav a {
+        display: block;
+        float: left;
+        color: black;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+        width: 33.33%
+    }
+
+    /* Change the color of links on hover */
+    .topnav a:hover {
+        background-color: #EFF3F4;
+        color: black;
+    }
+
+    /* Add a color to the active/current link */
+
+
+    /********************/
+    * {
+        box-sizing: border-box;
+    }
+
+    /* Style the search field */
+    form.example input[type=text] {
+        padding: 10px;
+        font-size: 17px;
+        border: 1px solid grey;
+        float: left;
+        width: 80%;
+        background: #f1f1f1;
+    }
+
+    /* Style the submit button */
+    form.example button {
+        float: left;
+        width: 20%;
+        padding: 10px;
+        background: #2196F3;
+        color: white;
+        font-size: 17px;
+        border: 1px solid grey;
+        border-left: none; /* Prevent double borders */
+        cursor: pointer;
+    }
+
+    form.example button:hover {
+        background: #0b7dda;
+    }
+
+    /* Clear floats */
+    form.example::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+    /******************/
+    table {
+        border: 1px solid #484349;
+        background-color: #EFF3F4;
+        width: 100%;
+    }
+
+    td {
+        border: 1px solid #484349;
+        background-color: #EFF3F4;
+        width: 33.33%
+    }
+
+    /*********************/
+    .navbar {
+        background-color: #B3D8E0;
+        overflow: hidden;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .navbar a {
+        float: left;
+        display: block;
+        color: black;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+        width: 33.33%
+    }
+
+    .navbar a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+    .three-icons {
+        width: 100%;
+        height: 50px;
+    }
+
+    .icons {
+        width: 33%;
+        height: 50px;
+    }
+
+    </style>
+</head>
+<body>
+    <div class="topnav">
+        <a href="#addNewItems">Add New Items</a>
+        <a href="#removeItems">Remove Items</a>
+        <a href="#editItems">Edit Items</a>
+    </div>
+
+    <!-- Load icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- The form -->
+    <form class="example" action="action_page.php">
+        <input type="text" placeholder="Search.." name="search">
+        <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+
+    <div class="three-icons">
+        <button class="icons" type="submit"><i class="fa fa-camera"></i></button>
+        <button class="icons" type="submit"><i class="fa fa-barcode"></i></button>
+        <button class="icons" type="submit"><i class="fa fa-microphone"></i></button>
+    </div>
+
+    <table id="myTable">
+         <tr>
+            <th>Name</th>
+            <th>Qty</th>
+            <th>Expiration Date</th>
+        </tr>
+        <tr>
+            <td>Row1 cell1</td>
+            <td>Row1 cell2</td>
+            <td>Row1 cell3</td>
+        </tr>
+    </table>
+
+    <button onclick="myCreateFunction()">Create row</button>
+    <button onclick="myDeleteFunction()">Delete row</button>
+
+
+    <div class="navbar">
+        <a href="#home">Home</a>
+        <a href="#news">Refrigerator</a>
+        <a href="#contact">Profile</a>
+    </div>
+
+
+    <script>
+    function myCreateFunction() {
+        var table = document.getElementById("myTable");
+        var row = table.insertRow(-1); // 0
+        var cell1 = row.insertCell(-1); // 0
+        var cell2 = row.insertCell(-1); // 1
+        var cell3 = row.insertCell(-1); // 1
+        cell1.innerHTML = "NEW CELL1";
+        cell2.innerHTML = "NEW CELL2";
+        cell3.innerHTML = "NEW CELL3";
+    }
+
+    function myDeleteFunction() {
+        document.getElementById("myTable").deleteRow(1);
+    }
+    </script>
+
+
+</body>
+</html>
