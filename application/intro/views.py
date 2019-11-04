@@ -45,8 +45,8 @@ def Note2(request):
 def Note3(request):
     return render(request, 'intro/Note3.html')
 
-def Login(request):
-    return render(request, 'intro/Login.html')
+def main_page(request):
+    return render(request, 'webpage/main.html')
 
 def create_database(cursor):
     try:
@@ -56,12 +56,21 @@ def create_database(cursor):
         print("Failed creating database: {}".format(err))
         exit(1)
 
+
 def addItem(request):
+<<<<<<< HEAD
     
     cnx = mysql.connector.connect(user='root', password='')
     cursor = cnx.cursor()
     
     
+=======
+
+    cnx = mysql.connector.connect(user='websitedb', password='sql2019')
+    cursor = cnx.cursor()
+
+
+>>>>>>> 527d0c167581ad9099873e41decd3ccb2e997da8
 
     if 'upload' in request.POST:
         s = {}
@@ -82,13 +91,13 @@ def addItem(request):
             print("pending")
             j = requests.get(url=URL_get)
             result_json = json.loads(j.text)
-        
+
         try:
             cursor.execute("USE {}".format(DB_NAME))
         except mysql.connector.Error as err:
             print("Database {} does not exists.".format(DB_NAME))
             if err.errno == errorcode.ER_BAD_DB_ERROR:
-                create_database(cursor)  
+                create_database(cursor)
                 print("Database {} created successfully.".format(DB_NAME))
                 cnx.database = DB_NAME
             else:
@@ -99,7 +108,7 @@ def addItem(request):
         except mysql.connector.Error as err:
             if err.errno == errorcode.ER_TABLE_EXISTS_ERROR:
                 print("already exists.")
-                
+
         for items in result_json['result']['lineItems']:
             cursor.execute("INSERT INTO Refridgerator (Item_Name, Purchase_Date, Expiration_Date, Calories) VALUES ('{}','9999-12-30', '9999-12-31', 0)".format(items["descClean"]))
             print(items["descClean"])
@@ -114,19 +123,24 @@ def addItem(request):
     if 'search' in request.POST:
 
         result_json = {}
+<<<<<<< HEAD
         cnx = mysql.connector.connect(user='root', password='')
         
+=======
+        cnx = mysql.connector.connect(user='websitedb', password='sql2019')
+
+>>>>>>> 527d0c167581ad9099873e41decd3ccb2e997da8
         cursor = cnx.cursor()
-        
+
         item = request.POST.get('myItem')
         print(item)
 
         try:
             cursor.execute("USE {}".format(DB_NAME))
-            
+
             cursor.execute("SELECT EXISTS(SELECT * from Refridgerator WHERE Item_Name='{}') 'utf8'".format(item))
             row = cursor.fetchone()
-   
+
             if row[0] == 1:
                 print("Found")
                 s = {'search_result': "Item was Found"}
@@ -139,15 +153,15 @@ def addItem(request):
                 search = json.loads(txt)
         except mysql.connector.Error as err:
             print("Error {}".format(err))
-            
-        
+
+
         cursor.close()
         cnx.close()
-        
+
 
     if request.method == 'GET':
         result_json = {}
         s = {}
         txt = ""
-        
+
     return render(request, 'intro/addPage.html',{'list2': s} , {'list': result_json} )
