@@ -5,13 +5,9 @@ import requests
 import mysql.connector
 from mysql.connector import errorcode
 
-<<<<<<< HEAD
-DB_NAME = 'websitedb'
-=======
 DB_NAME = 'test'
->>>>>>> b2cb4cc74bd72583c465ad3c6649c92bbc674ef3
 
-table_description = "CREATE TABLE Refridgerator (Item_Name VARCHAR(50), Purchase_Date DATE, Expiration_Date DATE, Calories INT)"
+table_description = "CREATE TABLE Refridgerator (Item_Name VARCHAR(100), Purchase_Date DATE, Expiration_Date DATE, Calories INT)"
 
 
 def index(request):
@@ -60,13 +56,8 @@ def create_database(cursor):
 
 def addItem(request):
     
-<<<<<<< HEAD
     cnx = mysql.connector.connect(user='root', password='')
-=======
-    cnx = mysql.connector.connect(user='websitedb', password='sql2019')
->>>>>>> b2cb4cc74bd72583c465ad3c6649c92bbc674ef3
     cursor = cnx.cursor()
-
     
 
     if 'upload' in request.POST:
@@ -112,16 +103,12 @@ def addItem(request):
         cursor.close()
         cnx.close()
 
-        s = {'search_result': "Item was Not Found"}
+        
 
     if 'search' in request.POST:
 
         result_json = {}
-<<<<<<< HEAD
         cnx = mysql.connector.connect(user='root', password='')
-=======
-        cnx = mysql.connector.connect(user='websitedb', password='sql2019')
->>>>>>> b2cb4cc74bd72583c465ad3c6649c92bbc674ef3
         
         cursor = cnx.cursor()
         

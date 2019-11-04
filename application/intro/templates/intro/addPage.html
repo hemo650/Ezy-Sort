@@ -44,16 +44,10 @@
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <input type="file" name="myfile" accept="image/*" id="image">
-<<<<<<< HEAD
-    <button type="submit">Upload</button>
-  </form>
-
-  {% for key in list.result.lineItems %}
-  {{key.descClean|linebreaks}}
-  {% endfor %}
-=======
     <button type="submit" name="upload">Upload</button>
   </form>
+
+
 
   <form method="post" enctype="multipart/form-data">
     {% csrf_token %} 
@@ -68,7 +62,6 @@
     {% endfor %} -->
 
 
->>>>>>> b2cb4cc74bd72583c465ad3c6649c92bbc674ef3
 
 </body>
 </html>
