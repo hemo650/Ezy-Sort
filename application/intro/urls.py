@@ -13,7 +13,8 @@ urlpatterns = [
     path('Note1/', views.Note1, name = 'Note1'),
     path('Note2/', views.Note2, name = 'Note2'),
     path('Note3/', views.Note3, name = 'Note3'),
-    path('Login/', views.Login, name = 'Login'),
-    path('addItem/', views.addItem, name = 'addItem')
+    path('main/', views.main_page, name = 'main'),
+    path('addItem/', views.addItem, name = 'addItem'),
+
 
 ]

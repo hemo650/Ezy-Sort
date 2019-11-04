@@ -1,0 +1,44 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #EFF3F4;
+    height: 100px;
+}
+
+#main-page .container #main-row #main-column #main-box {
+    margin-top: 100px;
+    max-width: 500px;
+    height: 350px;
+    background-color: #EFF3F4;
+}
+
+.btn
+{
+    outline:0;
+    border:none;
+    border-top:none;
+    border-bottom:10px;
+    border-left:none;
+    border-right:none;
+    margin-left: 600px;
+    margin-top: 10px;
+    box-shadow:inset 2px -3px rgba(0,0,0,0.15);
+    height:40px;
+    width: 20%;
+}
+.btn:focus
+{
+
+    outline:0;
+    -webkit-outline:0;
+    -moz-outline:0;
+}
+
+#logo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height:280px;
+    margin-bottom: 60px;
+
+}
