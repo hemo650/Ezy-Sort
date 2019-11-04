@@ -5,6 +5,8 @@ import requests
 import mysql.connector
 from mysql.connector import errorcode
 
+from .forms import SearchForm
+
 DB_NAME = 'test'
 
 table_description = "CREATE TABLE Refridgerator (Item_Name VARCHAR(100), Purchase_Date DATE, Expiration_Date DATE, Calories INT)"
@@ -59,16 +61,20 @@ def addItem(request):
     cnx = mysql.connector.connect(user='root', password='')
     cursor = cnx.cursor()
     
+    
 
     if 'upload' in request.POST:
         s = {}
+        #Tabscanner API post endpoint
         URL_post = 'https://api.tabscanner.com/KuxAxBfl8w4FvTaNwqwHD3ajxzQBOoyVuaYqRXcgUPKQbtPezCMmxBloThkV3Ico/process'
-        myImage = request.FILES['myfile']
+        
+        myImage = request.FILES['myfile'] #uploaded image
         headers = {'content-type': 'application/x-www-form-urlencoded'}
         files = {'receiptImage': myImage}
-        r = requests.post(url=URL_post, files=files)
+        r = requests.post(url=URL_post, files=files) #json api processing result
         json_data = json.loads(r.text)
         token = json_data['token']
+        
         URL_get = 'https://api.tabscanner.com/KuxAxBfl8w4FvTaNwqwHD3ajxzQBOoyVuaYqRXcgUPKQbtPezCMmxBloThkV3Ico/result/' + token
         j = requests.get(url=URL_get)
         result_json = json.loads(j.text)
