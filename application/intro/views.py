@@ -56,18 +56,11 @@ def create_database(cursor):
 
 
 def addItem(request):
-<<<<<<< HEAD
-    
-    cnx = mysql.connector.connect(user='root', password='')
-    cursor = cnx.cursor()
-    
-=======
 
     cnx = mysql.connector.connect(user='websitedb', password='sql2019')
     cursor = cnx.cursor()
 
 
->>>>>>> 71665fd7eed0519f303d0303fe69a2ea4626d06c
 
     if 'upload' in request.POST:
         s = {}
@@ -117,13 +110,8 @@ def addItem(request):
     if 'search' in request.POST:
 
         result_json = {}
-<<<<<<< HEAD
-        cnx = mysql.connector.connect(user='root', password='')
-        
-=======
         cnx = mysql.connector.connect(user='websitedb', password='sql2019')
 
->>>>>>> 71665fd7eed0519f303d0303fe69a2ea4626d06c
         cursor = cnx.cursor()
 
         item = request.POST.get('myItem')
