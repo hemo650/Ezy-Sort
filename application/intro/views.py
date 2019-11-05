@@ -1,17 +1,10 @@
 from django.shortcuts \
     import HttpResponse, render
-<<<<<<< HEAD
-# import json
-# import requests
-# import mysql.connector
-# from mysql.connector import errorcode
-=======
 import json
 import requests
 import mysql.connector
 from mysql.connector import errorcode
 import re
->>>>>>> 42153727e6b37b86dc0ddef6ffb007c389e48a42
 
 from .forms import SearchForm
 
@@ -64,7 +57,10 @@ def Note3(request):
     return render(request, 'intro/Note3.html')
 
 def main_page(request):
-    return render(request, 'webpage/main.html')
+    return render(request, 'webpage/Welcome.html')
+
+def profile_page(request):
+    return render(request,'webpage/profile.html')
 
 def create_database(cursor):
     try:
