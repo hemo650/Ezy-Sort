@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f514c1bb-e9aa-4b07-a334-f0af2aae8d7a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/DjangoApp/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/DjangoApp/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/intro/templates/webpage/ShoppingList.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/intro/templates/webpage/ShoppingList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/DjangoApp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/DjangoApp/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/intro/templates/intro/welcome.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/intro/templates/intro/welcome.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/intro/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/intro/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/intro/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/intro/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
