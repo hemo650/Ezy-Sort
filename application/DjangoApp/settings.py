@@ -123,4 +123,3 @@ STATIC_URL = '/static/'
 ALLOWED_HOSTS=['ec2-13-57-221-62.us-west-1.compute.amazonaws.com','127.0.0.1']
 
 
-SITE_ID =1
