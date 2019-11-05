@@ -59,7 +59,7 @@ def create_database(cursor):
 
 def addItem(request):
     
-    cnx = mysql.connector.connect(user='root', password='')
+    cnx = mysql.connector.connect(user='root', password='password')
     cursor = cnx.cursor()
     
     
@@ -76,7 +76,7 @@ def addItem(request):
         json_data = json.loads(r.text)
         token = json_data['token']
         
-        URL_get = 'https://api.tabscanner.com/KuxAxBfl8w4FvTaNwqwHD3ajxzQBOoyVuaYqRXcgUPKQbtPezCMmxBloThkV3Ico/result/' + token
+        URL_get = 'https://api.tabscanner.com/KuxAxBfl8w4FvTaNwqwHD3ajxzQBOoyVuaYqRXcgUPKQbtPezCMmxBloThkV3Ico/result/' + token #receipt json data
         j = requests.get(url=URL_get)
         result_json = json.loads(j.text)
         while(result_json['status'] == "pending"):
@@ -152,4 +152,4 @@ def addItem(request):
         s = {}
         txt = ""
 
-    return render(request, 'intro/addPage.html',{'list2': s} , {'list': result_json} )
+    return render(request, 'webpage/refrigerator.html',{'list2': s} , {'list': result_json} )
