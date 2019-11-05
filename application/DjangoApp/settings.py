@@ -36,7 +36,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+<<<<<<< HEAD
     
+=======
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+>>>>>>> 026ed6ba412daf04b67fa11911833ae2de698eab
 ]
 
 MIDDLEWARE = [
@@ -120,3 +128,11 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 STATIC_URL = '/static/'
 ALLOWED_HOSTS=['ec2-13-57-221-62.us-west-1.compute.amazonaws.com','127.0.0.1']
+
+AUTHENTICATION_BACKENDS = {
+    'django.contrib.auth.backends.ModelBacked',
+
+    'allauth.account.auth_backends.AuthenticationBackend',
+}
+
+SITE_ID =1
