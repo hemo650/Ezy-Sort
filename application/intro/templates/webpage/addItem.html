@@ -9,7 +9,7 @@
     .topnav {
         width:100%;
         background-color: #B3D8E0;
-        overflow: hidden; //auto
+        overflow: hidden; 
         position: fixed;
     }
 
@@ -83,7 +83,7 @@
     td {
         border: 1px solid #484349;
         background-color: #EFF3F4;
-        width: 33.33%
+        width: 25%
     }
 
     /*********************/
@@ -140,8 +140,9 @@
     </form>
 
     <form method="post" enctype="multipart/form-data">
-    <input type="file" name="myfile" accept="image/*" id="image">
-    <button type="submit" name="upload">Upload</button>
+        {% csrf_token %} 
+        <input type="file" name="myfile" accept="image/*" id="image">
+        <button type="submit" name="upload">Upload</button>
     </form>
 
     <div class="three-icons">
@@ -151,16 +152,25 @@
     </div>
 
     <table id="myTable">
-         <tr>
+         <!-- <tr>
             <th>Name</th>
             <th>Qty</th>
             <th>Expiration Date</th>
-        </tr>
+        </tr> -->
         <tr>
-            <td>Row1 cell1</td>
-            <td>Row1 cell2</td>
-            <td>Row1 cell3</td>
+            <td>Items</td>
+            <td>Purchase Date</td>
+            <td>Expiration Date</td>
+            <td>Calories</td>
         </tr>
+        {% for key in list2 %}
+            <tr>
+                <td>{{key.0}}</td>
+                <td>{{key.1}}</td>
+                <td>{{key.2}}</td>
+                <td>{{key.3}}</td>
+            </tr>
+        {% endfor %}
     </table>
 
     <button onclick="myCreateFunction()">Create row</button>
@@ -175,15 +185,17 @@
 
 
     <script>
-    function myCreateFunction() {
+    function myCreateFunction(name, date, date2, cal) {
         var table = document.getElementById("myTable");
         var row = table.insertRow(-1); // 0
         var cell1 = row.insertCell(-1); // 0
         var cell2 = row.insertCell(-1); // 1
         var cell3 = row.insertCell(-1); // 1
-        cell1.innerHTML = "NEW CELL1";
-        cell2.innerHTML = "NEW CELL2";
-        cell3.innerHTML = "NEW CELL3";
+        var cell4 = row.insertCell(-1);
+        cell1.innerHTML = name;
+        cell2.innerHTML = date;
+        cell3.innerHTML = data2;
+        cell4.innerHTML = cal;
     }
 
     function myDeleteFunction() {
