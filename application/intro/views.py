@@ -11,7 +11,11 @@ from .forms import SearchForm
 DB_NAME = 'test'
 table_description = "CREATE TABLE Refridgerator (Item_Name VARCHAR(100), Purchase_Date DATE, Expiration_Date DATE, Calories INT)"
 
+<<<<<<< HEAD
 cnx = mysql.connector.connect(user='website', password='sql2019')
+=======
+cnx = mysql.connector.connect(user='websitedb', password='sql2019')
+>>>>>>> c4f45ee6997fc8cbb5378cd8b08e949a9d0fab9e
 cursor = cnx.cursor()
 
 test_json = [{"name": "apple", "date":"11/22/33", "data2":"99/88/77", "calories": 500}, 
