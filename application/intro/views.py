@@ -11,7 +11,7 @@ from .forms import SearchForm
 DB_NAME = 'test'
 table_description = "CREATE TABLE Refridgerator (Item_Name VARCHAR(100), Purchase_Date DATE, Expiration_Date DATE, Calories INT)"
 
-cnx = mysql.connector.connect(user='root', password='password')
+cnx = mysql.connector.connect(user='websitedb', password='sql2019')
 cursor = cnx.cursor()
 
 test_json = [{"name": "apple", "date":"11/22/33", "data2":"99/88/77", "calories": 500}, 
@@ -73,7 +73,7 @@ def create_database(cursor):
 
 def addItem(request):
 
-    cnx = mysql.connector.connect(user='root', password='password')
+    cnx = mysql.connector.connect(user='websitedb', password='sql2019')
     cursor = cnx.cursor()
     
     if 'upload' in request.POST:
@@ -176,7 +176,7 @@ def addItem(request):
 
         result_json = {}
 
-        cnx = mysql.connector.connect(user='root', password='password')
+        cnx = mysql.connector.connect(user='websitedb', password='sql2019')
 
         cursor = cnx.cursor()
 
@@ -207,7 +207,7 @@ def addItem(request):
         cnx.close()
 
 
-    cnx = mysql.connector.connect(user='root', password='password')
+    cnx = mysql.connector.connect(user='websitedb', password='sql2019')
     cursor = cnx.cursor()
     
     try: 
