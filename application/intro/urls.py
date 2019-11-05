@@ -14,7 +14,10 @@ urlpatterns = [
     path('Note2/', views.Note2, name = 'Note2'),
     path('Note3/', views.Note3, name = 'Note3'),
     path('main/', views.main_page, name = 'main'),
-    path('addItem/', views.addItem, name = 'addItem'),
+    path('addItem/', views.add_item_page, name = 'addItem'),
+    path('profile/', views.profile_page, name = 'profile'),
+    path('refrigerator/', views.ref_page, name = 'refrigerator'),
+    path('ShoppingList', views.list_page, name = 'shopping')
 
 
 ]
