@@ -1,0 +1,33 @@
+.navbar-custom {
+    background-color: #B3D8E0;
+    height: 10%;
+}
+
+.nav-item a{
+    color: #484349;
+    font-size: 20px;
+    font-weight: 600;
+    transition: .5s ease;
+    margin-right: 100px;
+    margin-left: 100px;
+}
+
+.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+}
+
+.navbar-nav .nav-item a:hover{
+    color: #999999;
+}
+
+.nav-logo{
+    font-size: 20px;
+    font-weight: 600;
+    background-color: #EFF3F4;
+ }
+
+.container{
+    margin-top: 100px;
+}
