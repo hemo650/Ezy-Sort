@@ -1,8 +1,10 @@
-{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <style>
 * {box-sizing: border-box}
 body {font-family: Arial, Helvetica, sans-serif;}
@@ -38,57 +40,84 @@ body {font-family: Arial, Helvetica, sans-serif;}
   color: black;
 }
 
+.white-text-img-container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.black-text-img-container {
+  position: relative;
+  text-align: center;
+  color: black;
+}
+
 
 </style>
 </head>
 <body>
 
-<div class="navbar">
-<a href="{% url 'home' %}">Home</a>
-  <a href="{% url 'refrigerator' %}">Refrigerator</a>
-  <a href="{% url 'profile' %}">Profile</a>
+<div class="container-fluid">
+<div class="row">
+    <div class="col-sm-2"> </div>
+    <div class="col-sm-3">
+      <div class="black-text-img-container">
+<img src="blue.jpg" width="220" height="220">
+  <div class="centered">You Have:</div>
+      </div>
+  </div>
+
+    <div class="col-sm-4"> </div>
+  <div class="col-sm-3">
+<img src="ez.jpg" width="190" height="220">
+
+</div>
 </div>
 
-<div style="  position: absolute;
-  left: 199px;
-  top: 20px;">
-<img src="{% static 'Carolyn/images/blue.jpg' %}" width="220" height="220">
-  <div class="centered">You Have:</div>
-  </div>
+<div class="row">
+      <div class="col-md-6"> </div>
+      <div class="col-md-3">
 
-<div style="  position: absolute;
-  right: 440px;
-  top: 210px;">
-<img src="{% static 'Carolyn/images/grey.jpg' %}" width="220" height="220">
+<div class="white-text-img-container">
+<img src="grey.jpg" width="220" height="220">
   <div class="centered">You Spent:</div>
-  
+    </div>
+      </div>
+  <div class="col-md-3"> </div>
+</div>
+
+<div class="row">
+  <div class="col-md-2"> </div>
+  <div class="col-md-3">
+    <div class="black-text-img-container">
+<img src="light.jpg" width="220" height="220">
+  <div class="centered">You Spent:</div>
+    </div>
+  </div>
+  <div class="col-md-4"></div>
+<div class="col-md-3">
+          <div width = "50" height = "50"
+  id="piechart">
+          </div>
+  </div>
+</div>
+
+  <div class="row">
+  <div class="col-md-3"><img src="cart.jpg" width="190" height="220"> </div>
+  <div class="col-md-9"> </div>
   </div>
 
-<div style="  position: absolute;
-left: 199px;
-  top: 400px;">
-<img src="{% static 'Carolyn/images/light.jpg' %}" width="220" height="220">
-  <div class="centered">Closing Expire:</div>
+</div>
+
+<div class="row">
+<div class="navbar">
+<a href="#Home">Home</a>
+  <a href="#Refrigerator">Refrigerator</a>
+  <a href="#Profile">Profile</a>
+</div>
+</div>
   </div>
 
-<div style="  position: absolute;
-right: 0px;
-  top: 0px;">
-<img src="{% static 'Carolyn/images/ez.JPG' %}" width="190" height="220">
-  </div>
-
-<div style="  position: absolute;
-left: 5px;
- bottom: 40px;">
-  <a href="{% url 'shoppingList' %}">
-<img src="{% static 'Carolyn/images/cart.jpg' %}" width="190" height="220">
-  </a>
-  </div>
-
-<div style="  position: absolute;
-right: -110px;
- bottom: 60px;"
-  id="piechart"></div>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
