@@ -3,19 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="10dbd0d7-45b5-44f1-afa6-dec8819ded37" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/intro/templates/webpage/ShoppingList.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/intro/templates/webpage/ShoppingList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/intro/templates/intro/carolyn.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/intro/templates/intro/carolyn.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/intro/templates/webpage/Welcome.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/intro/templates/webpage/Welcome.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/intro/templates/webpage/addItem.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/intro/templates/webpage/addItem.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/intro/templates/webpage/blue.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/application/static/Carolyn/images/blue.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/intro/templates/webpage/cart.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/application/static/Carolyn/images/cart.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/intro/templates/webpage/ez.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/application/static/Carolyn/images/ez.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/intro/templates/webpage/grey.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/application/static/Carolyn/images/grey.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/intro/templates/webpage/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/intro/templates/webpage/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/intro/templates/webpage/light.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/application/static/Carolyn/images/light.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/intro/templates/webpage/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/intro/templates/webpage/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/intro/templates/webpage/refrigerator.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/intro/templates/webpage/refrigerator.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/intro/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/intro/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/intro/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/intro/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
