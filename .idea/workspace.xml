@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f514c1bb-e9aa-4b07-a334-f0af2aae8d7a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/application/DjangoApp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/DjangoApp/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/intro/templates/intro/welcome.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/intro/templates/intro/welcome.html" afterDir="false" />
+    <list default="true" id="10dbd0d7-45b5-44f1-afa6-dec8819ded37" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/intro/templates/webpage/ShoppingList.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/intro/templates/webpage/ShoppingList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/intro/templates/webpage/Welcome.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/intro/templates/webpage/Welcome.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/intro/templates/webpage/addItem.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/intro/templates/webpage/addItem.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/intro/templates/webpage/blue.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/application/static/Carolyn/images/blue.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/intro/templates/webpage/cart.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/application/static/Carolyn/images/cart.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/intro/templates/webpage/ez.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/application/static/Carolyn/images/ez.JPG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/intro/templates/webpage/grey.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/application/static/Carolyn/images/grey.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/intro/templates/webpage/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/intro/templates/webpage/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/intro/templates/webpage/light.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/application/static/Carolyn/images/light.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/intro/templates/webpage/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/intro/templates/webpage/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/intro/templates/webpage/refrigerator.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/intro/templates/webpage/refrigerator.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/intro/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/intro/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/intro/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/intro/views.py" afterDir="false" />
     </list>
@@ -19,6 +29,11 @@
   <component name="ProjectId" id="1TD9u5ll3l91Iu5n5807Fzvzv1L" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/application/static/Carolyn/images" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
