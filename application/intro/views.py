@@ -64,6 +64,13 @@ def profile_page(request):
 
 def home_page(request):
     return render(request, 'webpage/home.html')
+
+def refrigerator(request):
+    return render(request, 'webpage/refrigerator.html')
+
+def shoppingList(request):
+    return render(request, 'webpage/ShoppingList.html')
+
 def create_database(cursor):
     try:
         cursor.execute(
