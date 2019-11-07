@@ -15,7 +15,7 @@ urlpatterns = [
     path('Note3/', views.Note3, name = 'Note3'),
     path('main/', views.main_page, name = 'main'),
     path('addItem/', views.addItem, name = 'addItem'),
-    path('profile/', views.profile_page, name = 'profile')
-    
+    path('profile/', views.profile_page, name = 'profile'),
+    path('home/', views.home_page, name = 'home')
 
 ]

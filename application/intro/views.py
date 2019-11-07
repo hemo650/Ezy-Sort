@@ -62,6 +62,8 @@ def main_page(request):
 def profile_page(request):
     return render(request,'webpage/profile.html')
 
+def home_page(request):
+    return render(request, 'webpage/home.html')
 def create_database(cursor):
     try:
         cursor.execute(
