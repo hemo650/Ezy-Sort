@@ -1,17 +1,16 @@
 from django.shortcuts \
-    import HttpResponse, render
+import HttpResponse, render
 import json
 import requests
 import mysql.connector
 from mysql.connector import errorcode
 import re
 
-from .forms import SearchForm
 
 DB_NAME = 'test'
 table_description = "CREATE TABLE Refridgerator (Item_Name VARCHAR(100), Purchase_Date DATE, Expiration_Date DATE, Calories INT)"
 
-cnx = mysql.connector.connect(user='websitedb', password='sql2019')
+cnx = mysql.connector.connect(user='root', password='mysql2019')
 cursor = cnx.cursor()
 
 test_json = [{"name": "apple", "date":"11/22/33", "data2":"99/88/77", "calories": 500}, 
@@ -235,5 +234,3 @@ def addItem(request):
         
 
     return render(request, 'webpage/addItem.html',{'list2': table})
-
-
