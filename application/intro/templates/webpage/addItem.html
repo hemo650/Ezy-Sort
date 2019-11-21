@@ -86,6 +86,7 @@
         width: 25%
     }
 
+
     /*********************/
     .navbar {
         background-color: #B3D8E0;
@@ -158,7 +159,7 @@
         </script>
 
     <form method="post" enctype="multipart/form-data">
-        {% csrf_token %} 
+        <!-- {% csrf_token %}  -->
         <input type="file" name="myfile" accept="image/*" id="image">
         <button type="submit" name="upload">Upload</button>
     </form>
@@ -187,14 +188,14 @@
             <td>Expiration Date</td>
             <td>Calories</td>
         </tr>
-        {% for key in list2 %}
+      <!--   {% for key in list2 %} -->
             <tr>
                 <td>{{key.0}}</td>
                 <td>{{key.1}}</td>
                 <td>{{key.2}}</td>
                 <td>{{key.3}}</td>
             </tr>
-        {% endfor %}
+        <!-- {% endfor %} -->
     </table>
 
     <button onclick="myCreateFunction()">Create row</button>
