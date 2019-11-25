@@ -8,7 +8,9 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <style>
 * {box-sizing: border-box}
-body {font-family: Arial, Helvetica, sans-serif;}
+body {font-family: Arial, Helvetica, sans-serif;height: 100%;
+    margin: 0;
+    padding: 0; }
 
 .centered {
   position: absolute;
@@ -45,53 +47,53 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </style>
 </head>
 <body>
-
+<div style="  position: fixed; z-index: ;
+right: 0%;
+ bottom: 2%;"
+     id="piechart"></div>
 <div class="navbar">
 <a href="{% url 'home' %}">Home</a>
   <a href="{% url 'refrigerator' %}">Refrigerator</a>
   <a href="{% url 'profile' %}">Profile</a>
 </div>
 
-<div style="  position: absolute;
-  left: 199px;
-  top: 20px;">
-<img src="{% static 'Carolyn/images/blue.jpg' %}" width="22%" height="auto">
+<div style="  position: fixed; max-width: 50%; height: auto;
+  left: 5%;
+  top: 3%;">
+<img src="{% static 'Carolyn/images/blue.jpg' %}" width="200px" height="auto">
   <div class="centered">You Have:</div>
   </div>
 
-<div style="  position: absolute;
-  right: 40%;
-  top: 21%;">
-<img src="{% static 'Carolyn/images/grey.jpg' %}" width="22%" height="auto">
+<div style="  position: fixed;
+  right: 5%;
+  top: 17%;max-width: 50%; height: auto;">
+<img src="{% static 'Carolyn/images/grey.jpg' %}" width="200px" height="auto">
   <div class="centered">You Spent:</div>
   
   </div>
 
-<div style="  position: absolute;
-left: 20%;
+<div style="  position: fixed; max-width: 50%; height: auto;
+  left: 10%;
   top: 50%;">
-<img src="{% static 'Carolyn/images/light.jpg' %}" width="22%" height="auto">
+<img src="{% static 'Carolyn/images/light.jpg' %}" width="200px" height="auto">
   <div class="centered">Closing Expire:</div>
   </div>
 
-<div style="  position: absolute;
-right: 0px;
-  top: 0px;">
-<img src="{% static 'Carolyn/images/ez.JPG' %}" width="5%" height="auto">
+<div style="position: fixed; max-width: 10%; height: auto;
+  right: 0%;
+  top: 0%;">
+<img src="{% static 'Carolyn/images/ez.JPG' %}" width="50px" height="auto">
   </div>
 
-<div style="  position: absolute;
-left: 5%;
- bottom: 30%;">
+<div style=" position: fixed; max-width: 30%; height: auto;
+  left: 5%;
+  bottom: 15%;">
   <a href="{% url 'shoppingList' %}">
-<img src="{% static 'Carolyn/images/cart.jpg' %}" width="5%" height="auto">
+<img src="{% static 'Carolyn/images/cart.jpg' %}" width="50px" height="auto">
   </a>
   </div>
 
-<div style="  position: absolute;
-right: 10%;
- bottom: 10%;"
-  id="piechart"></div>
+
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
@@ -112,7 +114,7 @@ function drawChart() {
 ]);
 
 
-  var options = { 'width':100, 'height':90};
+  var options = { 'width':250, 'height':250,};
 
 
   var chart = new google.visualization.PieChart(document.getElementById('piechart'));
