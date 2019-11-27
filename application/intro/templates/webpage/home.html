@@ -2,16 +2,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
 <style>
 * {box-sizing: border-box}
-body {font-family: Arial, Helvetica, sans-serif;height: 100%;
+body {font-family: 'Josefin Sans', sans-serif, sans-serif;height: 100%;
     margin: 0;
     padding: 0; }
 
+.navbar-custom {
+    background-color: #B3D8E0;
+    height: 10%;
+}
+
+.nav-item a {
+    color: #484349;
+    font-size: 20px;
+    font-weight: 600;
+    transition: .5s ease;
+    margin-right: 100px;
+    margin-left: 100px;
+}
+.navbar-nav .nav-item a:hover {
+    color: #999999;
+}
+.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+}
 .centered {
   position: absolute;
   top: 50%;
@@ -19,29 +41,6 @@ body {font-family: Arial, Helvetica, sans-serif;height: 100%;
   transform: translate(-50%, -50%);
 }
 
-.navbar {
-  overflow: auto;
-  background-color: #B3D8E0;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
-
-.navbar a {
-  float: left;
-  display: block;
-  padding: 12px;
-  color: white;
-  text-decoration: none;
-  font-size: 17px;
-  width: 33%; /* Four links of equal widths */
-  text-align: center;
-}
-
-.navbar a:hover {
-  background: #f1f1f1;
-  color: black;
-}
 
 
 </style>
@@ -51,12 +50,20 @@ body {font-family: Arial, Helvetica, sans-serif;height: 100%;
 right: 0%;
  bottom: 2%;"
      id="piechart"></div>
-<div class="navbar">
-<a href="{% url 'home' %}">Home</a>
-  <a href="{% url 'refrigerator' %}">Refrigerator</a>
-  <a href="{% url 'profile' %}">Profile</a>
-</div>
 
+<nav class="navbar navbar-expand-sm navbar-custom fixed-bottom">
+    <ul class="navbar-nav navbar-center">
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'home' %}">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'refrigerator' %}">Refrigerator</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+        </li>
+    </ul>
+</nav>
 <div style="  position: fixed; max-width: 50%; height: auto;
   left: 5%;
   top: 3%;">
@@ -68,7 +75,7 @@ right: 0%;
   right: 5%;
   top: 17%;max-width: 50%; height: auto;">
 <img src="{% static 'Carolyn/images/grey.jpg' %}" width="200px" height="auto">
-  <div class="centered">You Spent:</div>
+  <div class="centered" style="color:#B3D8E0;">You Spent:</div>
   
   </div>
 
@@ -94,7 +101,8 @@ right: 0%;
   </div>
 
 
-
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 <script type="text/javascript">
