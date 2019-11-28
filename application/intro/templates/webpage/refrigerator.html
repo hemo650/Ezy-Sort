@@ -76,15 +76,21 @@
     /******************/
     table {
         border: 1px solid #484349;
+        border-collapse:collapse;
+        border-left: 0px;
+        border-top: 0px;
         background-color: #F4F3EE;
        /* background-color: #DBDBDB;*/
         width: 100%;
     }
 
     td {
-        border: 1px solid #484349;
+         border: 1px solid #484349;
+         border-collapse:collapse;
+         border-left: 0px;
+         border-top: 0px;
          background-color: #F4F3EE;
-       /* background-color: #DBDBDB;*/
+        /*background-color: #DBDBDB;*/
         width: 25%
     }
 
@@ -194,8 +200,8 @@
        <!--  {% endfor %} -->
     </table>
 
- <!--    <button onclick="myCreateFunction()">Create row</button>
-    <button onclick="myDeleteFunction()">Delete row</button> -->
+    <button onclick="myCreateFunction()">Create row</button>
+    <button onclick="myDeleteFunction()">Delete row</button>
 
     <div class="navbar">
         <a href="{% url 'home' %}">Home</a>
@@ -203,7 +209,7 @@
         <a href="{% url 'profile' %}">Profile</a>
     </div>
 
-<!-- 
+
     <script>
     function myCreateFunction() {
         var table = document.getElementById("myTable");
@@ -221,7 +227,7 @@
     function myDeleteFunction() {
         document.getElementById("myTable").deleteRow(1);
     }
-    </script> -->
+    </script>
 
 
 </body>
