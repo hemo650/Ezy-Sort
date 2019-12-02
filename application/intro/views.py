@@ -6,7 +6,8 @@ import mysql.connector
 from mysql.connector import errorcode
 import re
 
-from .forms import SearchForm
+from .forms import ReceiptForm, SearchForm
+from .handlers import handleRecieptImage, handleSearchBar
 
 DB_NAME = 'test'
 table_description = "CREATE TABLE Refridgerator (Item_Name VARCHAR(100), ",
@@ -97,94 +98,111 @@ def addItem(request):
     cnx = mysql.connector.connect(user='websitedb', password='sql2019')
     cursor = cnx.cursor()
 
-    if 'upload' in request.POST and request.FILES['myfile']:
+    if 'upload' in request.POST:
+        form = ReceiptForm(request.POST, request.FILES)
+        if form.is_valid():
+            print("valid")
+            img = form.cleaned_data['img']
+            print(img.image)
+            handleRecieptImage(img)
+    elif 'search' in request.POST:
+        form = SearchForm(request.POST)
+        if form.is_valid():
+            print("valid")
+            word = form.cleaned_data['item']
+            print(word)
+    else:
+        form = {}
 
-        try:
-            cursor.execute("USE {}".format(DB_NAME))
-            cursor.execute("SELECT * FROM Refridgerator")
-            table = cursor.fetchall()
-            for items in table:
-                print(items)
-        except mysql.connector.Error as err:
-            print("Table {} does not exists.".format(DB_NAME))
-            exit(1)
-        s = {}
-        # Tabscanner API post endpoint
-        URL_post = 'https://api.tabscanner.com/' + apikey + '/process'
 
-        myImage = request.FILES['myfile']  # uploaded image
-        headers = {'content-type': 'application/x-www-form-urlencoded'}
-        files = {'receiptImage': myImage}
-        # json api processing result
-        r = requests.post(url=URL_post, files=files)
-        json_data = json.loads(r.text)
-        token = json_data['token']
-        # receipt json data
-        URL_get = 'https://api.tabscanner.com/' + apikey + '/result/' + token
-        j = requests.get(url=URL_get)
-        result_json = json.loads(j.text)
-        while(result_json['status'] == "pending"):
-            j = requests.get(url=URL_get)
-            result_json = json.loads(j.text)
-        # Select the Database which we need
-        try:
-            cursor.execute("USE {}".format(DB_NAME))
-        except mysql.connector.Error as err:
-            print("Database {} does not exists.".format(DB_NAME))
-            if err.errno == errorcode.ER_BAD_DB_ERROR:
-                create_database(cursor)
-                print("Database {} created successfully.".format(DB_NAME))
-                cnx.database = DB_NAME
-            else:
-                print(err)
-                exit(1)
-        try:
-            cursor.execute(table_description)
-        except mysql.connector.Error as err:
-            if err.errno == errorcode.ER_TABLE_EXISTS_ERROR:
-                print("already exists.")
+    #if 'upload' in request.POST and request.FILES['myfile']:
 
-        for items in result_json['result']['lineItems']:
-            nutr_url = "https://trackapi.nutritionix.com/v2/natural/nutrients"
-            headers = {
-                'x-app-id': '5e5a70f8',
-                'x-app-key': '247d06b35f3d414d67179247f2b5287c',
-                'x-remote-user-id': '0',
-                'accept': 'application/json'
-                    }
-            body = {
-                "query": "string",
-                "num_servings": 1,
-                "aggregate": "string",
-                "line_delimited": False,
-                "use_raw_foods": False,
-                "include_subrecipe": False,
-                "timezone": "string",
-                "consumed_at": "string",
-                "lat": 0,
-                "lng": 0,
-                "meal_type": 0,
-                "use_branded_foods": True,
-                "locale": "string"
-                    }
+        # try:
+        #     cursor.execute("USE {}".format(DB_NAME))
+        #     cursor.execute("SELECT * FROM Refridgerator")
+        #     table = cursor.fetchall()
+        #     for items in table:
+        #         print(items)
+        # except mysql.connector.Error as err:
+        #     print("Table {} does not exists.".format(DB_NAME))
+        #     exit(1)
+        # s = {}
+        # # Tabscanner API post endpoint
+        # URL_post = 'https://api.tabscanner.com/' + apikey + '/process'
 
-            data = {'query': items["descClean"]}
-            r1 = requests.post(nutr_url, headers=headers, data=data, json=body)
-            nutr_data = json.loads(r1.text)
-            output = re.sub('[^A-Za-z]+', ' ', items["descClean"])
-            print(output)
-            try:
-                cursor.execute("INSERT INTO Refridgerator",
-                               "(Item_Name, Purchase_Date, ",
-                               "Expiration_Date, Calories) ",
-                               "VALUES ('{}','9999-12-30', '9999-12-31', {})"
-                               .format(output, nutr_data["foods"][0][
-                                "nf_calories"]))
-            except KeyError as err:
-                print(err)
-        cnx.commit()
-        cursor.close()
-        cnx.close()
+        # myImage = request.FILES['myfile']  # uploaded image
+        # headers = {'content-type': 'application/x-www-form-urlencoded'}
+        # files = {'receiptImage': myImage}
+        # # json api processing result
+        # r = requests.post(url=URL_post, files=files)
+        # json_data = json.loads(r.text)
+        # token = json_data['token']
+        # # receipt json data
+        # URL_get = 'https://api.tabscanner.com/' + apikey + '/result/' + token
+        # j = requests.get(url=URL_get)
+        # result_json = json.loads(j.text)
+        # while(result_json['status'] == "pending"):
+        #     j = requests.get(url=URL_get)
+        #     result_json = json.loads(j.text)
+        # # Select the Database which we need
+        # try:
+        #     cursor.execute("USE {}".format(DB_NAME))
+        # except mysql.connector.Error as err:
+        #     print("Database {} does not exists.".format(DB_NAME))
+        #     if err.errno == errorcode.ER_BAD_DB_ERROR:
+        #         create_database(cursor)
+        #         print("Database {} created successfully.".format(DB_NAME))
+        #         cnx.database = DB_NAME
+        #     else:
+        #         print(err)
+        #         exit(1)
+        # try:
+        #     cursor.execute(table_description)
+        # except mysql.connector.Error as err:
+        #     if err.errno == errorcode.ER_TABLE_EXISTS_ERROR:
+        #         print("already exists.")
+
+        # for items in result_json['result']['lineItems']:
+        #     nutr_url = "https://trackapi.nutritionix.com/v2/natural/nutrients"
+        #     headers = {
+        #         'x-app-id': '5e5a70f8',
+        #         'x-app-key': '247d06b35f3d414d67179247f2b5287c',
+        #         'x-remote-user-id': '0',
+        #         'accept': 'application/json'
+        #             }
+        #     body = {
+        #         "query": "string",
+        #         "num_servings": 1,
+        #         "aggregate": "string",
+        #         "line_delimited": False,
+        #         "use_raw_foods": False,
+        #         "include_subrecipe": False,
+        #         "timezone": "string",
+        #         "consumed_at": "string",
+        #         "lat": 0,
+        #         "lng": 0,
+        #         "meal_type": 0,
+        #         "use_branded_foods": True,
+        #         "locale": "string"
+        #             }
+
+        #     data = {'query': items["descClean"]}
+        #     r1 = requests.post(nutr_url, headers=headers, data=data, json=body)
+        #     nutr_data = json.loads(r1.text)
+        #     output = re.sub('[^A-Za-z]+', ' ', items["descClean"])
+        #     print(output)
+        #     try:
+        #         cursor.execute("INSERT INTO Refridgerator",
+        #                        "(Item_Name, Purchase_Date, ",
+        #                        "Expiration_Date, Calories) ",
+        #                        "VALUES ('{}','9999-12-30', '9999-12-31', {})"
+        #                        .format(output, nutr_data["foods"][0][
+        #                         "nf_calories"]))
+        #     except KeyError as err:
+        #         print(err)
+        # cnx.commit()
+        # cursor.close()
+        # cnx.close()
     if 'search' in request.POST:
 
         result_json = {}
@@ -233,93 +251,15 @@ def addItem(request):
     cnx.commit()
     cursor.close()
     cnx.close()
-    return render(request, 'webpage/addItem.html', {'list2': table})
+    return render(request, 'webpage/addItem.html', {'form': form})
 
-    def upload(request):
 
-        try:
-            cursor.execute("USE {}".format(DB_NAME))
-            cursor.execute("SELECT * FROM Refridgerator")
-            table = cursor.fetchall()
-            for items in table:
-                print(items)
-        except mysql.connector.Error as err:
-            print("Table {} does not exists.".format(DB_NAME))
-            exit(1)
-        s = {}
-        # Tabscanner API post endpoint
-        URL_post = 'https://api.tabscanner.com/' + apikey + '/process'
+def searchbar(request):
 
-        myImage = request.FILES['myfile']  # uploaded image
-        headers = {'content-type': 'application/x-www-form-urlencoded'}
-        files = {'receiptImage': myImage}
-        # json api processing result
-        r = requests.post(url=URL_post, files=files)
-        json_data = json.loads(r.text)
-        token = json_data['token']
-        # receipt json data
-        URL_get = 'https://api.tabscanner.com/' + apikey + '/result/' + token
-        j = requests.get(url=URL_get)
-        result_json = json.loads(j.text)
-        while(result_json['status'] == "pending"):
-            j = requests.get(url=URL_get)
-            result_json = json.loads(j.text)
-        # Select the Database which we need
-        try:
-            cursor.execute("USE {}".format(DB_NAME))
-        except mysql.connector.Error as err:
-            print("Database {} does not exists.".format(DB_NAME))
-            if err.errno == errorcode.ER_BAD_DB_ERROR:
-                create_database(cursor)
-                print("Database {} created successfully.".format(DB_NAME))
-                cnx.database = DB_NAME
-            else:
-                print(err)
-                exit(1)
-        try:
-            cursor.execute(table_description)
-        except mysql.connector.Error as err:
-            if err.errno == errorcode.ER_TABLE_EXISTS_ERROR:
-                print("already exists.")
-
-        for items in result_json['result']['lineItems']:
-            nutr_url = "https://trackapi.nutritionix.com/v2/natural/nutrients"
-            headers = {
-                'x-app-id': '5e5a70f8',
-                'x-app-key': '247d06b35f3d414d67179247f2b5287c',
-                'x-remote-user-id': '0',
-                'accept': 'application/json'
-                    }
-            body = {
-                "query": "string",
-                "num_servings": 1,
-                "aggregate": "string",
-                "line_delimited": False,
-                "use_raw_foods": False,
-                "include_subrecipe": False,
-                "timezone": "string",
-                "consumed_at": "string",
-                "lat": 0,
-                "lng": 0,
-                "meal_type": 0,
-                "use_branded_foods": True,
-                "locale": "string"
-                    }
-
-            data = {'query': items["descClean"]}
-            r1 = requests.post(nutr_url, headers=headers, data=data, json=body)
-            nutr_data = json.loads(r1.text)
-            output = re.sub('[^A-Za-z]+', ' ', items["descClean"])
-            print(output)
-            try:
-                cursor.execute("INSERT INTO Refridgerator",
-                               "(Item_Name, Purchase_Date, ",
-                               "Expiration_Date, Calories) ",
-                               "VALUES ('{}','9999-12-30', '9999-12-31', {})"
-                               .format(output, nutr_data["foods"][0][
-                                "nf_calories"]))
-            except KeyError as err:
-                print(err)
-        cnx.commit()
-        cursor.close()
-        cnx.close()
+    form = SearchForm(request.POST)
+    if form.is_valid():
+        txt = form.cleaned_data['item']
+        print(txt)
+        handleSearchBar(txt)
+        
+    return render(request, 'webpage/addItem.html', {'searchform': form})

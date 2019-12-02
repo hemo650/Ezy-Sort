@@ -19,5 +19,6 @@ urlpatterns = [
     path('home/', views.home_page, name='home'),
     path('refrigerator/', views.addItem, name='refrigerator'),
     path('shoppingList/', views.shoppingList, name='shoppingList'),
+    path('refrigerator/upload', views.searchbar, name='searchbar'),
 
 ]

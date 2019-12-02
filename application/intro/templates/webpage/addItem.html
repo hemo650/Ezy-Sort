@@ -33,7 +33,6 @@
 
     /* Add a color to the active/current link */
 
-
     /********************/
     * {
         box-sizing: border-box;
@@ -157,11 +156,23 @@
         }
         </script>
 
-    <form action="upload" method="post" enctype="multipart/form-data">
-        {% csrf_token %} 
-        <input type="file" name="myfile" accept="image/*" id="image">
-        <button type="submit" name="upload">Upload</button>
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <!-- <input type="file" name="myfile" accept="image/*" id="image"> -->
+        {{ form }}
+        <button class = "" type="submit" name="upload">Upload</button>
     </form>
+
+    <form action="upload" method="POST">
+            {% csrf_token %}
+            {{ searchform }}
+        <button action="upload" type="submit" name="upload">Search</button>
+        
+    </form>
+
+    
+    
+    
 
     <body onload="startTime()">
 
