@@ -5,9 +5,10 @@ import requests
 import mysql.connector
 from mysql.connector import errorcode
 import re
-
+from django_tables2 import RequestConfig
 from .forms import ReceiptForm, SearchForm
 from .handlers import handleRecieptImage, handleSearchBar, insertToDatabase
+from .tables import ItemTable
 
 DB_NAME = 'test'
 table_description = "CREATE TABLE Refridgerator (Item_Name VARCHAR(100), ",
@@ -99,18 +100,23 @@ def addItem(request):
     scannedItems = {}
     form = ReceiptForm(request.POST, request.FILES)
     #form = ReceiptForm(request.POST, request.FILES)
-    print(len(scannedItems))
+    table = ItemTable(scannedItems)
+    RequestConfig(request).configure(table)
     if 'upload' in request.POST:
         print("Upload")
+        print(len(scannedItems))
         form = ReceiptForm(request.POST, request.FILES)
+        
         if form.is_valid():
             img = form.cleaned_data['img']
             # print(img.image)
             scannedItems = handleRecieptImage(img)
-            # return redirect('/search', request, scannedItems)
-        return render(request, 'webpage/addItem.html', {'form': form, 'scannedItems': scannedItems})
-    else:
-        return render(request, 'webpage/addItem.html', {'form': form, 'scannedItems': scannedItems})
+            table = ItemTable(scannedItems)
+            # print(scannedItems[0]['pur_date'])
+            # return redirect('res/search', request, scannedItems)
+    if "insert" in request.POST:
+        print("Not upload")
+        print(len(scannedItems))
         
     # if 'search' in request.POST:
 
@@ -161,7 +167,8 @@ def addItem(request):
     # cursor.close()
     # cnx.close()
     # print(scannedItems)
-    
+    return render(request, 'webpage/addItem.html', {'form': form, 'scannedItems': scannedItems, 'table': table})
+
 
 
 def showItems(request, dic):

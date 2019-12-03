@@ -12,6 +12,8 @@ class ReceiptForm(forms.Form):
     
     print("Image Form")
 
+# class TableForm(form.Form):
+#     tbl = forms.
 
 class SearchForm(forms.Form):
     item = forms.CharField(label='', required=False)

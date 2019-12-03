@@ -11,7 +11,7 @@ cursor = cnx.cursor()
 
 DB_NAME = 'test'
 exp = ''
-map = []
+
 
 try:
     cursor.execute("USE {}".format(DB_NAME))  
@@ -20,7 +20,7 @@ except mysql.connector.Error as err:
 
 
 def handleRecieptImage(image):
-
+    map = []
     # URL_post = 'https://api.tabscanner.com/' + apikey + '/process'
     # headers = {'content-type': 'application/x-www-form-urlencoded'}
     # files = {'receiptImage': image}
@@ -258,7 +258,8 @@ def handleRecieptImage(image):
         # nutr_data = json.loads(r1.text)
         item = items["descClean"]
         # map.append([item, date, exp, nutr_data["foods"][0]["nf_calories"]])
-        map.append([item, date, exp, 0])
+        map.append({"item_name": item, "pur_date": date, "exp_date": exp, "cal": 0})
+      #   map.append([item, date, exp, 0])
     print("Handled Reciept Image")
     
     return map
