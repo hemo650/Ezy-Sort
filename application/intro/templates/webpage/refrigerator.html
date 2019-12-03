@@ -76,14 +76,26 @@
     /******************/
     table {
         border: 1px solid #484349;
-        background-color: #EFF3F4;
+        border-collapse:collapse;
+        border-left: 0px;
+        border-top: 0px;
+        background-color: #F4F3EE;
+       /* background-color: #DBDBDB;*/
         width: 100%;
     }
 
     td {
-        border: 1px solid #484349;
-        background-color: #EFF3F4;
+         border: 1px solid #484349;
+         border-collapse:collapse;
+         border-left: 0px;
+         border-top: 0px;
+         background-color: #F4F3EE;
+        /*background-color: #DBDBDB;*/
         width: 25%
+    }
+
+    .tableRow {
+        background-color: black;
     }
 
     /*********************/
@@ -111,8 +123,39 @@
         color: black;
     }
 
+    /* ******************* */
+    input {
+    border: 0;
+    background: transparent;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    }
+
+    input:focus{
+    outline: 0;
+    }
+
+    .input-placeholder{
+    margin: 20px 0px;
+    background-color: white;/*#eee;*/
+    display: inline-block;
+    padding: 10px;
+    border: 1px solid #DBDBDB;
+    float: left;
+    width: 100%;  
+    }
+
+    .icon {
+    color: #DBDBDB;
+    float: right;
+    }
+
     </style>
 </head>
+
 <body>
     <div class="topnav">
         <a href="#addNewItems">Add New Items</a>
@@ -124,74 +167,64 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- The form -->
-    <form class="example" action="action_page.php">
+    <!-- <form class="example" action="action_page.php">
         <input type="text" placeholder="Search.." name="search">
         <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
+    </form> -->
 
+    <!-- ********************************* -->
+    <div class="input-placeholder">
+    <input class="col-lg-3 col-md-3 col-sm-5 col-xs-5 form-control" type="text" name="searchroleName" id="searchroleName"/> <span class="icon"> <span class="fa fa-search form-control-feedback"></span> </span>
+    </div>
+    <!-- ******************************** -->
 
-<!--     <table id="myTable">
-         <tr>
-            <th>Name</th>
-            <th>Qty</th>
-            <th>Expiration Date</th>
-        </tr>
-        <tr>
-            <td>Row1 cell1</td>
-            <td>Row1 cell2</td>
-            <td>Row1 cell3</td>
-        </tr>
-    </table> -->
     <table id="myTable">
          <!-- <tr>
             <th>Name</th>
             <th>Qty</th>
             <th>Expiration Date</th>
         </tr> -->
-        <tr>
+        <tr class="tableRow">
             <td>Items</td>
             <td>Purchase Date</td>
             <td>Expiration Date</td>
             <td>Calories</td>
         </tr>
         <!-- {% for key in list2 %} -->
-            <tr>
-                <td>{{key.0}}</td>
-                <td>{{key.1}}</td>
-                <td>{{key.2}}</td>
-                <td>{{key.3}}</td>
-            </tr>
+        <tr class="subRow">
+        </tr>
        <!--  {% endfor %} -->
     </table>
-
-   <!--  <button onclick="myCreateFunction()">Create row</button>
-    <button onclick="myDeleteFunction()">Delete row</button> -->
-
-
+<!-- 
+    <button onclick="myCreateFunction()">Create row</button>
+    <button onclick="myDeleteFunction()">Delete row</button>
+ -->
     <div class="navbar">
         <a href="{% url 'home' %}">Home</a>
         <a href="{% url 'refrigerator' %}">Refrigerator</a>
         <a href="{% url 'profile' %}">Profile</a>
     </div>
 
-
-    <!-- <script>
+<!-- 
+    <script>
     function myCreateFunction() {
         var table = document.getElementById("myTable");
         var row = table.insertRow(-1); // 0
         var cell1 = row.insertCell(-1); // 0
         var cell2 = row.insertCell(-1); // 1
         var cell3 = row.insertCell(-1); // 1
+        var cell4 = row.insertCell(-1);
         cell1.innerHTML = "NEW CELL1";
         cell2.innerHTML = "NEW CELL2";
         cell3.innerHTML = "NEW CELL3";
+        cell4.innerHTML = "New CELL4";
     }
 
     function myDeleteFunction() {
         document.getElementById("myTable").deleteRow(1);
     }
-    </script> -->
+    </script>
 
-
+ -->
 </body>
 </html>
