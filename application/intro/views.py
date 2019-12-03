@@ -17,7 +17,6 @@ apikey = 'KuxAxBfl8w4FvTaNwqwHD3ajxzQBOoyVuaYqRXcgUPKQbtPezCMmxBloThkV3Ico'
 
 cnx = mysql.connector.connect(user='websitedb', password='sql2019')
 cursor = cnx.cursor()
-
 total_calorie = 0  # total refridgerator calorie
 
 
@@ -100,17 +99,19 @@ def addItem(request):
     scannedItems = {}
     form = ReceiptForm(request.POST, request.FILES)
     #form = ReceiptForm(request.POST, request.FILES)
-    print("addItem")
+    print(len(scannedItems))
     if 'upload' in request.POST:
+        print("Upload")
         form = ReceiptForm(request.POST, request.FILES)
         if form.is_valid():
-            print("valid")
             img = form.cleaned_data['img']
             # print(img.image)
             scannedItems = handleRecieptImage(img)
-    if 'insert' in request.POST:
-        print("insert button pressed")
-        redirect(showItems, scannedItems)
+            # return redirect('/search', request, scannedItems)
+        return render(request, 'webpage/addItem.html', {'form': form, 'scannedItems': scannedItems})
+    else:
+        return render(request, 'webpage/addItem.html', {'form': form, 'scannedItems': scannedItems})
+        
     # if 'search' in request.POST:
 
     #     result_json = {}
@@ -156,19 +157,19 @@ def addItem(request):
     #     print("Table {} does not exists.".format(DB_NAME))
     #     exit(1)
 
-    cnx.commit()
-    cursor.close()
-    cnx.close()
-    print(scannedItems)
-    return render(request, 'webpage/addItem.html', {'form': form, 'scannedItems': scannedItems})
+    # cnx.commit()
+    # cursor.close()
+    # cnx.close()
+    # print(scannedItems)
+    
 
 
 def showItems(request, dic):
     print("showItems")
     for row in dic:
         insertToDatabase(row[0], row[1], row[2], row[3])
-    
-    return redirect(addItem)
+    addItem.scannedItems.clear()
+    return redirect('addItem')
 
 
 def searchbar(request):

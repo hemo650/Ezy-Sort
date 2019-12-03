@@ -21,17 +21,208 @@ except mysql.connector.Error as err:
 
 def handleRecieptImage(image):
 
-    URL_post = 'https://api.tabscanner.com/' + apikey + '/process'
-    headers = {'content-type': 'application/x-www-form-urlencoded'}
-    files = {'receiptImage': image}
-    # json api processing result
-    r = requests.post(url=URL_post, files=files)
-    json_data = json.loads(r.text)
-    token = json_data['token']
-    # receipt json data
-    URL_get = 'https://api.tabscanner.com/' + apikey + '/result/' + token
-    j = requests.get(url=URL_get)
-    result_json = json.loads(j.text)
+    # URL_post = 'https://api.tabscanner.com/' + apikey + '/process'
+    # headers = {'content-type': 'application/x-www-form-urlencoded'}
+    # files = {'receiptImage': image}
+    # # json api processing result
+    # r = requests.post(url=URL_post, files=files)
+    # json_data = json.loads(r.text)
+    # token = json_data['token']
+    # # receipt json data
+    # URL_get = 'https://api.tabscanner.com/' + apikey + '/result/' + token
+    # j = requests.get(url=URL_get)
+    # result_json = json.loads(j.text)
+
+    result_json  = {
+        "message": "SUCCESS: Result available",
+        "status": "done",
+        "status_code": 3,
+        "result": {
+      "establishment": "Trader Joes",
+      "validatedEstablishment": True,
+      "date": "2015-05-31 22:00:00",
+      "total": "14.480",
+      "url": "www.traderjoes.com",
+      "phoneNumber": "312-951-6369",
+      "paymentMethod": "",
+      "address": "Trader Joe'S Chicago, Ontario St, Chicago, IL 60611",
+      "cash": "0.000",
+      "change": "0.000",
+      "alidatedTotal": True,
+      "subTotal": "14.160",
+      "validatedSubTotal": True,
+      "tax": "0.320",
+      "taxes": [
+         0.32
+      ],
+      "discount": "0.000",
+      "rounding": "0.000",
+      "discounts": [],
+      "lineItems": [
+         {
+            "qty": 0,
+            "desc": "OLIVE OIL POTATO CHIPS",
+            "unit": "",
+            "price": "0.000",
+            "symbols": [],
+            "discount": "0.000",
+            "l""ineType": "",
+            "descClean": "OLIVE OIL POTATO CHIPS",
+            "lineTotal": "1.990",
+            "productCode": "",
+            "customFields": []
+         },
+         {
+            "qty": 0,
+            "desc": "HUMMUS GARLIC ROASTED EC",
+            "unit": "",
+            "price": "0.000",
+            "symbols": [],
+            "discount": "0.000",
+            "lineType": "",
+            "descClean": "HUMMUS GARLIC ROASTED EC",
+            "lineTotal": "1.990",
+            "productCode": "",
+            "customFields": []
+         },
+         {
+            "qty": 0,
+            "desc": "CHEDDAR NEW ZEALAND SHARP",
+            "unit": "",
+            "price": "0.000",
+            "symbols": [],
+            "discount": "0.000",
+            "lineType": "",
+            "descClean": "CHEDDAR NEW ZEALAND SHARP",
+            "lineTotal": "3.710",
+            "productCode": "",
+            "customFields": []
+         },
+         {
+            "qty": 5,
+            "desc": "PITA WHOLE WHEAT 5 ",
+            "unit": "",
+            "price": "0.000",
+            "symbols": [],
+            "discount": "0.000",
+            "lineType": "",
+            "descClean": "PITA WHOLE WHEAT ",
+            "lineTotal": "1.690",
+            "productCode": "",
+            "customFields": []
+         },
+         {
+            "qty": 0,
+            "desc": "OLIVES MANZANILLA",
+            "unit": "",
+            "price": "0.000",
+            "symbols": [],
+            "discount": "0.000",
+            "lineType": "",
+            "descClean": "OLIVES MANZANILLA",
+            "lineTotal": "2.290",
+            "productCode": "",
+            "customFields": []
+         },
+         {
+            "qty": 0,
+            "desc": "CREAMY SALTED PEANUT BUTTER",
+            "unit": "",
+            "price": "0.000",
+            "symbols": [],
+            "discount": "0.000",
+            "lineType": "",
+            "descClean": "CREAMY SALTED PEANUT BUTTER",
+            "lineTotal": "2.490",
+            "productCode": "",
+            "customFields": []
+         }
+      ],
+      "summaryItems": [
+         {
+            "qty": 0,
+            "desc": "SUBTOTAL",
+            "unit": "",
+            "price": "0.000",
+            "symbols": [
+               "$"
+            ],
+            "discount": "0.000",
+            "lineType": "SubTotal",
+            "descClean": "SUBTOTAL",
+            "lineTotal": "14.160",
+            "productCode": "",
+            "customFields": []
+         },
+         {
+            "qty": 1,
+            "desc": "STATE TAX 1",
+            "unit": "",
+            "price": "0.000",
+            "symbols": [
+               "$"
+            ],
+            "discount": "0.000",
+            "lineType": "Tax",
+            "descClean": "STATE TAX",
+            "lineTotal": "0.320",
+            "productCode": "",
+            "customFields": []
+         },
+         {
+            "qty": 0,
+            "desc": "TOTAL",
+            "unit": "",
+            "price": "0.000",
+            "symbols": [
+               "$"
+            ],
+            "discount": "0.000",
+            "lineType": "Total",
+            "descClean": "TOTAL",
+            "lineTotal": "14.480",
+            "productCode": "",
+            "customFields": []
+         }
+      ],
+      "subTotalConfidence": 0.99,
+      "taxesConfidence": [
+         0.99
+      ],
+      "discountConfidences": [],
+      "totalConfidence": 0.99,
+      "cashConfidence": 0,
+      "changeConfidence": 0,
+      "roundingConfidence": 0,
+      "customFields": {
+         "URL": "www.traderjoes.com",
+         "Country": "",
+         "Currency": "",
+         "VATNumber": "",
+         "ExpenseType": "",
+         "PaymentMethod": "",
+         "CardLast4Digits": ""
+      },
+      "documentType": "receipt",
+      "currency": "",
+      "barcodes": [],
+      "dateISO": "2015-05-31T22:00:00",
+      "addressNorm": {
+         "city": "Chicago",
+         "state": "IL",
+         "number": "",
+         "street": "Ontario St",
+         "suburb": "",
+         "country": "USA",
+         "building": "Trader Joe'S",
+         "postcode": "60611"
+      },
+      "expenseType": "None",
+      "otherData": []
+   },
+   "success": True,
+   "code": 202
+}
     while(result_json['status'] == "pending"):
         j = requests.get(url=URL_get)
         result_json = json.loads(j.text)
@@ -63,11 +254,11 @@ def handleRecieptImage(image):
                 }
         
         data = {'query': items["descClean"]}
-        r1 = requests.post(nutr_url, headers=headers, data=data, json=body)
-        nutr_data = json.loads(r1.text)
+        # r1 = requests.post(nutr_url, headers=headers, data=data, json=body)
+        # nutr_data = json.loads(r1.text)
         item = items["descClean"]
-        map.append([item, date, exp, nutr_data["foods"][0]["nf_calories"]])
-        
+        # map.append([item, date, exp, nutr_data["foods"][0]["nf_calories"]])
+        map.append([item, date, exp, 0])
     print("Handled Reciept Image")
     
     return map
