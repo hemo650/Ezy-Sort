@@ -10,7 +10,8 @@ cnx = mysql.connector.connect(user='websitedb', password='sql2019')
 cursor = cnx.cursor()
 
 DB_NAME = 'test'
-
+exp = ''
+map = []
 
 try:
     cursor.execute("USE {}".format(DB_NAME))  
@@ -34,7 +35,9 @@ def handleRecieptImage(image):
     while(result_json['status'] == "pending"):
         j = requests.get(url=URL_get)
         result_json = json.loads(j.text)
-
+    date_result = result_json['result']['date'].split()
+    date = date_result[0]
+    print(date)
     for items in result_json['result']['lineItems']:
         nutr_url = "https://trackapi.nutritionix.com/v2/natural/nutrients"
         headers = {
@@ -58,11 +61,26 @@ def handleRecieptImage(image):
             "use_branded_foods": True,
             "locale": "string"
                 }
-
+        
         data = {'query': items["descClean"]}
         r1 = requests.post(nutr_url, headers=headers, data=data, json=body)
         nutr_data = json.loads(r1.text)
+        item = items["descClean"]
+        map.append([item, date, exp, nutr_data["foods"][0]["nf_calories"]])
+        
     print("Handled Reciept Image")
+    
+    return map
+
+
+def insertToDatabase(name, pur_date, exp_date, cal):
+    try:
+        cursor.execute("INSERT INTO Refridgerator(Item_Name VARCHAR(100), ",
+                       "Purchase_Date DATE, Expiration_Date DATE, Calories INT)",
+                       " VALUES ('{}','{}','{}','{}')".format(name, pur_date, exp_date, cal))
+        cursor.close()
+    except mysql.connector.Error as err:
+        print("Error {}".format(err))
 
 
 def handleSearchBar(text):
@@ -72,7 +90,7 @@ def handleSearchBar(text):
 
     try:
         cursor.execute("USE {}".format(DB_NAME))
-
+        cursor.execute(" SELECT lastName,firstName FROM Custome WHERE ")
         cursor.execute("SELECT EXISTS(SELECT * from Refridgerator WHERE ",
                        "Item_Name='{}') 'utf8'".format(item))
         row = cursor.fetchone()

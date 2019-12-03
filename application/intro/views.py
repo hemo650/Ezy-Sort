@@ -1,5 +1,5 @@
 from django.shortcuts \
-    import HttpResponse, render
+    import HttpResponse, render, redirect
 import json
 import requests
 import mysql.connector
@@ -7,7 +7,7 @@ from mysql.connector import errorcode
 import re
 
 from .forms import ReceiptForm, SearchForm
-from .handlers import handleRecieptImage, handleSearchBar
+from .handlers import handleRecieptImage, handleSearchBar, insertToDatabase
 
 DB_NAME = 'test'
 table_description = "CREATE TABLE Refridgerator (Item_Name VARCHAR(100), ",
@@ -97,79 +97,88 @@ def addItem(request):
 
     cnx = mysql.connector.connect(user='websitedb', password='sql2019')
     cursor = cnx.cursor()
-
+    scannedItems = {}
+    form = ReceiptForm(request.POST, request.FILES)
+    #form = ReceiptForm(request.POST, request.FILES)
+    print("addItem")
     if 'upload' in request.POST:
         form = ReceiptForm(request.POST, request.FILES)
         if form.is_valid():
             print("valid")
             img = form.cleaned_data['img']
-            print(img.image)
-            handleRecieptImage(img)
-    elif 'search' in request.POST:
-        form = SearchForm(request.POST)
-        if form.is_valid():
-            print("valid")
-            word = form.cleaned_data['item']
-            print(word)
-    else:
-        form = {}
+            # print(img.image)
+            scannedItems = handleRecieptImage(img)
+    if 'insert' in request.POST:
+        print("insert button pressed")
+        redirect(showItems, scannedItems)
+    # if 'search' in request.POST:
 
-    if 'search' in request.POST:
+    #     result_json = {}
 
-        result_json = {}
+    #     cnx = mysql.connector.connect(user='websitedb', password='sql2019')
 
-        cnx = mysql.connector.connect(user='websitedb', password='sql2019')
+    #     cursor = cnx.cursor()
 
-        cursor = cnx.cursor()
+    #     item = request.POST.get('myItem')
+    #     print(item)
 
-        item = request.POST.get('myItem')
-        print(item)
+    #     try:
+    #         cursor.execute("USE {}".format(DB_NAME))
 
-        try:
-            cursor.execute("USE {}".format(DB_NAME))
+    #         cursor.execute("SELECT EXISTS(SELECT * from Refridgerator WHERE ",
+    #                        "Item_Name='{}') 'utf8'".format(item))
+    #         row = cursor.fetchone()
 
-            cursor.execute("SELECT EXISTS(SELECT * from Refridgerator WHERE ",
-                           "Item_Name='{}') 'utf8'".format(item))
-            row = cursor.fetchone()
+    #         if row[0] == 1:
+    #             print("Found")
+    #             s = {'search_result': "Item was Found"}
+    #             txt = json.dumps(s)
+    #             search = json.loads(txt)
+    #         else:
+    #             print("Not Found")
+    #             s = {'search_result': "Item was Not Found"}
+    #             txt = json.dumps(s)
+    #             search = json.loads(txt)
+    #     except mysql.connector.Error as err:
+    #         print("Error {}".format(err))
+    #     cursor.close()
+    #     cnx.close()
+    # cnx = mysql.connector.connect(user='websitedb', password='sql2019')
+    # cursor = cnx.cursor()
 
-            if row[0] == 1:
-                print("Found")
-                s = {'search_result': "Item was Found"}
-                txt = json.dumps(s)
-                search = json.loads(txt)
-            else:
-                print("Not Found")
-                s = {'search_result': "Item was Not Found"}
-                txt = json.dumps(s)
-                search = json.loads(txt)
-        except mysql.connector.Error as err:
-            print("Error {}".format(err))
-        cursor.close()
-        cnx.close()
-    cnx = mysql.connector.connect(user='websitedb', password='sql2019')
-    cursor = cnx.cursor()
-
-    try:
-        cursor.execute("USE {}".format(DB_NAME))
-        cursor.execute("SELECT * FROM Refridgerator")
-        table = cursor.fetchall()
-        for items in table:
-            print(items)
-    except mysql.connector.Error as err:
-        print("Table {} does not exists.".format(DB_NAME))
-        exit(1)
+    # try:
+    #     cursor.execute("USE {}".format(DB_NAME))
+    #     cursor.execute("SELECT * FROM Refridgerator")
+    #     table = cursor.fetchall()
+    #     for items in table:
+    #         print(items)
+    # except mysql.connector.Error as err:
+    #     print("Table {} does not exists.".format(DB_NAME))
+    #     exit(1)
 
     cnx.commit()
     cursor.close()
     cnx.close()
-    return render(request, 'webpage/addItem.html', {'form': form})
+    print(scannedItems)
+    return render(request, 'webpage/addItem.html', {'form': form, 'scannedItems': scannedItems})
+
+
+def showItems(request, dic):
+    print("showItems")
+    for row in dic:
+        insertToDatabase(row[0], row[1], row[2], row[3])
+    
+    return redirect(addItem)
 
 
 def searchbar(request):
-    form = SearchForm(request.POST)
-    if form.is_valid():
-        txt = form.cleaned_data['item']
-        print(txt)
-        handleSearchBar(txt)
+    # form = SearchForm(request.POST)
+    # if form.is_valid():
+    #     txt = form.cleaned_data['item']
+    #     print(txt)
+    #     handleSearchBar(txt)
+    search_item = request.POST['searchroleName']
 
-    return render(request, 'webpage/addItem.html', {'searchform': form})
+    search_details = handleSearchBar(search_item)
+
+    return render(request, 'webpage/addItem.html', )
