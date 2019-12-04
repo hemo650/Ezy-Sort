@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    
+    'register.apps.RegisterConfig',
+    "crispy_forms",
+
 ]
 
 MIDDLEWARE = [
@@ -122,4 +124,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 STATIC_URL = '/static/'
 ALLOWED_HOSTS=['ec2-13-57-221-62.us-west-1.compute.amazonaws.com','127.0.0.1']
 
+CRISPY_TEMPLATE_PACK="bootstrap4"
 
+LOGIN_REDIRECT_URL = "home"
