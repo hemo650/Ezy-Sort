@@ -379,6 +379,8 @@
     <img class="button button2" src="https://img.icons8.com/plasticine/100/000000/camera.png">
     <img class="button button1" src="https://img.icons8.com/pastel-glyph/64/000000/barcode-scanner--v2.png">
     <img class="button button3" src="https://img.icons8.com/cotton/64/000000/microphone.png">
+    
+    
     <form action="" method="POST">
             {% csrf_token %}
     <table id="myTable">
@@ -388,16 +390,16 @@
             <th>Expiration Date</th>
         </tr> -->
         <tr>
-            <td>Select</td>
+            <td>ID Number</td>
             <td>Name</td>
-            <td>Qty</td>
+            <td>Purchase Date</td>
             <td>Expiration Date</td>
-            <td>Price</td>
+            <td>Calories</td>
         </tr>
-        {% for key in scannedItems %}
+        {% for items, key in scannedItems.items %}
             <tr>
                 <td><input type="checkbox" id="sjk" value="{{key.item_id}}" name="boxes" unchecked>
-                    <label for="scales">Scales</label></td>
+                    <label for="scales"> {{key.item_id}} </label></td>
                 <td>{{key.item_name}}</td>
                 <td>{{key.pur_date}}</td>
                 <td>{{key.exp_date}}</td>
@@ -408,27 +410,11 @@
     </table>
 
 
-    
+    <button type="image" class="button button5" src="https://img.icons8.com/pastel-glyph/64/000000/cancel.png" name="delete"></button>
             <!-- <input type="image" name="insert" alt="Submit" class="button button4" src="https://img.icons8.com/ios/100/000000/ok.png">
              -->
             <button type="image" class="button button4" src="https://img.icons8.com/ios/100/000000/ok.png" name="insert"></button>
         </form>
-    
-        <form action="" method="POST">
-            {% csrf_token %}
-            <!-- <input type="image" name="insert" alt="Submit" class="button button4" src="https://img.icons8.com/ios/100/000000/ok.png">
-             -->
-            <button type="image" class="button button5" src="https://img.icons8.com/pastel-glyph/64/000000/cancel.png" name="delete"></button>
-        </form>
-
-    <!-- <button onclick="myCreateFunction()">Create row</button>
-    <button onclick="myDeleteFunction()">Delete row</button> -->
-
-    
-    
-
-    <!-- <img class="button button5" src="https://img.icons8.com/pastel-glyph/64/000000/cancel.png" > -->
-    <!-- <img class="button button4" src="https://img.icons8.com/ios/100/000000/ok.png"> -->
         
 
     <div class="navbar">

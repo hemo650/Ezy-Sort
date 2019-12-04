@@ -18,10 +18,10 @@ try:
     cursor.execute("USE {}".format(DB_NAME))  
 except mysql.connector.Error as err:
     exit(1)
-
+cnx.commit()
 
 def handleRecieptImage(image):
-    map = []
+    map = {}
     # URL_post = 'https://api.tabscanner.com/' + apikey + '/process'
     # headers = {'content-type': 'application/x-www-form-urlencoded'}
     # files = {'receiptImage': image}
@@ -229,7 +229,6 @@ def handleRecieptImage(image):
         result_json = json.loads(j.text)
     date_result = result_json['result']['date'].split()
     date = date_result[0]
-    print(date)
     for items in result_json['result']['lineItems']:
         nutr_url = "https://trackapi.nutritionix.com/v2/natural/nutrients"
         headers = {
@@ -261,43 +260,61 @@ def handleRecieptImage(image):
         # map.append([item, date, exp, nutr_data["foods"][0]["nf_calories"]])
         global i
         i += 1
-        map.append({"item_name": item, "pur_date": date, "exp_date": exp, "cal": 0, "item_id": i})
+        map[str(i)] = {"item_name": item, "pur_date": date, "exp_date": "2019-12-03", "cal": 0, "item_id": i}
+      #   map.put(i: {"item_name": item, "pur_date": date, "exp_date": exp, "cal": 0, "item_id": i})
       #   map.append([item, date, exp, 0])
     
     return map
 
 
-def insertToDatabase(map, ls): 
-   i = 0
-   
-   for items in map:
-      name = items["item_name"]
-      pur_date = items["pur_date"]
-      exp_date = items["exp_date"]
-      cal = items["cal"]
-      item_id = items["item_id"]
-      print("item_item: ", item_id, " i: ",i)
+def insertToDatabase(map, ls):  
+   for key in list(map):
+      name = map[key]["item_name"]
+      pur_date = map[key]["pur_date"]
+      exp_date = map[key]["exp_date"]
+      cal = map[key]["cal"]
+      item_id = map[key]["item_id"]
+      print("item_item: ", item_id, " i: ", i)
 
       for id in ls:
          print("id: ",id)
          if int(id) == item_id:
-            print(print(name, pur_date, exp_date, cal, item_id))
-            i -= 1
-            del map[i-1]
+            print(type(name), type(pur_date), type(exp_date), type(cal), type(item_id))
+            try:
+
+               cursor.execute("INSERT INTO Refridgerator(Item_Name, Purchase_Date, Expiration_Date, Calories, ID_Item) VALUES ('{}','{}','{}','{}','{}')".format(name, pur_date, exp_date, cal, item_id))
+               cnx.commit()
+            except mysql.connector.Error as err:
+               print("Error {}".format(err))
+
+            del map[id]
             ls.remove(id)
             break
-      i += 1
-   print(map)
    return map
 
 
-   #  try:
-   #      cursor.execute("INSERT INTO Refridgerator(Item_Name VARCHAR(100), ",
-   #                     "Purchase_Date DATE, Expiration_Date DATE, Calories INT, Item_ID)",
-   #                     " VALUES ('{}','{}','{}','{}')".format(name, pur_date, exp_date, cal, item_id))
-   #      cursor.close()
-   #  except mysql.connector.Error as err:
-   #      print("Error {}".format(err))
+def removeFromDatabase(map, ls):
+   print(ls)
+   i = 0
+   for key in list(map):
+      name = map[key]["item_name"]
+      pur_date = map[key]["pur_date"]
+      exp_date = map[key]["exp_date"]
+      cal = map[key]["cal"]
+      item_id = map[key]["item_id"]
+      print("item_item: ", item_id, " i: ", i)
+
+      for id in ls:
+         print("id: ",id)
+         if int(id) == item_id:
+            print(name, pur_date, exp_date, cal, item_id)
+            i -= 1
+            del map[id]
+            ls.remove(id)
+            break
+      i += 1
+   
+   return map
 
 
 def handleSearchBar(text):
@@ -327,3 +344,7 @@ def handleSearchBar(text):
     cursor.close()
     
     
+def getInventory():
+   cursor.execute("SELECT * FROM Refridgerator")
+   listOFInventory = cursor.fetchall()
+   return listOFInventory

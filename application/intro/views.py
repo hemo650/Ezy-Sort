@@ -7,7 +7,7 @@ from mysql.connector import errorcode
 import re
 from django_tables2 import RequestConfig
 from .forms import ReceiptForm, SearchForm
-from .handlers import handleRecieptImage, handleSearchBar, insertToDatabase
+from .handlers import handleRecieptImage, handleSearchBar, insertToDatabase, removeFromDatabase, getInventory
 from .tables import ItemTable
 
 DB_NAME = 'test'
@@ -87,6 +87,13 @@ def shoppingList(request):
     return render(request, 'webpage/ShoppingList.html')
 
 
+def inventory(request):
+
+    inventoryTable = getInventory()
+
+    return render(request, 'webpage/refrigerator.html', {'inventory': inventoryTable})
+
+
 def create_database(cursor):
     try:
         cursor.execute(
@@ -122,7 +129,8 @@ def addItem(request):
         scannedItems = insertToDatabase(scannedItems, request.POST.getlist('boxes'))
         
         
-        
+    if 'delete' in request.POST:
+        scannedItems = removeFromDatabase(scannedItems, request.POST.getlist('boxes'))
     # if 'search' in request.POST:
 
     #     result_json = {}
