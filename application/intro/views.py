@@ -19,6 +19,7 @@ apikey = 'KuxAxBfl8w4FvTaNwqwHD3ajxzQBOoyVuaYqRXcgUPKQbtPezCMmxBloThkV3Ico'
 cnx = mysql.connector.connect(user='websitedb', password='sql2019')
 cursor = cnx.cursor()
 total_calorie = 0  # total refridgerator calorie
+scannedItems = {}
 
 
 def index(request):
@@ -35,6 +36,7 @@ def abdi(request):
 
 def carolyn(request):
     return render(request, 'intro/carolyn.html')
+
 
 
 def ibrahim(request):
@@ -94,14 +96,13 @@ def create_database(cursor):
 
 
 def addItem(request):
-
     cnx = mysql.connector.connect(user='websitedb', password='sql2019')
     cursor = cnx.cursor()
-    scannedItems = {}
+    global scannedItems
     form = ReceiptForm(request.POST, request.FILES)
     #form = ReceiptForm(request.POST, request.FILES)
-    table = ItemTable(scannedItems)
-    RequestConfig(request).configure(table)
+    # table = ItemTable(scannedItems)
+    # RequestConfig(request).configure(table)
     if 'upload' in request.POST:
         print("Upload")
         print(len(scannedItems))
@@ -111,12 +112,16 @@ def addItem(request):
             img = form.cleaned_data['img']
             # print(img.image)
             scannedItems = handleRecieptImage(img)
-            table = ItemTable(scannedItems)
+            # table = ItemTable(scannedItems)
             # print(scannedItems[0]['pur_date'])
             # return redirect('res/search', request, scannedItems)
     if "insert" in request.POST:
-        print("Not upload")
-        print(len(scannedItems))
+        
+        
+        # listOfInputs = request.POST.getlist('scales')
+        scannedItems = insertToDatabase(scannedItems, request.POST.getlist('boxes'))
+        
+        
         
     # if 'search' in request.POST:
 
@@ -167,8 +172,7 @@ def addItem(request):
     # cursor.close()
     # cnx.close()
     # print(scannedItems)
-    return render(request, 'webpage/addItem.html', {'form': form, 'scannedItems': scannedItems, 'table': table})
-
+    return render(request, 'webpage/addItem.html', {'form': form, 'scannedItems': scannedItems})
 
 
 def showItems(request, dic):

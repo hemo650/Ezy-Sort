@@ -12,6 +12,7 @@ cursor = cnx.cursor()
 DB_NAME = 'test'
 exp = ''
 
+i = 0
 
 try:
     cursor.execute("USE {}".format(DB_NAME))  
@@ -258,21 +259,45 @@ def handleRecieptImage(image):
         # nutr_data = json.loads(r1.text)
         item = items["descClean"]
         # map.append([item, date, exp, nutr_data["foods"][0]["nf_calories"]])
-        map.append({"item_name": item, "pur_date": date, "exp_date": exp, "cal": 0})
+        global i
+        i += 1
+        map.append({"item_name": item, "pur_date": date, "exp_date": exp, "cal": 0, "item_id": i})
       #   map.append([item, date, exp, 0])
-    print("Handled Reciept Image")
     
     return map
 
 
-def insertToDatabase(name, pur_date, exp_date, cal):
-    try:
-        cursor.execute("INSERT INTO Refridgerator(Item_Name VARCHAR(100), ",
-                       "Purchase_Date DATE, Expiration_Date DATE, Calories INT)",
-                       " VALUES ('{}','{}','{}','{}')".format(name, pur_date, exp_date, cal))
-        cursor.close()
-    except mysql.connector.Error as err:
-        print("Error {}".format(err))
+def insertToDatabase(map, ls): 
+   i = 0
+   
+   for items in map:
+      name = items["item_name"]
+      pur_date = items["pur_date"]
+      exp_date = items["exp_date"]
+      cal = items["cal"]
+      item_id = items["item_id"]
+      print("item_item: ", item_id, " i: ",i)
+
+      for id in ls:
+         print("id: ",id)
+         if int(id) == item_id:
+            print(print(name, pur_date, exp_date, cal, item_id))
+            i -= 1
+            del map[i-1]
+            ls.remove(id)
+            break
+      i += 1
+   print(map)
+   return map
+
+
+   #  try:
+   #      cursor.execute("INSERT INTO Refridgerator(Item_Name VARCHAR(100), ",
+   #                     "Purchase_Date DATE, Expiration_Date DATE, Calories INT, Item_ID)",
+   #                     " VALUES ('{}','{}','{}','{}')".format(name, pur_date, exp_date, cal, item_id))
+   #      cursor.close()
+   #  except mysql.connector.Error as err:
+   #      print("Error {}".format(err))
 
 
 def handleSearchBar(text):

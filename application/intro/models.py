@@ -12,10 +12,11 @@ class ReceiptModel(models.Model):
 
 class ItemModel(models.Model):
     item_name = models.CharField(max_length=100)
-    pur_date = models.DateField()
+    # pur_date = models.DateField()
     exp_date = models.DateField()
     cal = models.PositiveIntegerField(max_length=5)
-    uid = models.UUIDField(default=uuid.uuid4, editable=False)
+    # uid = models.UUIDField(default=uuid.uuid4, editable=False)
+    
 
 
 class SearchModel(models.Model):
