@@ -1,12 +1,12 @@
 from django.shortcuts \
-    import HttpResponse, render
+import HttpResponse, render, redirect
 import json
 import requests
 import mysql.connector
 from mysql.connector import errorcode
 import re
 
-from .forms import SearchForm
+from .forms import RegisterForm
 
 DB_NAME = 'test'
 table_description = "CREATE TABLE Refridgerator (Item_Name VARCHAR(100), ",
@@ -82,6 +82,17 @@ def refrigerator(request):
 
 def shoppingList(request):
     return render(request, 'webpage/ShoppingList.html')
+
+def register(response):
+	if response.method == "POST":
+		form = RegisterForm(response.POST)
+		if form.is_valid():
+			form.save()
+			return redirect("/home")
+	else:
+			form = RegisterForm()
+
+	return render(response, "register/register.html", {"form": form})
 
 
 def create_database(cursor):

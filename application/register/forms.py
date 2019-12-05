@@ -3,10 +3,6 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
 
-class SearchForm(forms.Form):
-    search_field = forms.CharField(label='search', max_length=100)
-
-
 class RegisterForm(UserCreationForm):
     email = forms.EmailField()
 
