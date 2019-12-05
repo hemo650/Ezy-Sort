@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
     <title>Item Page</title>
     <style>
     /* Add a black background color to the top navigation */
@@ -32,7 +33,6 @@
     }
 
     /* Add a color to the active/current link */
-
 
     /********************/
     * {
@@ -89,7 +89,7 @@
         border-left: 0px;
         border-top: 0px;
         background-color: #EFF3F4;
-        width: 25%
+        width: 20%
     }
 
 
@@ -128,17 +128,7 @@
         height: 50px;
     }
 
-    input {
-    border: 0;
-    background: transparent;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -ms-appearance: none;
-    -o-appearance: none;
-    appearance: none;
-    width: 100%;
-    height: 40px;
-    }
+
 
     input:focus{
     outline: 0;
@@ -157,7 +147,7 @@
     }
 
     .button {
-    /*background-color: #4CAF50; /* Green */*/
+    /*background-color: #4CAF50; /* Green */
     border: none;
     color: white;
     /*padding: 20px;*/
@@ -180,13 +170,24 @@
         position: absolute;
         bottom: 60px;
         right: 80px;
-        height: 70px;
+        height: 80px;
+        width: 80px;
+        background-image: url(https://img.icons8.com/ios/100/000000/ok.png);
+        background-color: rgb(255, 255, 255);
+        background-size: cover;
+        
+        
+        
     }
     .button5{
         position: absolute;
         bottom: 60px;
         right: 0px;
-        height: 70px;
+        height: 80px;
+        width: 80px;
+        background-image: url(https://img.icons8.com/pastel-glyph/64/000000/cancel.png);
+        background-color: rgb(255, 255, 255);
+        background-size: cover;
     }
 
 
@@ -265,10 +266,17 @@
         }
         </script>
 
+        
     <div class="input-placeholder">
+        
     <input class="col-lg-3 col-md-3 col-sm-5 col-xs-5 form-control" type="text" name="searchroleName" id="searchroleName" placeholder="Input Field" />
     </div>
 
+    <form action="searchbar" method="POST">
+            {% csrf_token %}
+            {{ searchform }} 
+    </form>
+    
     <!--  ***************************** Testing Code**************************** -->
    
     <div class="open-btn">
@@ -290,9 +298,12 @@
           <button type="submit" class="btn">Log in</button>
           <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
         </form> -->
-        <form method="post" enctype="multipart/form-data" >
+        <form action="" method="POST" enctype="multipart/form-data" >
+            {% csrf_token %}
+
             <strong>Choose File</strong>
-            <input type="file" name="myfile" accept="image/*" id="image">
+            {{ form }}
+            <!-- <input type="file" name="upload" accept="image/*" id="image"> -->
             <button type="submit" name="upload">Upload</button>
             <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
         </form> 
@@ -339,6 +350,19 @@
 
 
 
+    <!-- <form action="" method="POST">
+            {% csrf_token %}
+            {{ form }}
+        <button action="upload" type="submit" name="upload">Search</button>
+        
+    </form> -->
+
+    
+
+    
+    
+    
+
     <body onload="startTime()">
 
         <div id="txt"></div>
@@ -355,7 +379,10 @@
     <img class="button button2" src="https://img.icons8.com/plasticine/100/000000/camera.png">
     <img class="button button1" src="https://img.icons8.com/pastel-glyph/64/000000/barcode-scanner--v2.png">
     <img class="button button3" src="https://img.icons8.com/cotton/64/000000/microphone.png">
-
+    
+    
+    <form action="" method="POST">
+            {% csrf_token %}
     <table id="myTable">
          <!-- <tr>
             <th>Name</th>
@@ -363,29 +390,32 @@
             <th>Expiration Date</th>
         </tr> -->
         <tr>
+            <td>ID Number</td>
             <td>Name</td>
-            <td>Qty</td>
+            <td>Purchase Date</td>
             <td>Expiration Date</td>
-            <td>Price</td>
+            <td>Calories</td>
         </tr>
-      <!--   {% for key in list2 %} -->
-           <!--  <tr>
-                <td>{{key.0}}</td>
-                <td>{{key.1}}</td>
-                <td>{{key.2}}</td>
-                <td>{{key.3}}</td>
-                <td>{{hek.4}}</td>
-            </tr> -->
-        <!-- {% endfor %} -->
+        {% for items, key in scannedItems.items %}
+            <tr>
+                <td><input type="checkbox" id="sjk" value="{{key.item_id}}" name="boxes" unchecked>
+                    <label for="scales"> {{key.item_id}} </label></td>
+                <td>{{key.item_name}}</td>
+                <td>{{key.pur_date}}</td>
+                <td>{{key.exp_date}}</td>
+                <td>{{key.cal}}</td>
+                
+            </tr>
+        {% endfor %}
     </table>
 
-    <!-- <button onclick="myCreateFunction()">Create row</button>
-    <button onclick="myDeleteFunction()">Delete row</button> -->
 
-
-    <img class="button button5" src="https://img.icons8.com/pastel-glyph/64/000000/cancel.png">
-    <img class="button button4" src="https://img.icons8.com/ios/100/000000/ok.png">
-
+    <button type="image" class="button button5" src="https://img.icons8.com/pastel-glyph/64/000000/cancel.png" name="delete"></button>
+            <!-- <input type="image" name="insert" alt="Submit" class="button button4" src="https://img.icons8.com/ios/100/000000/ok.png">
+             -->
+            <button type="image" class="button button4" src="https://img.icons8.com/ios/100/000000/ok.png" name="insert"></button>
+        </form>
+        
 
     <div class="navbar">
         <a href="{% url 'home' %}">Home</a>
@@ -394,7 +424,7 @@
     </div>
 
 
-  <!--   <script>
+    <script>
     function myCreateFunction(name, date, date2, cal) {
         var table = document.getElementById("myTable");
         var row = table.insertRow(-1); // 0
@@ -409,11 +439,21 @@
     }
 
     function myDeleteFunction() {
-        document.getElementById("myTable").deleteRow(1);
+        var Parent = document.getElementById("myTable");
+            while(Parent.hasChildNodes())
+            {
+                Parent.removeChild(Parent.firstChild);
+            }
     }
-    </script> -->
+    </script>
 
 
     
 </body>
+
+<body>
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+  </body>
 </html>
