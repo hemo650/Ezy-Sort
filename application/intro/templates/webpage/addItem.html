@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <<<<<<< HEAD
+
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    =======
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
-    >>>>>>> 6dda5b5e6693d60cc748144467e95b6be28989e5
+
     <title>Item Page</title>
     <style>
 
@@ -75,41 +74,37 @@
             border-bottom: none;
         }
 
-        td:first-child,  th:first-child{
+        td:first-child,
+        th:first-child,
+        td:last-child,
+        th:last-child{
             border-left: none;
-        }
-
-        td:last-child,  th:last-child{
             border-right: none;
         }
+
 
         /*********************/
 
         /*Style for navigation bar*/
-        .navbar-custom {
+           .navbar-custom {
             background-color: #B3D8E0;
-            height: 8%;
+            height: 12%;
         }
 
         .nav-item a {
             color: #484349;
-            font-size: 20px;
+            font-size: large;
             font-weight: 600;
             transition: .5s ease;
-            width: 100%;
-            margin-right: 60px;
-            margin-left: 60px;
-
         }
 
-        .navbar-center {
-            position: absolute;
-            left: 50%;
-            transform: translatex(-50%);
-        }
 
         .navbar-nav .nav-item a:hover {
             color: #999999;
+        }
+
+        .navbar-nav {
+            flex-direction: row;
         }
 
         .three-icons {
@@ -118,7 +113,7 @@
         }
 
         .container {
-            margin-top: 4%;
+            margin-top: 6%;
             width: 100%;
         }
 
@@ -235,23 +230,21 @@
 <body>
 
 <nav class="navbar navbar-expand-sm navbar-custom fixed-top">
-    <ul class="navbar-nav navbar-center">
+    <ul class="navbar-nav nav-fill w-100">
         <li class="nav-item">
-            <a class="nav-link" href="#">Add New Items</a>
+            <a class="nav-link" href=#>Add Items</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Remove Items</a>
+            <a class="nav-link" href=#>Remove Items</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Edit Items</a>
+            <a class="nav-link" href=#>Edit Items</a>
         </li>
     </ul>
 </nav>
 
 
 <div class = "container">
-    <!-- Load icon library -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- The form -->
     <form class="example" action="action_page.php">
@@ -425,9 +418,8 @@
 </div>
 
 
-
 <nav class="navbar navbar-expand-sm navbar-custom fixed-bottom">
-    <ul class="navbar-nav navbar-center">
+    <ul class="navbar-nav nav-fill w-100">
         <li class="nav-item">
             <a class="nav-link" href="{% url 'home' %}">Home</a>
         </li>
