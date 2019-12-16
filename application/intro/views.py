@@ -6,64 +6,78 @@ import mysql.connector
 from mysql.connector import errorcode
 import re
 
-from .forms import SearchForm
 
 DB_NAME = 'test'
-table_description = "CREATE TABLE Refridgerator (Item_Name VARCHAR(100), Purchase_Date DATE, Expiration_Date DATE, Calories INT)"
+table_description = "CREATE TABLE Refridgerator(Item_Name VARCHAR(100), \
+Purchase_Date DATE, Expiration_Date DATE, Calories INT)"
 
-cnx = mysql.connector.connect(user='websitedb', password='sql2019')
+cnx = mysql.connector.connect(user='root', password='mysql2019')
 cursor = cnx.cursor()
 
-test_json = [{"name": "apple", "date":"11/22/33", "data2":"99/88/77", "calories": 500}, 
-            {"name": "banana", "date":"11/22/33", "data2":"99/88/77", "calories": 500},
-            {"name": "strawberry", "date":"11/22/33", "data2":"99/88/77", "calories": 500},
-            {"name": "orange", "date":"11/22/33", "data2":"99/88/77", "calories": 500} ]
-total_calorie = 0 #total refridgerator calorie
-
-
+test_json = {"name": "apple", "date": "11/22/33",
+             "data2": "99/88/77", "calories": 500},
+{"name": "banana", "date": "11/22/33", "data2": "99/88/77", "calories": 500},
+{"name": "strawberry", "date": "11/22/33",
+         "data2": "99/88/77", "calories": 500},
+{"name": "orange", "date": "11/22/33", "data2": "99/88/77", "calories": 500}\
+# total_calorie = 0  # total refridgerator calorie
 
 
 def index(request):
     return render(request, 'intro/welcome.html')
 
+
 def anne(request):
     return render(request, 'intro/anne.html')
+
 
 def abdi(request):
     return render(request, 'intro/abdi.html')
 
+
 def carolyn(request):
     return render(request, 'intro/carolyn.html')
+
 
 def ibrahim(request):
     return render(request, 'intro/ibrahim.html')
 
+
 def john(request):
     return render(request, 'intro/john.html')
+
 
 def surabhi(request):
     return render(request, 'intro/surabhi.html')
 
+
 def tianrong(request):
     return render(request, 'intro/tianrong.html')
+
 
 def Note1(request):
     return render(request, 'intro/Note1.html')
 
+
 def Note2(request):
     return render(request, 'intro/Note2.html')
+
 
 def Note3(request):
     return render(request, 'intro/Note3.html')
 
+
 def main_page(request):
     return render(request, 'webpage/Welcome.html')
+
 
 def profile_page(request):
     return render(request,'webpage/profile.html')
 
+
 def home_page(request):
     return render(request, 'webpage/home.html')
+
 
 def refrigerator(request):
     return render(request, 'webpage/refrigerator.html')
@@ -71,20 +85,19 @@ def refrigerator(request):
 def shoppingList(request):
     return render(request, 'webpage/ShoppingList.html')
 
+
 def create_database(cursor):
     try:
         cursor.execute(
             "CREATE DATABASE {} DEFAULT CHARACTER SET 'utf8'".format(DB_NAME))
     except mysql.connector.Error as err:
         print("Failed creating database: {}".format(err))
-        
-
+      
 
 def addItem(request):
 
     cnx = mysql.connector.connect(user='websitedb', password='sql2019')
-    cursor = cnx.cursor()
-    
+    cursor = cnx.cursor()  
     if 'upload' in request.POST:
 
         try:
@@ -99,27 +112,22 @@ def addItem(request):
         s = {}
         #Tabscanner API post endpoint
         URL_post = 'https://api.tabscanner.com/KuxAxBfl8w4FvTaNwqwHD3ajxzQBOoyVuaYqRXcgUPKQbtPezCMmxBloThkV3Ico/process'
-        
+
         myImage = request.FILES['myfile'] #uploaded image
         headers = {'content-type': 'application/x-www-form-urlencoded'}
         files = {'receiptImage': myImage}
         r = requests.post(url=URL_post, files=files) #json api processing result
         json_data = json.loads(r.text)
-        token = json_data['token']
-        
+        token = json_data['token'] 
         URL_get = 'https://api.tabscanner.com/KuxAxBfl8w4FvTaNwqwHD3ajxzQBOoyVuaYqRXcgUPKQbtPezCMmxBloThkV3Ico/result/' + token #receipt json data
         j = requests.get(url=URL_get)
         result_json = json.loads(j.text)
         while(result_json['status'] == "pending"):
-            #print("pending")
+            # print("pending")
             j = requests.get(url=URL_get)
             result_json = json.loads(j.text)
 
-        
-
-        #print(r1.text)
-
-
+        # print(r1.text)
 
         try:
             cursor.execute("USE {}".format(DB_NAME))
@@ -166,21 +174,19 @@ def addItem(request):
             r1 = requests.post(nutr_url, headers=headers, data=data, json=body)
             nutr_data = json.loads(r1.text)
             output = re.sub('[^A-Za-z]+', ' ', items["descClean"])
-            #print(r1.text)
+            # print(r1.text)
             print(output)
             try:
-                cursor.execute("INSERT INTO Refridgerator (Item_Name, Purchase_Date, Expiration_Date, Calories) VALUES ('{}','9999-12-30', '9999-12-31', {})".format(output, nutr_data["foods"][0]["nf_calories"]))
+                cursor.execute("INSERT INTO Refridgerator (Item_Name, Purchase_Date, \
+                                Expiration_Date, Calories) VALUES ('{}','9999-12-30', '9999-12-31', {})".format(output,
+                                nutr_data["foods"][0]["nf_calories"]))
             except KeyError as err:
-                print(err)
-            
-                #print(j.text)
+                print(err)      
+                # print(j.text)
 
         cnx.commit()
         cursor.close()
         cnx.close()
-
-        
-
     if 'search' in request.POST:
 
         result_json = {}
@@ -195,7 +201,8 @@ def addItem(request):
         try:
             cursor.execute("USE {}".format(DB_NAME))
 
-            cursor.execute("SELECT EXISTS(SELECT * from Refridgerator WHERE Item_Name='{}') 'utf8'".format(item))
+            cursor.execute("SELECT EXISTS(SELECT * from Refridgerator \
+            WHERE Item_Name='{}') 'utf8'".format(item))
             row = cursor.fetchone()
 
             if row[0] == 1:
@@ -210,16 +217,11 @@ def addItem(request):
                 search = json.loads(txt)
         except mysql.connector.Error as err:
             print("Error {}".format(err))
-
-
         cursor.close()
         cnx.close()
-
-
     cnx = mysql.connector.connect(user='websitedb', password='sql2019')
     cursor = cnx.cursor()
-    
-    try: 
+    try:
         cursor.execute("USE {}".format(DB_NAME))
         cursor.execute("SELECT * FROM Refridgerator")
         table = cursor.fetchall()
@@ -232,8 +234,7 @@ def addItem(request):
     cnx.commit()
     cursor.close()
     cnx.close()
-        
 
-    return render(request, 'webpage/addItem.html',{'list2': table})
+    return render(request, 'webpage/addItem.html', {'list2': table})
 
-
+    return render(request, 'webpage/addItem.html', {'list2': table})

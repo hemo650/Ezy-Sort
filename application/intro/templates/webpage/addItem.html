@@ -76,15 +76,22 @@
     /******************/
     table {
         border: 1px solid #484349;
+        border-collapse:collapse;
+        border-left: 0px;
+        border-top: 0px;
         background-color: #EFF3F4;
         width: 100%;
     }
 
     td {
         border: 1px solid #484349;
+        border-collapse:collapse;
+        border-left: 0px;
+        border-top: 0px;
         background-color: #EFF3F4;
         width: 25%
     }
+
 
     /*********************/
     .navbar {
@@ -120,6 +127,107 @@
         width: 33%;
         height: 50px;
     }
+
+    input {
+    border: 0;
+    background: transparent;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 40px;
+    }
+
+    input:focus{
+    outline: 0;
+    }
+
+    .input-placeholder{
+    margin: 20px 40px;
+    background-color: white;/*#eee;*/
+    display: inline-block;
+    /*padding: 10px;*/
+    border: 1px solid #DBDBDB;
+    /*float: left;*/
+    /*position: center;*/
+    /*text-align: center;*/
+    width: 90%;  
+    }
+
+    .button {
+    /*background-color: #4CAF50; /* Green */*/
+    border: none;
+    color: white;
+    /*padding: 20px;*/
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    /*margin: 0px 20px;*/
+    cursor: pointer;
+    }
+
+    .button1 {margin: 0% 12%;}
+    .button2 {margin: 0% 12%;}
+    .button3 {
+    margin: 0% 12%;
+    background-color: #4FE2A4;
+    border-radius: 50%;
+    }
+    .button4 {
+        position: absolute;
+        bottom: 60px;
+        right: 80px;
+        height: 70px;
+    }
+    .button5{
+        position: absolute;
+        bottom: 60px;
+        right: 0px;
+        height: 70px;
+    }
+
+
+    /* **************************  Test   **************************** */
+   
+      /* Position the Popup form */
+      .login-popup {
+      position: relative;
+      text-align: center;
+      width: 100%;
+      }
+      /* Hide the Popup form */
+      .form-popup {
+      display: none;
+      position: fixed;
+      left: 45%;
+      top:5%;
+      transform: translate(-45%,5%);
+      border: 2px solid #666;
+      z-index: 9;
+      background-color: #DBDBDB;
+      }
+      /* Styles for the form container */
+      .form-container {
+      max-width: 300px;
+      padding: 20px;
+      background-color: #fff;
+      }
+      /* Full-width for input fields */
+      .form-container input[type=text], .form-container input[type=password] {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0 22px 0;
+      border: none;
+      background: #eee;
+      }
+      /* When the inputs get focus, do something */
+      .form-container input[type=text]:focus, .form-container input[type=password]:focus {
+      background-color: #ddd;
+      outline: none;
+      }
 
     </style>
 </head>
@@ -157,11 +265,84 @@
         }
         </script>
 
+<<<<<<< HEAD
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %} 
+=======
+    <div class="input-placeholder">
+    <input class="col-lg-3 col-md-3 col-sm-5 col-xs-5 form-control" type="text" name="searchroleName" id="searchroleName" placeholder="Input Field" />
+    </div>
+
+    <!--  ***************************** Testing Code**************************** -->
+   
+    <div class="open-btn">
+      <button class="open-button" onclick="openForm()"><strong>Upload File</strong></button>
+    </div>
+
+    <div class="login-popup">
+      <div class="form-popup" id="popupForm">
+        <!-- <form action="/action_page.php" class="form-container">
+          <h2>Please Log in</h2>
+          <label for="email">
+          <strong>E-mail</strong>
+          </label>
+          <input type="text" id="email" placeholder="Your Email" name="email" required>
+          <label for="psw">
+          <strong>Password</strong>
+          </label>
+          <input type="password" id="psw" placeholder="Your Password" name="psw" required>
+          <button type="submit" class="btn">Log in</button>
+          <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form> -->
+        <form method="post" enctype="multipart/form-data" >
+            <strong>Choose File</strong>
+            <input type="file" name="myfile" accept="image/*" id="image">
+            <button type="submit" name="upload">Upload</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form> 
+      </div>
+    </div>
+
+    <script>
+      function openForm() {
+        document.getElementById("popupForm").style.display="block";
+      }
+      
+      function closeForm() {
+        document.getElementById("popupForm").style.display="none";
+      }
+    </script>
+
+    <!-- ********************* -->
+
+    <!-- ***************************** Also Testing Code ****************** -->
+<!-- 
+    <button href="print.html"  
+    onclick="window.open('print.html', 
+                         'newwindow', 
+                         'width=300,height=250'
+                         ); 
+              return false;"
+    >Print</button>
+
+    <script type="">
+        function myFunction() {
+            var myWindow = window.open("", "myWindow", "width=200,height=100");
+            myWindow.document.write("<p>This is 'myWindow'</p>");
+        }
+    </script> -->
+
+    <!-- **************************  End of Testing ********************* -->
+
+<!-- 
+     <form method="post" enctype="multipart/form-data">
+>>>>>>> f5d968daad9f31d7b824dcdf2b278d803a5057db
         <input type="file" name="myfile" accept="image/*" id="image">
         <button type="submit" name="upload">Upload</button>
-    </form>
+    </form> 
+ -->
+
+
 
     <body onload="startTime()">
 
@@ -170,10 +351,15 @@
         </body>
 
     <div class="three-icons">
-        <button class="icons" type="submit"><i class="fa fa-camera"></i></button>
+        <!-- <button class="icons" type="submit"><i class="fa fa-camera"></i></button>
         <button class="icons" type="submit"><i class="fa fa-barcode"></i></button>
-        <button class="icons" type="submit"><i class="fa fa-microphone"></i></button>
+        <button class="icons" type="submit"><i class="fa fa-microphone"></i></button> -->
+        
     </div>
+
+    <img class="button button2" src="https://img.icons8.com/plasticine/100/000000/camera.png">
+    <img class="button button1" src="https://img.icons8.com/pastel-glyph/64/000000/barcode-scanner--v2.png">
+    <img class="button button3" src="https://img.icons8.com/cotton/64/000000/microphone.png">
 
     <table id="myTable">
          <!-- <tr>
@@ -182,23 +368,28 @@
             <th>Expiration Date</th>
         </tr> -->
         <tr>
-            <td>Items</td>
-            <td>Purchase Date</td>
+            <td>Name</td>
+            <td>Qty</td>
             <td>Expiration Date</td>
-            <td>Calories</td>
+            <td>Price</td>
         </tr>
-        {% for key in list2 %}
-            <tr>
+      <!--   {% for key in list2 %} -->
+           <!--  <tr>
                 <td>{{key.0}}</td>
                 <td>{{key.1}}</td>
                 <td>{{key.2}}</td>
                 <td>{{key.3}}</td>
-            </tr>
-        {% endfor %}
+                <td>{{hek.4}}</td>
+            </tr> -->
+        <!-- {% endfor %} -->
     </table>
 
-    <button onclick="myCreateFunction()">Create row</button>
-    <button onclick="myDeleteFunction()">Delete row</button>
+    <!-- <button onclick="myCreateFunction()">Create row</button>
+    <button onclick="myDeleteFunction()">Delete row</button> -->
+
+
+    <img class="button button5" src="https://img.icons8.com/pastel-glyph/64/000000/cancel.png">
+    <img class="button button4" src="https://img.icons8.com/ios/100/000000/ok.png">
 
 
     <div class="navbar">
@@ -208,7 +399,7 @@
     </div>
 
 
-    <script>
+  <!--   <script>
     function myCreateFunction(name, date, date2, cal) {
         var table = document.getElementById("myTable");
         var row = table.insertRow(-1); // 0
@@ -225,8 +416,9 @@
     function myDeleteFunction() {
         document.getElementById("myTable").deleteRow(1);
     }
-    </script>
+    </script> -->
 
 
+    
 </body>
 </html>
