@@ -10,6 +10,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <title>Refrigerator</title>
     <style>
+
         /* Add a black background color to the top navigation */
         body {font-family: 'Josefin Sans', sans-serif, sans-serif;}
 
@@ -17,6 +18,7 @@
         * {
             box-sizing: border-box;
         }
+
         /* Style the search field */
         form.example input[type=text] {
             padding: 10px;
@@ -26,6 +28,7 @@
             width: 80%;
             background: #f1f1f1;
         }
+
         /* Style the submit button */
         form.example button {
             float: left;
@@ -41,34 +44,46 @@
         form.example button:hover {
             background: #0b7dda;
         }
+
         /* Clear floats */
         form.example::after {
             content: "";
             clear: both;
             display: table;
         }
+
         /******************/
+
+        /*Style for table*/
         table {
-            border: 1px solid #484349;
-            border-collapse:collapse;
-            border-left: 0px;
-            border-top: 0px;
-            background-color: #F4F3EE;
-            /* background-color: #DBDBDB;*/
+            background-color: #EFF3F4;
             width: 100%;
         }
+
+        th {
+            font-size: 130%;
+            border: 1px solid #484349;
+            border-top: none;
+        }
+
         td {
             border: 1px solid #484349;
-            border-collapse:collapse;
-            border-left: 0px;
-            border-top: 0px;
-            background-color: #F4F3EE;
-            /*background-color: #DBDBDB;*/
-            width: 25%
+            background-color: #EFF3F4;
+            width: 25%;
+            font-size: 110%;
+            border-bottom: none;
         }
-        .tableRow {
-            background-color: black;
+
+        td:first-child,
+        th:first-child,
+        td:last-child,
+        th:last-child{
+            border-left: none;
+            border-right: none;
         }
+
+
+
         /*********************/
         .navbar-custom {
             background-color: #B3D8E0;
@@ -91,13 +106,12 @@
         }
 
         /* ******************* */
+
         input {
             border: 0;
             background: transparent;
             -webkit-appearance: none;
             -moz-appearance: none;
-            -ms-appearance: none;
-            -o-appearance: none;
             appearance: none;
         }
         input:focus{
@@ -105,7 +119,7 @@
         }
         .input-placeholder{
             margin: 20px 0px;
-            background-color: white;/*#eee;*/
+            background-color: white;
             display: inline-block;
             padding: 10px;
             border: 1px solid #DBDBDB;
@@ -118,7 +132,7 @@
         }
 
         .container {
-            margin-top: 23%;
+            margin-top: 12%;
         }
     </style>
 </head>
@@ -151,22 +165,16 @@
 <div class="input-placeholder">
     <input class="col-lg-3 col-md-3 col-sm-5 col-xs-5 form-control" type="text" name="searchroleName" id="searchroleName"/> <span class="icon"> <span class="fa fa-search form-control-feedback"></span> </span>
 </div>
-<!-- ******************************** -->
 
 <table id="myTable">
-    <!-- <tr>
-       <th>Name</th>
-       <th>Qty</th>
-       <th>Expiration Date</th>
-   </tr> -->
-    <tr class="tableRow">
-        <td>Items</td>
-        <td>Purchase Date</td>
-        <td>Expiration Date</td>
-        <td>Calories</td>
+    <tr>
+        <th>Items</th>
+        <th>Purchase Date</th>
+        <th>Expiration Date</th>
+        <th>Calories</th>
     </tr>
     {% for key in inventory %}
-    <tr class="subRow">
+    <tr>
         <td>{{key.0}}</td>
         <td>{{key.1}}</td>
         <td>{{key.2}}</td>
