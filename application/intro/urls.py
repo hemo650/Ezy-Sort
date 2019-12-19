@@ -23,5 +23,5 @@ urlpatterns = [
     path('refrigerator/search/', views.showItems, name='showItems'),
     path('refridgerator/', views.inventory, name='refrigerator'),
     path('register/', views.register, name='register'),
-
+    path('login/', views.login, name='login'),
 ]
