@@ -19,9 +19,6 @@ urlpatterns = [
     path('home/', views.home_page, name='home'),
     path('refrigerator/', views.addItem, name='refrigerator'),
     path('shoppingList/', views.shoppingList, name='shoppingList'),
-<<<<<<< HEAD
-
-=======
     path('refrigerator/upload', views.searchbar, name='searchbar'),
     path('refrigerator/search/', views.showItems, name='showItems'),
     path('refridgerator/', views.inventory, name='refrigerator'),
@@ -30,5 +27,4 @@ urlpatterns = [
     path('info/', views.infoPage, name='info'),
     path('register/', views.register, name='register'),
     path('login/', views.login, name='login'), #when login page needs to be directly acccessed
->>>>>>> 48d64a94508b6a0127d5b4d9ce977544f134cfc6
 ]
