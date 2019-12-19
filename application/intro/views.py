@@ -114,6 +114,10 @@ def create_database(cursor):
         print("Failed creating database: {}".format(err))
 
 
+def removeItem(request):
+    return render(request, 'webpage/removeItem.html')
+
+
 def addItem(request):
     cnx = mysql.connector.connect(user='websitedb', password='sql2019')
     cursor = cnx.cursor()

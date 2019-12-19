@@ -22,5 +22,6 @@ urlpatterns = [
     path('refrigerator/upload', views.searchbar, name='searchbar'),
     path('refrigerator/search/', views.showItems, name='showItems'),
     path('refridgerator/', views.inventory, name='refrigerator'),
+    path('removeItem/', views.removeItem, name='removeItem'),
 
 ]
