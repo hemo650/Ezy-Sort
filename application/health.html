@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EzySort</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+        .navbar-custom {
+            background-color: #B3D8E0;
+            height: 10%;
+        }
+        .nav-item a{
+            color: #484349;
+            font-size: 20px;
+            font-weight: 600;
+            transition: .5s ease;
+            margin-right: 100px;
+            margin-left: 100px;
+        }
+        .navbar-center {
+            position: absolute;
+            left: 50%;
+            transform: translatex(-50%);
+        }
+        .navbar-nav .nav-item a:hover{
+            color: #999999;
+        }
+
+        .nav-logo {
+            font-size: 20px;
+            font-weight: 600;
+            background-color: #EFF3F4;
+        }
+
+        .container {
+            margin-top: 100px;
+        }
+        body {font-family: 'Josefin Sans', sans-serif, sans-serif;}
+
+    </style>
+
+</head>
+
+
+<body>
+
+<nav class="navbar navbar-expand-sm navbar-custom fixed-top">
+
+    <ul class="navbar-nav navbar-center">
+        <li class="nav-item">
+            <a class="nav-link" href="#">Share</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Remove</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Edit</a>
+        </li>
+    </ul>
+</nav>
+<br><br><br>
+<center>
+
+
+
+
+</center>
+<div class="container">
+    <h2>Items Conusmed In The Past Month</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Calories</th>
+            <th>Other Information</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Potatoes</td>
+            <td>10</td>
+            <td>
+<a href="{% url 'info' %}"><button>Information</button></a> </td>
+        </tr>
+        <tr>
+            <td>Pizza</td>
+            <td>100</td>
+            <td><a href="{% url 'info' %}"><button>Information</button></a></td>
+        </tr>
+        <tr>
+            <td>...</td>
+            <td>...</td>
+            <td>...</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<nav class="navbar navbar-expand-sm navbar-custom fixed-bottom">
+    <ul class="navbar-nav navbar-center">
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'home' %}">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'refrigerator' %}">Refrigerator</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+        </li>
+    </ul>
+</nav>
+
+
+</nav>
+
+</body>
+
+</html>
