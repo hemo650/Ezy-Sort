@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -455,4 +456,518 @@
 <!--JavaScript at end of body for optimized loading-->
 <script type="text/javascript" src="js/materialize.min.js"></script>
 </body>
+=======
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Item Page</title>
+    <style>
+
+
+        /********************/
+        * {
+            box-sizing: border-box;
+        }
+
+            .b {
+            background-color: #B3D8E0;
+            display: inline-block;
+            width: 33%;
+            padding: 14px 16px;
+            border: #B3D8E0;
+            text-align: center;
+            cursor: pointer;
+            font-weight: bolder;
+            font-size: larger;
+        }
+
+        /* Style the search field */
+        form.example input[type=text] {
+            padding: 10px;
+            font-size: 17px;
+            border: 1px solid grey;
+            float: left;
+            width: 80%;
+            background: #f1f1f1;
+        }
+
+        /* Style the submit button */
+        form.example button {
+            float: left;
+            width: 20%;
+            padding: 10px;
+            background: #2196F3;
+            color: white;
+            font-size: 17px;
+            border: 1px solid grey;
+            border-left: none; /* Prevent double borders */
+            cursor: pointer;
+        }
+
+        form.example button:hover {
+            background: #0b7dda;
+        }
+
+        /* Clear floats */
+        form.example::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        /******************/
+
+        /*Style for table*/
+        table {
+            background-color: #EFF3F4;
+            width: 100%;
+        }
+
+        th {
+            font-size: 100%;
+            border: 1px solid #484349;
+            border-top: none;
+        }
+
+        td {
+            border: 1px solid #484349;
+            background-color: #EFF3F4;
+            width: 25%;
+            font-size: 80%;
+            border-bottom: none;
+        }
+
+        td:first-child,
+        th:first-child,
+        td:last-child,
+        th:last-child{
+            border-left: none;
+            border-right: none;
+        }
+
+
+        /*********************/
+
+        /*Style for navigation bar*/
+           .navbar-custom {
+            background-color: #B3D8E0;
+            height: 12%;
+        }
+
+        .nav-item a {
+            color: #484349;
+            font-size: large;
+            font-weight: 600;
+            transition: .5s ease;
+        }
+
+
+        .navbar-nav .nav-item a:hover {
+            color: #999999;
+        }
+
+        .navbar-nav {
+            flex-direction: row;
+        }
+
+        .three-icons {
+            width: 100%;
+            height: 50px;
+        }
+
+        /******************************/
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 33.33%;
+  padding: 5px;
+}
+
+        /*****************************/
+        .container {
+            margin-top: 15%;
+
+        }
+
+        .icons {
+            width: 33%;
+            height: 50px;
+        }
+        body {font-family: 'Josefin Sans', sans-serif, sans-serif;}
+
+        input:focus{
+            outline: 0;
+        }
+
+        .input-placeholder{
+            margin: 20px 40px;
+            background-color: white;/*#eee;*/
+            display: inline-block;
+            /*padding: 10px;*/
+            border: 1px solid #DBDBDB;
+            /*float: left;*/
+            /*position: center;*/
+            /*text-align: center;*/
+            width: 90%;
+        }
+
+        .button {
+            /*background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            /*padding: 20px;*/
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+
+            /*margin: 0px 20px;*/
+            cursor: pointer;
+
+        }
+
+
+        .button1 {
+            margin: 0% 12%;
+            height: 95%;
+        }
+
+        .button2 {
+            margin: 0% 12%;
+        }
+
+
+        .button3 {
+            margin-top: 10%;
+            margin: 0% 12%;
+            background-color: #4FE2A4;
+            border-radius: 60%;
+            height: 80%;
+        }
+
+        .button4 {
+            position: absolute;
+            bottom: 60px;
+            right: 80px;
+            height: 80px;
+            width: 80px;
+            background-image: url(https://img.icons8.com/ios/100/000000/ok.png);
+            background-color: rgb(255, 255, 255);
+            background-size: cover;
+
+
+
+        }
+        .button5{
+            position: absolute;
+            bottom: 60px;
+            right: 0px;
+            height: 80px;
+            width: 80px;
+            background-image: url(https://img.icons8.com/pastel-glyph/64/000000/cancel.png);
+            background-color: rgb(255, 255, 255);
+            background-size: cover;
+        }
+
+
+        /* **************************  Test   **************************** */
+
+        /* Position the Popup form */
+        .login-popup {
+            position: relative;
+            text-align: center;
+            width: 100%;
+        }
+        /* Hide the Popup form */
+        .form-popup {
+            display: none;
+            position: fixed;
+            left: 45%;
+            top:5%;
+            transform: translate(-45%,5%);
+            border: 2px solid #666;
+            z-index: 9;
+            background-color: #DBDBDB;
+        }
+
+        /* Full-width for input fields */
+        .form-container input[type=text], .form-container input[type=password] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 22px 0;
+            border: none;
+            background: #eee;
+        }
+        /* When the inputs get focus, do something */
+        .form-container input[type=text]:focus, .form-container input[type=password]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+        h6{
+            z-index: 999;
+        }
+        .b{
+            background-color: #B3D8E0;
+            display: inline-block;
+            font-size: 20px;
+            width: 33%;
+            padding: 14px 16px;
+            border:#B3D8E0 ;
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<h6>SFSU Software Engineering Project CSC 648-848, Fall 2019.  For Demonstration Only</h6>
+
+<nav class="navbar navbar-expand-sm navbar-custom fixed-top">
+    <ul class="navbar-nav nav-fill w-100">
+
+        <li class="nav-item">
+            <a class="nav-link" href=#>Add Items</a>
+        </li>
+        <li class="nav-item">
+            <button class="b">Remove Items</button>
+        </li>
+        <li class="nav-item">
+            <button class="b">Edit Items</button>
+        </li>
+
+    </ul>
+</nav>
+
+
+<div class = "container">
+
+    <!-- The form -->
+    <form class="example" action="action_page.php">
+        <input type="text" placeholder="Search.." name="search">
+        <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+
+    <script>
+        function startTime() {
+            var today = new Date();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            m = checkTime(m);
+            s = checkTime(s);
+            document.getElementById('txt').innerHTML =
+                h + ":" + m + ":" + s;
+            var t = setTimeout(startTime, 500);
+        }
+        function checkTime(i) {
+            if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+            return i;
+        }
+    </script>
+
+
+    <div class="input-placeholder">
+
+        <input class="col-lg-3 col-md-3 col-sm-5 col-xs-5 form-control" type="text" name="searchroleName" id="searchroleName" placeholder="Input Field" />
+    </div>
+
+    <form action="searchbar" method="POST">
+        {% csrf_token %}
+        {{ searchform }}
+    </form>
+
+
+    <!--  ***************************** Testing Code**************************** -->
+
+    <div class="open-btn">
+        <button class="open-button" onclick="openForm()"><strong>Upload File</strong></button>
+    </div>
+
+    <div class="login-popup">
+        <div class="form-popup" id="popupForm">
+            <!-- <form action="/action_page.php" class="form-container">
+              <h2>Please Log in</h2>
+              <label for="email">
+              <strong>E-mail</strong>
+              </label>
+              <input type="text" id="email" placeholder="Your Email" name="email" required>
+              <label for="psw">
+              <strong>Password</strong>
+              </label>
+              <input type="password" id="psw" placeholder="Your Password" name="psw" required>
+              <button type="submit" class="btn">Log in</button>
+              <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </form> -->
+            <form action="" method="POST" enctype="multipart/form-data" >
+                {% csrf_token %}
+
+                <strong>Choose File</strong>
+                {{ form }}
+                <!-- <input type="file" name="upload" accept="image/*" id="image"> -->
+                <button type="submit" name="upload">Upload</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openForm() {
+            document.getElementById("popupForm").style.display="block";
+        }
+
+        function closeForm() {
+            document.getElementById("popupForm").style.display="none";
+        }
+    </script>
+
+    <!-- ********************* -->
+
+    <!-- ***************************** Also Testing Code ****************** -->
+    <!--
+        <button href="print.html"
+        onclick="window.open('print.html',
+                             'newwindow',
+                             'width=300,height=250'
+                             );
+                  return false;"
+        >Print</button>
+
+        <script type="">
+            function myFunction() {
+                var myWindow = window.open("", "myWindow", "width=200,height=100");
+                myWindow.document.write("<p>This is 'myWindow'</p>");
+            }
+        </script> -->
+
+    <!-- **************************  End of Testing ********************* -->
+
+    <!--
+         <form method="post" enctype="multipart/form-data">
+            <input type="file" name="myfile" accept="image/*" id="image">
+            <button type="submit" name="upload">Upload</button>
+        </form>
+     -->
+
+
+
+    <!-- <form action="" method="POST">
+            {% csrf_token %}
+            {{ form }}
+        <button action="upload" type="submit" name="upload">Search</button>
+
+    </form> -->
+
+
+    <body onload="startTime()">
+
+    <div id="txt"></div>
+
+    </body>
+
+    <div class="three-icons">
+        <!-- <button class="icons" type="submit"><i class="fa fa-camera"></i></button>
+        <button class="icons" type="submit"><i class="fa fa-barcode"></i></button>
+        <button class="icons" type="submit"><i class="fa fa-microphone"></i></button> -->
+
+    </div>
+
+    <div class="row">
+        <div class="column button">
+<img class=" button2" src="https://img.icons8.com/plasticine/100/000000/camera.png">
+  </div>
+  <div class="column button ">
+    <img class="button1" src="https://img.icons8.com/pastel-glyph/64/000000/barcode-scanner--v2.png">
+  </div>
+  <div class="column button ">
+    <img class="button3" src="https://img.icons8.com/cotton/64/000000/microphone.png">
+  </div>
+</div>
+
+
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <table id="myTable">
+            <tr>
+                <th>ID Number</th>
+                <th>Name</th>
+                <th>Purchase Date</th>
+                <th>Expiration Date</th>
+                <th>Calories</th>
+            </tr>
+            {% for items, key in scannedItems.items %}
+            <tr>
+                <td><input type="checkbox" id="sjk" value="{{key.item_id}}" name="boxes" unchecked>
+                    <label for="scales"> {{key.item_id}} </label></td>
+                <td>{{key.item_name}}</td>
+                <td>{{key.pur_date}}</td>
+                <td>{{key.exp_date}}</td>
+                <td>{{key.cal}}</td>
+
+            </tr>
+            {% endfor %}
+        </table>
+
+
+        <button type="image" class="button button5" src="https://img.icons8.com/pastel-glyph/64/000000/cancel.png" name="delete"></button>
+        <!-- <input type="image" name="insert" alt="Submit" class="button button4" src="https://img.icons8.com/ios/100/000000/ok.png">
+         -->
+        <button type="image" class="button button4" src="https://img.icons8.com/ios/100/000000/ok.png" name="insert"></button>
+    </form>
+</div>
+
+
+<nav class="navbar navbar-expand-sm navbar-custom fixed-bottom">
+    <ul class="navbar-nav nav-fill w-100">
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'home' %}">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'refrigerator' %}">Refrigerator</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+        </li>
+    </ul>
+</nav>
+
+
+<script>
+    function myCreateFunction(name, date, date2, cal) {
+        var table = document.getElementById("myTable");
+        var row = table.insertRow(-1); // 0
+        var cell1 = row.insertCell(-1); // 0
+        var cell2 = row.insertCell(-1); // 1
+        var cell3 = row.insertCell(-1); // 1
+        var cell4 = row.insertCell(-1);
+        cell1.innerHTML = name;
+        cell2.innerHTML = date;
+        cell3.innerHTML = data2;
+        cell4.innerHTML = cal;
+    }
+
+    function myDeleteFunction() {
+        var Parent = document.getElementById("myTable");
+        while(Parent.hasChildNodes())
+        {
+            Parent.removeChild(Parent.firstChild);
+        }
+    }
+</script>
+
+</body>
+
+<body>
+
+<!--JavaScript at end of body for optimized loading-->
+<script type="text/javascript" src="js/materialize.min.js"></script>
+</body>
+>>>>>>> 361a878f46cf08609a21cdb1844a98f10c738aa7
 </html>
