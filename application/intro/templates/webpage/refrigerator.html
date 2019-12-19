@@ -4,29 +4,33 @@
     <meta charset="UTF-8">
 
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Refrigerator</title>
     <style>
 
         /* Add a black background color to the top navigation */
-        body {font-family: 'Josefin Sans', sans-serif, sans-serif;}
+        body {
+            font-family: 'Josefin Sans', sans-serif, sans-serif;
+        }
 
         /********************/
         * {
             box-sizing: border-box;
         }
-        .b{
+
+        .b {
             background-color: #B3D8E0;
             display: inline-block;
-            font-size: 20px;
             width: 33%;
             padding: 14px 16px;
-            border:#B3D8E0 ;
+            border: #B3D8E0;
             text-align: center;
             cursor: pointer;
+            font-weight: bolder;
+            font-size: larger;
         }
 
         /* Style the search field */
@@ -51,6 +55,7 @@
             border-left: none; /* Prevent double borders */
             cursor: pointer;
         }
+
         form.example button:hover {
             background: #0b7dda;
         }
@@ -87,11 +92,10 @@
         td:first-child,
         th:first-child,
         td:last-child,
-        th:last-child{
+        th:last-child {
             border-left: none;
             border-right: none;
         }
-
 
 
         /*********************/
@@ -103,7 +107,7 @@
         .nav-item a {
             color: #484349;
             font-size: large;
-            font-weight: 600;
+            font-weight: bolder;
             transition: .5s ease;
         }
 
@@ -124,10 +128,12 @@
             -moz-appearance: none;
             appearance: none;
         }
-        input:focus{
+
+        input:focus {
             outline: 0;
         }
-        .input-placeholder{
+
+        .input-placeholder {
             margin: 20px 0px;
             background-color: white;
             display: inline-block;
@@ -136,17 +142,18 @@
             float: left;
             width: 100%;
         }
+
         .icon {
             color: #DBDBDB;
             float: right;
         }
 
         .container {
-            margin-top: 12%;
+            margin-top: 18%;
         }
 
 
-        h6{
+        h6 {
             z-index: 999;
         }
 
@@ -154,87 +161,90 @@
 </head>
 
 <body>
-<h6>SFSU Software Engineering Project CSC 648-848, Fall 2019.  For Demonstration Only</h>
-<nav class="navbar navbar-expand-sm navbar-custom fixed-top">
-    <ul class="navbar-nav nav-fill w-100">
-        <li class="nav-item">
-            <a class="nav-link" href=#>Add Items</a>
-        </li>
-        <li class="nav-item">
-            <button class="b">Remove Items</button>
-        </li>
-        <li class="nav-item">
-            <button class="b">Edit Items</button>
-        </li>
-    </ul>
-</nav>
+<h6>SFSU Software Engineering Project CSC 648-848, Fall 2019. For Demonstration Only</h6>
+    <nav class="navbar navbar-expand-sm navbar-custom fixed-top">
+        <ul class="navbar-nav nav-fill w-100">
+            <li class="nav-item">
+                <button class="b">Add Items</button>
+            </li>
+            <li class="nav-item">
+                <button class="b">Remove Items</button>
+            </li>
+            <li class="nav-item">
+                <button class="b">Edit Items</button>
+            </li>
+        </ul>
+    </nav>
 
-<div class="container">
+    <div class="container">
 
-<!-- The form -->
-<!-- <form class="example" action="action_page.php">
-    <input type="text" placeholder="Search.." name="search">
-    <button type="submit"><i class="fa fa-search"></i></button>
-</form> -->
+        <!-- The form -->
+        <!-- <form class="example" action="action_page.php">
+            <input type="text" placeholder="Search.." name="search">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form> -->
 
-<!-- ********************************* -->
-<div class="input-placeholder">
-    <input class="col-lg-3 col-md-3 col-sm-5 col-xs-5 form-control" type="text" name="searchroleName" id="searchroleName"/> <span class="icon"> <span class="fa fa-search form-control-feedback"></span> </span>
-</div>
+        <!-- ********************************* -->
+        <div class="input-placeholder">
+            <input class="col-lg-3 col-md-3 col-sm-5 col-xs-5 form-control" type="text" name="searchroleName"
+                   id="searchroleName"/> <span class="icon"> <span
+                class="fa fa-search form-control-feedback"></span> </span>
+        </div>
 
-<table id="myTable">
-    <tr>
-        <th>Items</th>
-        <th>Purchase Date</th>
-        <th>Expiration Date</th>
-        <th>Calories</th>
-    </tr>
-    {% for key in inventory %}
-    <tr>
-        <td>{{key.0}}</td>
-        <td>{{key.1}}</td>
-        <td>{{key.2}}</td>
-        <td>{{key.3}}</td>
-    </tr>
-    {% endfor %}
-</table>
-<!--
-    <button onclick="myCreateFunction()">Create row</button>
-    <button onclick="myDeleteFunction()">Delete row</button>
+        <table id="myTable">
+            <tr>
+                <th>Items</th>
+                <th>Purchase Date</th>
+                <th>Expiration Date</th>
+                <th>Calories</th>
+            </tr>
+            {% for key in inventory %}
+            <tr>
+                <td>{{key.0}}</td>
+                <td>{{key.1}}</td>
+                <td>{{key.2}}</td>
+                <td>{{key.3}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <!--
+            <button onclick="myCreateFunction()">Create row</button>
+            <button onclick="myDeleteFunction()">Delete row</button>
 
-</div>
+        </div>
 
-    <script>
-    function myCreateFunction() {
-        var table = document.getElementById("myTable");
-        var row = table.insertRow(-1); // 0
-        var cell1 = row.insertCell(-1); // 0
-        var cell2 = row.insertCell(-1); // 1
-        var cell3 = row.insertCell(-1); // 1
-        var cell4 = row.insertCell(-1);
-        cell1.innerHTML = "NEW CELL1";
-        cell2.innerHTML = "NEW CELL2";
-        cell3.innerHTML = "NEW CELL3";
-        cell4.innerHTML = "New CELL4";
-    }
-    function myDeleteFunction() {
-        document.getElementById("myTable").deleteRow(1);
-    }
-    </script>
- -->
-</div>
+            <script>
+            function myCreateFunction() {
+                var table = document.getElementById("myTable");
+                var row = table.insertRow(-1); // 0
+                var cell1 = row.insertCell(-1); // 0
+                var cell2 = row.insertCell(-1); // 1
+                var cell3 = row.insertCell(-1); // 1
+                var cell4 = row.insertCell(-1);
+                cell1.innerHTML = "NEW CELL1";
+                cell2.innerHTML = "NEW CELL2";
+                cell3.innerHTML = "NEW CELL3";
+                cell4.innerHTML = "New CELL4";
+            }
+            function myDeleteFunction() {
+                document.getElementById("myTable").deleteRow(1);
+            }
+            </script>
+         -->
+    </div>
     <nav class="navbar navbar-expand-sm navbar-custom fixed-bottom">
-    <ul class="navbar-nav nav-fill w-100">
-        <li class="nav-item">
-            <a class="nav-link" href="{% url 'home' %}">Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{% url 'refrigerator' %}">Refrigerator</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{% url 'profile' %}">Profile</a>
-        </li>
-    </ul>
-</nav>
+        <ul class="navbar-nav nav-fill w-100">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'refrigerator' %}">Refrigerator</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+            </li>
+        </ul>
+    </nav>
 </body>
 </html>
+
