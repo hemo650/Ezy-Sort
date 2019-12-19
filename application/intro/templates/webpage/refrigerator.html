@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
 
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Refrigerator</title>
     <style>
     /* Add a black background color to the top navigation */
@@ -97,7 +97,7 @@
          border-top: 0px;
          background-color: #F4F3EE;
         /*background-color: #DBDBDB;*/
-        width: 25%
+        width: 20%
     }
 
     .tableRow {
@@ -126,15 +126,7 @@
     }
 
     /* ******************* */
-    input {
-    border: 0;
-    background: transparent;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -ms-appearance: none;
-    -o-appearance: none;
-    appearance: none;
-    }
+
 
     input:focus{
     outline: 0;
@@ -155,62 +147,229 @@
     float: right;
     }
 
+        /* Add a black background color to the top navigation */
+        body {
+            font-family: 'Josefin Sans', sans-serif, sans-serif;
+        }
+
+        /********************/
+        * {
+            box-sizing: border-box;
+        }
+
+        .b {
+            background-color: #B3D8E0;
+            display: inline-block;
+            width: 33%;
+            padding: 14px 16px;
+            border: #B3D8E0;
+            text-align: center;
+            cursor: pointer;
+            font-weight: bolder;
+            font-size: larger;
+        }
+
+        /* Style the search field */
+        form.example input[type=text] {
+            padding: 10px;
+            font-size: 17px;
+            border: 1px solid grey;
+            float: left;
+            width: 80%;
+            background: #f1f1f1;
+        }
+
+        /* Style the submit button */
+        form.example button {
+            float: left;
+            width: 20%;
+            padding: 10px;
+            background: #2196F3;
+            color: white;
+            font-size: 17px;
+            border: 1px solid grey;
+            border-left: none; /* Prevent double borders */
+            cursor: pointer;
+        }
+
+        form.example button:hover {
+            background: #0b7dda;
+        }
+
+        /* Clear floats */
+        form.example::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        /******************/
+
+        /*Style for table*/
+        table {
+            background-color: #EFF3F4;
+            width: 100%;
+        }
+
+        th {
+            font-size: 130%;
+            border: 1px solid #484349;
+            border-top: none;
+        }
+
+        td {
+            border: 1px solid #484349;
+            background-color: #EFF3F4;
+            width: 20%;
+            font-size: 110%;
+            border-bottom: none;
+        }
+
+        td:first-child,
+        th:first-child,
+        td:last-child,
+        th:last-child {
+            border-left: none;
+            border-right: none;
+        }
+
+
+        /*********************/
+        .navbar-custom {
+            background-color: #B3D8E0;
+            height: 12%;
+        }
+
+        .nav-item a {
+            color: #484349;
+            font-size: large;
+            font-weight: bolder;
+            transition: .5s ease;
+        }
+
+        .navbar-nav .nav-item a:hover {
+            color: #999999;
+        }
+
+        .navbar-nav {
+            flex-direction: row;
+        }
+
+        /* ******************* */
+
+        
+
+        input:focus {
+            outline: 0;
+        }
+
+        .input-placeholder {
+            margin: 20px 0px;
+            background-color: white;
+            display: inline-block;
+            padding: 10px;
+            border: 1px solid #DBDBDB;
+            float: left;
+            width: 100%;
+        }
+
+        .icon {
+            color: #DBDBDB;
+            float: right;
+        }
+
+        .container {
+            margin-top: 18%;
+        }
+
+
+        h6 {
+            z-index: 999;
+        }
+
     </style>
 </head>
 
 <body>
-    <div class="topnav">
-        <a href="{% url 'addItem' %}">Add New Items</a>
-        <a href="#removeItems">Remove Items</a>
-        <a href="#editItems">Edit Items</a>
+<<<<<<< HEAD
+<h6>SFSU Software Engineering Project CSC 648-848, Fall 2019. For Demonstration Only</h6>
+<form action="" method="POST">
+    {% csrf_token %}
+    <nav class="navbar navbar-expand-sm navbar-custom fixed-top">
+        <ul class="navbar-nav nav-fill w-100">
+            <li class="nav-item">
+                <a class="b" href="{% url 'addItem' %}">Add Items</a>
+            </li>
+            <li class="nav-item">
+                <button class="b" type="submit" name="delete">Remove Items</button>
+            </li>
+            <li class="nav-item">
+                <button class="b">Edit Items</button>
+            </li>
+        </ul>
+    </nav>
+</form>
+    <div class="container">
+
+        <!-- The form -->
+        <!-- <form class="example" action="action_page.php">
+            <input type="text" placeholder="Search.." name="search">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form> -->
+
+        <!-- ********************************* -->
+        <div class="input-placeholder">
+            <input class="col-lg-3 col-md-3 col-sm-5 col-xs-5 form-control" type="text" name="searchroleName"
+                   id="searchroleName"/> <span class="icon"> <span
+                class="fa fa-search form-control-feedback"></span> </span>
+        </div>
+
+        <table id="myTable">
+            <tr>
+                <th>ID Number</th>
+                <th>Items</th>
+                <th>Purchase Date</th>
+                <th>Expiration Date</th>
+                <th>Calories</th>
+            </tr>
+            {% for key in inventory %}
+            <tr>
+                <td><input style="font-size: 40px;" type="checkbox" id="sjk" value="{{key.item_id}}" name="boxes" unchecked>
+                    <label for="scales"> {{key.4}} </label></td>
+                <td>{{key.0}}</td>
+                <td>{{key.1}}</td>
+                <td>{{key.2}}</td>
+                <td>{{key.3}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <!--
+            <button onclick="myCreateFunction()">Create row</button>
+            <button onclick="myDeleteFunction()">Delete row</button>
+
+        </div>
+
+            <script>
+            function myCreateFunction() {
+                var table = document.getElementById("myTable");
+                var row = table.insertRow(-1); // 0
+                var cell1 = row.insertCell(-1); // 0
+                var cell2 = row.insertCell(-1); // 1
+                var cell3 = row.insertCell(-1); // 1
+                var cell4 = row.insertCell(-1);
+                cell1.innerHTML = "NEW CELL1";
+                cell2.innerHTML = "NEW CELL2";
+                cell3.innerHTML = "NEW CELL3";
+                cell4.innerHTML = "New CELL4";
+            }
+            function myDeleteFunction() {
+                document.getElementById("myTable").deleteRow(1);
+            }
+            </script>
+         -->
     </div>
-
-    <!-- Load icon library -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <!-- The form -->
-    <!-- <form class="example" action="action_page.php">
-        <input type="text" placeholder="Search.." name="search">
-        <button type="submit"><i class="fa fa-search"></i></button>
-    </form> -->
-
-    <!-- ********************************* -->
-    <div class="input-placeholder">
-    <input class="col-lg-3 col-md-3 col-sm-5 col-xs-5 form-control" type="text" name="searchroleName" id="searchroleName"/> <span class="icon"> <span class="fa fa-search form-control-feedback"></span> </span>
-    </div>
-    <!-- ******************************** -->
-
-    <table id="myTable">
-         <!-- <tr>
-            <th>Name</th>
-            <th>Qty</th>
-            <th>Expiration Date</th>
-        </tr> -->
-        <tr class="tableRow">
-            <td>Items</td>
-            <td>Purchase Date</td>
-            <td>Expiration Date</td>
-            <td>Calories</td>
-        </tr>
-        {% for key in inventory %}
-        <tr class="subRow">
-            <td>{{key.0}}</td>
-            <td>{{key.1}}</td>
-            <td>{{key.2}}</td>
-            <td>{{key.3}}</td>
-        </tr>
-        {% endfor %}
-    </table>
-<!-- 
-    <button onclick="myCreateFunction()">Create row</button>
-    <button onclick="myDeleteFunction()">Delete row</button>
-
- 
-
-
-
     <nav class="navbar navbar-expand-sm navbar-custom fixed-bottom">
-        <ul class="navbar-nav navbar-center">
+        <ul class="navbar-nav nav-fill w-100">
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'home' %}">Home</a>
             </li>
@@ -222,8 +381,62 @@
             </li>
         </ul>
     </nav>
+<<<<<<< HEAD
 
 <!-- 
+=======
+
+<h6>SFSU Software Engineering Project CSC 648-848, Fall 2019.  For Demonstration Only</h6>
+<nav class="navbar navbar-expand-sm navbar-custom fixed-top">
+    <ul class="navbar-nav nav-fill w-100">
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'addItem' %}">Add Items</a>
+        </li>
+        <li class="nav-item">
+            <button class="b">Remove Items</button>
+        </li>
+        <li class="nav-item">
+            <button class="b">Edit Items</button>
+        </li>
+    </ul>
+</nav>
+
+<div class="container">
+
+<!-- The form -->
+<!-- <form class="example" action="action_page.php">
+    <input type="text" placeholder="Search.." name="search">
+    <button type="submit"><i class="fa fa-search"></i></button>
+</form> -->
+
+<!-- ********************************* -->
+<div class="input-placeholder">
+    <input class="col-lg-3 col-md-3 col-sm-5 col-xs-5 form-control" type="text" name="searchroleName" id="searchroleName"/> <span class="icon"> <span class="fa fa-search form-control-feedback"></span> </span>
+</div>
+
+<table id="myTable">
+    <tr>
+        <th>Items</th>
+        <th>Purchase Date</th>
+        <th>Expiration Date</th>
+        <th>Calories</th>
+    </tr>
+    {% for key in inventory %}
+    <tr>
+        <td>{{key.0}}</td>
+        <td>{{key.1}}</td>
+        <td>{{key.2}}</td>
+        <td>{{key.3}}</td>
+    </tr>
+    {% endfor %}
+</table>
+<!--
+    <button onclick="myCreateFunction()">Create row</button>
+    <button onclick="myDeleteFunction()">Delete row</button>
+
+</div>
+
+>>>>>>> 4ea69613df13005fff384add31470924d07b31b1
     <script>
     function myCreateFunction() {
         var table = document.getElementById("myTable");
@@ -237,12 +450,24 @@
         cell3.innerHTML = "NEW CELL3";
         cell4.innerHTML = "New CELL4";
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4ea69613df13005fff384add31470924d07b31b1
     function myDeleteFunction() {
         document.getElementById("myTable").deleteRow(1);
     }
     </script>
+<<<<<<< HEAD
 
  -->
+=======
+>>>>>>> 361a878f46cf08609a21cdb1844a98f10c738aa7
+=======
+ -->
+</div>
+
+>>>>>>> 4ea69613df13005fff384add31470924d07b31b1
 </body>
 </html>
+
