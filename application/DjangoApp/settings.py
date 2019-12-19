@@ -123,7 +123,7 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 STATIC_URL = '/static/'
-ALLOWED_HOSTS=['ec2-13-57-221-62.us-west-1.compute.amazonaws.com', '127.0.0.1','192.168.1.124' ]
+ALLOWED_HOSTS=['ec2-13-57-221-62.us-west-1.compute.amazonaws.com', '127.0.0.1','10.143.188.165']
 
 CRISPY_TEMPLATE_PACK="bootstrap4"
 
