@@ -26,61 +26,77 @@ scannedItems = {}
 def index(request):
     return render(request, 'intro/welcome.html')
 
+
 def anne(request):
     return render(request, 'intro/anne.html')
+
 
 def abdi(request):
     return render(request, 'intro/abdi.html')
 
+
 def carolyn(request):
     return render(request, 'intro/carolyn.html')
+
 
 def ibrahim(request):
     return render(request, 'intro/ibrahim.html')
 
+
 def john(request):
     return render(request, 'intro/john.html')
+
 
 def surabhi(request):
     return render(request, 'intro/surabhi.html')
 
+
 def tianrong(request):
     return render(request, 'intro/tianrong.html')
+
 
 def Note1(request):
     return render(request, 'intro/Note1.html')
 
+
 def Note2(request):
     return render(request, 'intro/Note2.html')
+
 
 def Note3(request):
     return render(request, 'intro/Note3.html')
 
+
 def main_page(request):
     return render(request, 'webpage/Welcome.html')
 
+
 def profile_page(request):
-    return render(request,'webpage/profile.html')
+    return render(request, 'webpage/profile.html')
+
 
 def home_page(request):
     return render(request, 'webpage/home.html')
 
+
 def refrigerator(request):
     return render(request, 'webpage/refrigerator.html')
+
 
 def shoppingList(request):
     return render(request, 'webpage/ShoppingList.html')
 
-def register(response):
-	if response.method == "POST":
-		form = RegisterForm(response.POST)
-		if form.is_valid():
-			form.save()
-			return redirect("/home")
-	else:
-			form = RegisterForm()
 
-	return render(response, "register/register.html", {"form": form})
+def register(response):
+    if response.method == "POST":
+        form = RegisterForm(response.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("/home")
+    else:
+        form = RegisterForm()
+
+    return render(response, "register/register.html", {"form": form})
 
 
 def inventory(request):
@@ -96,7 +112,6 @@ def create_database(cursor):
             "CREATE DATABASE {} DEFAULT CHARACTER SET 'utf8'".format(DB_NAME))
     except mysql.connector.Error as err:
         print("Failed creating database: {}".format(err))
-        
 
 
 def addItem(request):
@@ -104,14 +119,14 @@ def addItem(request):
     cursor = cnx.cursor()
     global scannedItems
     form = ReceiptForm(request.POST, request.FILES)
-    #form = ReceiptForm(request.POST, request.FILES)
+    # form = ReceiptForm(request.POST, request.FILES)
     # table = ItemTable(scannedItems)
     # RequestConfig(request).configure(table)
     if 'upload' in request.POST:
         print("Upload")
         print(len(scannedItems))
         form = ReceiptForm(request.POST, request.FILES)
-        
+
         if form.is_valid():
             img = form.cleaned_data['img']
             # print(img.image)
@@ -120,11 +135,10 @@ def addItem(request):
             # print(scannedItems[0]['pur_date'])
             # return redirect('res/search', request, scannedItems)
     if "insert" in request.POST:
-        
-        
+
         # listOfInputs = request.POST.getlist('scales')
         scannedItems = insertToDatabase(scannedItems, request.POST.getlist('boxes'))
-        
+
     if 'delete' in request.POST:
         scannedItems = removeFromDatabase(scannedItems, request.POST.getlist('boxes'))
     # if 'search' in request.POST:

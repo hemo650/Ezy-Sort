@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<<<<<<< HEAD
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-=======
+    <link rel="stylesheet" type="text/css" href="main.css">
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
->>>>>>> 6dda5b5e6693d60cc748144467e95b6be28989e5
     <title>Item Page</title>
     <style>
     /* Add a black background color to the top navigation */
@@ -43,6 +40,14 @@
     * {
         box-sizing: border-box;
     }
+
+    .gradient_backdrop{
+        background-image: linear-gradient(45deg, rgb(250, 110, 110), rgb(110, 159, 252));
+        height: 100vh;
+        background-repeat: no-repeat;
+    }
+
+
 
     /* Style the search field */
     form.example input[type=text] {
@@ -84,17 +89,18 @@
         border-collapse:collapse;
         border-left: 0px;
         border-top: 0px;
-        background-color: #EFF3F4;
         width: 100%;
     }
 
     td {
-        border: 1px solid #484349;
+        border: 0.25px solid #484349;
         border-collapse:collapse;
         border-left: 0px;
         border-top: 0px;
-        background-color: #EFF3F4;
-        width: 20%
+        font-family: "Comic Sans MS", sans-serif;
+        background-color:rgb(240, 240, 240);
+        width: 20%;
+        height: 35px;
     }
 
 
@@ -235,11 +241,13 @@
       transform: translate(-45%,5%);
       border: 2px solid #666;
       z-index: 9;
-      background-color: #DBDBDB;
+      background-color: rgb(253, 253, 253);
+      height: 25%;
       }
       /* Styles for the form container */
       .form-container {
       max-width: 300px;
+      height: 300px;
       padding: 20px;
       background-color: #fff;
       }
@@ -257,25 +265,122 @@
       outline: none;
       }
 
+      .sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    
+  }
+  
+  /* The navigation menu links */
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  /* Position and style the close button (top right corner) */
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 60px;
+    margin-left: 50px;
+  }
+  
+  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+  #main {
+    transition: margin-left .5s;
+    padding: 20px;
+  }
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+
+  .addbutton{
+        border-radius: 50%;
+        background-color: white;
+        color: #111;
+        border: 3px solid rgb(41, 214, 41);
+        position: absolute;
+        bottom: 60px;
+        right: 110px;
+        height: 100px;
+        width: 100px;
+        background-size: cover;
+        font-size: 25px;
+        text-align: center;
+  }
+
+  .removebuton{
+    border-radius: 50%;
+    background-color: white;
+    color: #111;
+    border: 3px solid rgb(231, 21, 21);
+    position: absolute;
+    position: absolute;
+    bottom: 60px;
+    right: 0px;
+    height: 100px;
+    width: 100px;
+    background-size: cover;
+    font-size: 25px;
+    text-align: center;
+    padding: 10px;
+  }
+
     </style>
 </head>
-<body>
-    <div class="topnav">
-        <a href="#addNewItems">Add New Items</a>
-        <a href="#removeItems">Remove Items</a>
-        <a href="#editItems">Edit Items</a>
+<body class="gradient_backdrop">
+    
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'refrigerator' %}">Refridgerator</a>
+        <a href="{% url 'profile' %}">Profile</a>
+        <a href="#">About</a>
     </div>
+
+    <span style="font-size:50px;cursor:pointer" onclick="openNav()">&#9776;</span>
 
     <!-- Load icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- The form -->
-    <form class="example" action="action_page.php">
-        <input type="text" placeholder="Search.." name="search">
-        <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
+ 
 
     <script>
+
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+            document.body.style.backgroundColor = "rgba(0,0,0,0.1)";
+        }
+
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+            document.body.style.backgroundColor = "white";
+        }
         function startTime() {
           var today = new Date();
           var h = today.getHours();
@@ -299,32 +404,16 @@
     <input class="col-lg-3 col-md-3 col-sm-5 col-xs-5 form-control" type="text" name="searchroleName" id="searchroleName" placeholder="Input Field" />
     </div>
 
-    <form action="searchbar" method="POST">
-            {% csrf_token %}
-            {{ searchform }} 
-    </form>
+
     
     <!--  ***************************** Testing Code**************************** -->
    
-    <div class="open-btn">
+    <!-- <div class="open-btn">
       <button class="open-button" onclick="openForm()"><strong>Upload File</strong></button>
-    </div>
+    </div> -->
 
     <div class="login-popup">
       <div class="form-popup" id="popupForm">
-        <!-- <form action="/action_page.php" class="form-container">
-          <h2>Please Log in</h2>
-          <label for="email">
-          <strong>E-mail</strong>
-          </label>
-          <input type="text" id="email" placeholder="Your Email" name="email" required>
-          <label for="psw">
-          <strong>Password</strong>
-          </label>
-          <input type="password" id="psw" placeholder="Your Password" name="psw" required>
-          <button type="submit" class="btn">Log in</button>
-          <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-        </form> -->
         <form action="" method="POST" enctype="multipart/form-data" >
             {% csrf_token %}
 
@@ -347,66 +436,9 @@
       }
     </script>
 
-    <!-- ********************* -->
-
-    <!-- ***************************** Also Testing Code ****************** -->
-<!-- 
-    <button href="print.html"  
-    onclick="window.open('print.html', 
-                         'newwindow', 
-                         'width=300,height=250'
-                         ); 
-              return false;"
-    >Print</button>
-
-    <script type="">
-        function myFunction() {
-            var myWindow = window.open("", "myWindow", "width=200,height=100");
-            myWindow.document.write("<p>This is 'myWindow'</p>");
-        }
-    </script> -->
-
-    <!-- **************************  End of Testing ********************* -->
-
-<!-- 
-     <form method="post" enctype="multipart/form-data">
-        <input type="file" name="myfile" accept="image/*" id="image">
-        <button type="submit" name="upload">Upload</button>
-    </form> 
- -->
-
-
-
-    <!-- <form action="" method="POST">
-            {% csrf_token %}
-            {{ form }}
-        <button action="upload" type="submit" name="upload">Search</button>
-        
-    </form> -->
-
-    
-
-    
-    
-    
-
-    <body onload="startTime()">
-
-        <div id="txt"></div>
-        
-        </body>
-
-    <div class="three-icons">
-        <!-- <button class="icons" type="submit"><i class="fa fa-camera"></i></button>
-        <button class="icons" type="submit"><i class="fa fa-barcode"></i></button>
-        <button class="icons" type="submit"><i class="fa fa-microphone"></i></button> -->
-        
-    </div>
-
-    <img class="button button2" src="https://img.icons8.com/plasticine/100/000000/camera.png">
+    <img class="button button2" onclick="openForm()" src="https://img.icons8.com/plasticine/100/000000/camera.png">
     <img class="button button1" src="https://img.icons8.com/pastel-glyph/64/000000/barcode-scanner--v2.png">
     <img class="button button3" src="https://img.icons8.com/cotton/64/000000/microphone.png">
-    
     
     <form action="" method="POST">
             {% csrf_token %}
@@ -425,7 +457,7 @@
         </tr>
         {% for items, key in scannedItems.items %}
             <tr>
-                <td><input type="checkbox" id="sjk" value="{{key.item_id}}" name="boxes" unchecked>
+                <td><input style="font-size: 40px;" type="checkbox" id="sjk" value="{{key.item_id}}" name="boxes" unchecked>
                     <label for="scales"> {{key.item_id}} </label></td>
                 <td>{{key.item_name}}</td>
                 <td>{{key.pur_date}}</td>
@@ -437,41 +469,17 @@
     </table>
 
 
-    <button type="image" class="button button5" src="https://img.icons8.com/pastel-glyph/64/000000/cancel.png" name="delete"></button>
+    <button class="button removebuton" name="delete">Delete</button>
             <!-- <input type="image" name="insert" alt="Submit" class="button button4" src="https://img.icons8.com/ios/100/000000/ok.png">
              -->
-            <button type="image" class="button button4" src="https://img.icons8.com/ios/100/000000/ok.png" name="insert"></button>
+            <button class="button addbutton" name="insert">Add</button>
         </form>
         
 
-    <nav class="navbar navbar-expand-sm navbar-custom fixed-bottom">
-        <ul class="navbar-nav navbar-center">
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'home' %}">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'refrigerator' %}">Refrigerator</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'profile' %}">Profile</a>
-            </li>
-        </ul>
-    </nav>
+
 
 
     <script>
-    function myCreateFunction(name, date, date2, cal) {
-        var table = document.getElementById("myTable");
-        var row = table.insertRow(-1); // 0
-        var cell1 = row.insertCell(-1); // 0
-        var cell2 = row.insertCell(-1); // 1
-        var cell3 = row.insertCell(-1); // 1
-        var cell4 = row.insertCell(-1);
-        cell1.innerHTML = name;
-        cell2.innerHTML = date;
-        cell3.innerHTML = data2;
-        cell4.innerHTML = cal;
-    }
 
     function myDeleteFunction() {
         var Parent = document.getElementById("myTable");
@@ -481,10 +489,9 @@
             }
     }
     </script>
+
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-
     
 </body>
 
