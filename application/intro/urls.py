@@ -1,8 +1,8 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    path('', views.register, name='index'),
+    path("<int:id>", views.index, name='index'),
     path('anne/', views.anne, name='anne'),
     path('abdi/', views.abdi, name='abdi'),
     path('carolyn/', views.carolyn, name='carolyn'),
@@ -22,5 +22,6 @@ urlpatterns = [
     path('refrigerator/upload', views.searchbar, name='searchbar'),
     path('refrigerator/search/', views.showItems, name='showItems'),
     path('refridgerator/', views.inventory, name='refrigerator'),
-
+    path('register/', views.register, name='register'),
+    path('login/', views.login, name='login'), #when login page needs to be directly acccessed
 ]

@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EzySort</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+
+
+
+body {
+  font-size: small;
+  line-height: 1.4;
+}
+p {
+  margin: 0;
+}
+
+.performance-facts {
+   border: 1px solid black;
+  margin: 20px;
+  float: left;
+  width: 400px;
+  padding: 0.5rem;
+  position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -200px;
+  table {
+    border-collapse: collapse;
+  }
+}
+.performance-facts__title {
+  font-weight: bold;
+  font-size: 2rem;
+  margin: 0 0 0.25rem 0;
+}
+.performance-facts__header {
+  border-bottom: 10px solid black;
+  padding: 0 0 0.25rem 0;
+  margin: 0 0 0.5rem 0;
+  p {
+    margin: 0;
+  }
+}
+.performance-facts__table {
+  width: 100%;
+  thead tr {
+    th, td {
+      border: 0;
+    }
+  }
+  th, td {
+    font-weight: normal;
+    text-align: left;
+    padding: 0.25rem 0;
+    border-top: 1px solid black;
+    white-space: nowrap;
+  }
+  td {
+    &:last-child {
+      text-align: right;
+    }
+  }
+  .blank-cell {
+    width: 1rem;
+    border-top: 0;
+  }
+  .thick-row {
+    th, td {
+      border-top-width: 5px;
+    }
+  }
+}
+.small-info {
+  font-size: 0.7rem;
+}
+
+.performance-facts__table--small {
+  @extend .performance-facts__table;
+  border-bottom: 1px solid #999;
+  margin: 0 0 0.5rem 0;
+  thead {
+    tr {
+      border-bottom: 1px solid black;
+    }
+  }
+  td {
+    &:last-child {
+      text-align: left;
+    }
+  }
+  th, td {
+    border: 0;
+    padding: 0;
+  }
+}
+
+.performance-facts__table--grid {
+  @extend .performance-facts__table;
+  margin: 0 0 0.5rem 0;
+  td {
+    &:last-child {
+      text-align: left;
+      &::before {
+        content: "•";
+        font-weight: bold;
+        margin: 0 0.25rem 0 0;
+      }
+    }
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+.thick-end {
+  border-bottom: 10px solid black;
+}
+.thin-end {
+  border-bottom: 1px solid black;
+}
+
+        .navbar-custom {
+            background-color: #B3D8E0;
+            height: 10%;
+        }
+        .nav-item a{
+            color: #484349;
+            font-size: 20px;
+            font-weight: 600;
+            transition: .5s ease;
+            margin-right: 100px;
+            margin-left: 100px;
+        }
+        .navbar-center {
+            position: absolute;
+            left: 50%;
+            transform: translatex(-50%);
+        }
+        .navbar-nav .nav-item a:hover{
+            color: #999999;
+        }
+
+        .nav-logo {
+            font-size: 20px;
+            font-weight: 600;
+            background-color: #EFF3F4;
+        }
+
+        .container {
+            margin-top: 100px;
+        }
+        body {font-family: 'Josefin Sans', sans-serif, sans-serif;}
+
+    </style>
+
+</head>
+
+
+<body>
+
+<nav class="navbar navbar-expand-sm navbar-custom fixed-top">
+
+    <ul class="navbar-nav navbar-center">
+        <li class="nav-item">
+            <a class="nav-link" href="#">Share</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Remove</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Edit</a>
+        </li>
+    </ul>
+</nav>
+<br><br><br>
+
+<center>
+
+<section class="performance-facts">
+  <header class="performance-facts__header">
+    <h1 class="performance-facts__title">Nutrition Facts</h1>
+    <p>Serving Size 1/2 cup (about 82g)
+    <p>Serving Per Container 8</p>
+  </header>
+
+
+  <table class="performance-facts__table--grid">
+    <tbody>
+      <tr>
+        <td colspan="2">
+          Vitamin A
+          10%
+        </td>
+        <td>
+          Vitamin C
+          0%
+        </td>
+      </tr>
+      <tr class="thin-end">
+        <td colspan="2">
+          Calcium
+          10%
+        </td>
+        <td>
+          Iron
+          6%
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="small-info">* Percent Daily Values are based on a 2,000 calorie diet. Your daily values may be higher or lower depending on your calorie needs:</p>
+
+  <table class="performance-facts__table--small small-info">
+
+    <tbody>
+      <tr>
+        <th colspan="2">Total Fat</th>
+        <td>Less than</td>
+        <td>65g</td>
+        <td>80g</td>
+      </tr>
+      <tr>
+        <td class="blank-cell"></td>
+        <th>Saturated Fat</th>
+        <td>Less than</td>
+        <td>20g</td>
+        <td>25g</td>
+      </tr>
+      <tr>
+        <th colspan="2">Cholesterol</th>
+        <td>Less than</td>
+        <td>300mg</td>
+        <td>300 mg</td>
+      </tr>
+      <tr>
+        <th colspan="2">Sodium</th>
+        <td>Less than</td>
+        <td>2,400mg</td>
+        <td>2,400mg</td>
+      </tr>
+      <tr>
+        <th colspan="3">Total Carbohydrate</th>
+        <td>300g</td>
+        <td>375g</td>
+      </tr>
+      <tr>
+        <td class="blank-cell"></td>
+        <th colspan="2">Dietary Fiber</th>
+        <td>25g</td>
+        <td>30g</td>
+      </tr>
+    </tbody>
+  </table>
+    </center>
+
+
+</section>
+
+
+<nav class="navbar navbar-expand-sm navbar-custom fixed-bottom">
+    <ul class="navbar-nav navbar-center">
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'home' %}">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'refrigerator' %}">Refrigerator</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+        </li>
+    </ul>
+</nav>
+
+
+</nav>
+
+</body>
+
+</html>

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,9 +6,8 @@
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
      <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-
+         <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Item Page</title>
     <style>
 
@@ -15,6 +15,18 @@
         /********************/
         * {
             box-sizing: border-box;
+        }
+
+            .b {
+            background-color: #B3D8E0;
+            display: inline-block;
+            width: 33%;
+            padding: 14px 16px;
+            border: #B3D8E0;
+            text-align: center;
+            cursor: pointer;
+            font-weight: bolder;
+            font-size: larger;
         }
 
         /* Style the search field */
@@ -60,7 +72,7 @@
         }
 
         th {
-            font-size: 130%;
+            font-size: 100%;
             border: 1px solid #484349;
             border-top: none;
         }
@@ -69,7 +81,7 @@
             border: 1px solid #484349;
             background-color: #EFF3F4;
             width: 25%;
-            font-size: 110%;
+            font-size: 80%;
             border-bottom: none;
         }
 
@@ -111,9 +123,20 @@
             height: 50px;
         }
 
+        /******************************/
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 33.33%;
+  padding: 5px;
+}
+
+        /*****************************/
         .container {
-            margin-top: 8%;
-            width: 100%;
+            margin-top: 15%;
+
         }
 
         .icons {
@@ -146,20 +169,31 @@
             text-align: center;
             text-decoration: none;
             display: inline-block;
-            font-size: 16px;
+
             /*margin: 0px 20px;*/
             cursor: pointer;
+
         }
 
-        .button1 {margin: 0% 12%;}
 
-        .button2 {margin: 0% 12%;}
+        .button1 {
+            margin: 0% 12%;
+            height: 95%;
+        }
+
+        .button2 {
+            margin: 0% 12%;
+        }
+
 
         .button3 {
+            margin-top: 10%;
             margin: 0% 12%;
             background-color: #4FE2A4;
-            border-radius: 50%;
+            border-radius: 60%;
+            height: 80%;
         }
+
         .button4 {
             position: absolute;
             bottom: 60px;
@@ -238,6 +272,7 @@
 
 <nav class="navbar navbar-expand-sm navbar-custom fixed-top">
     <ul class="navbar-nav nav-fill w-100">
+
         <li class="nav-item">
             <a class="nav-link" href=#>Add Items</a>
         </li>
@@ -247,6 +282,7 @@
         <li class="nav-item">
             <button class="b">Edit Items</button>
         </li>
+
     </ul>
 </nav>
 
@@ -383,9 +419,18 @@
 
     </div>
 
-    <img class="button button2" src="https://img.icons8.com/plasticine/100/000000/camera.png">
-    <img class="button button1" src="https://img.icons8.com/pastel-glyph/64/000000/barcode-scanner--v2.png">
-    <img class="button button3" src="https://img.icons8.com/cotton/64/000000/microphone.png">
+    <div class="row">
+        <div class="column button">
+<img class=" button2" src="https://img.icons8.com/plasticine/100/000000/camera.png">
+  </div>
+  <div class="column button ">
+    <img class="button1" src="https://img.icons8.com/pastel-glyph/64/000000/barcode-scanner--v2.png">
+  </div>
+  <div class="column button ">
+    <img class="button3" src="https://img.icons8.com/cotton/64/000000/microphone.png">
+  </div>
+</div>
+
 
 
     <form action="" method="POST">

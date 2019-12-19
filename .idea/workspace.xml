@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="10dbd0d7-45b5-44f1-afa6-dec8819ded37" name="Default Changelist" comment="Updated">
+    <list default="true" id="10dbd0d7-45b5-44f1-afa6-dec8819ded37" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/application/health.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/info.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/DjangoApp/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/DjangoApp/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/DjangoApp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/DjangoApp/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/intro/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/intro/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/intro/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/intro/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/intro/templates/main/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/intro/templates/main/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/intro/templates/registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/intro/templates/registration/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/intro/templates/webpage/addItem.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/intro/templates/webpage/addItem.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/intro/templates/webpage/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/intro/templates/webpage/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/intro/templates/webpage/refrigerator.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/intro/templates/webpage/refrigerator.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/intro/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/intro/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/intro/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/intro/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
