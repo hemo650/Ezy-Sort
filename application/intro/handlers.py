@@ -26,7 +26,7 @@ def handleRecieptImage(image):
     URL_post = 'https://api.tabscanner.com/' + apikey + '/process'
     headers = {'content-type': 'application/x-www-form-urlencoded'}
     files = {'receiptImage': image}
-    json api processing result
+   #  json api processing result
     r = requests.post(url=URL_post, files=files)
     json_data = json.loads(r.text)
     token = json_data['token']
