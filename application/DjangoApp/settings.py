@@ -127,4 +127,5 @@ ALLOWED_HOSTS=['ec2-13-57-221-62.us-west-1.compute.amazonaws.com', '127.0.0.1','
 
 CRISPY_TEMPLATE_PACK="bootstrap4"
 
-LOGIN_REDIRECT_URL = "home"
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'

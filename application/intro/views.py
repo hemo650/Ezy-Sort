@@ -1,5 +1,4 @@
-from django.shortcuts \
-    import HttpResponse, render, redirect
+from django.shortcuts import HttpResponse, render, redirect
 import json
 import requests
 import mysql.connector
@@ -67,6 +66,10 @@ def Note3(request):
     return render(request, 'intro/Note3.html')
 
 
+def login(request):
+    return
+
+
 def main_page(request):
     return render(request, 'webpage/Welcome.html')
 
@@ -115,6 +118,9 @@ def register(response):
 def inventory(request):
 
     inventoryTable = getInventory()
+
+    if 'delete' in request.POST:
+        scannedItems = removeFromDatabase(request.POST.getlist('boxes'))
 
     return render(request, 'webpage/refrigerator.html', {'inventory': inventoryTable})
 
