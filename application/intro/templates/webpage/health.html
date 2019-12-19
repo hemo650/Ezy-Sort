@@ -11,21 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <style>
-<<<<<<< HEAD
         .navbar-custom {
-=======
-        .b{
-            background-color: #B3D8E0;
-            display: inline-block;
-            font-size: 20px;
-            width: 33%;
-            padding: 14px 16px;
-            border:#B3D8E0 ;
-            text-align: center;
-            cursor: pointer;
-        }
-  .navbar-custom {
->>>>>>> 361a878f46cf08609a21cdb1844a98f10c738aa7
             background-color: #B3D8E0;
             height: 10%;
         }
@@ -56,16 +42,14 @@
             margin-top: 100px;
         }
         body {font-family: 'Josefin Sans', sans-serif, sans-serif;}
-  h6{
-      z-index: 999;
-  }
+
     </style>
 
 </head>
 
 
 <body>
-<h6>SFSU Software Engineering Project CSC 648-848, Fall 2019.  For Demonstration Only</h6>
+
 <nav class="navbar navbar-expand-sm navbar-custom fixed-top">
 
     <ul class="navbar-nav navbar-center">
@@ -73,17 +57,10 @@
             <a class="nav-link" href="#">Share</a>
         </li>
         <li class="nav-item">
-<<<<<<< HEAD
             <a class="nav-link" href="#">Remove</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#">Edit</a>
-=======
-            <button class="b">Remove Items</button>
-        </li>
-        <li class="nav-item">
-            <button class="b">Edit Items</button>
->>>>>>> 361a878f46cf08609a21cdb1844a98f10c738aa7
         </li>
     </ul>
 </nav>
@@ -91,34 +68,30 @@
 <center>
 
 
-<form class="form-inline active-cyan-4">
-    <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search"
-           aria-label="Search">
-    <i class="fas fa-search" aria-hidden="true"></i>
-</form>
+
 
 </center>
 <div class="container">
-    <h2>Shopping List:</h2>
+    <h2>Items Conusmed In The Past Month</h2>
     <table class="table">
         <thead>
         <tr>
             <th>Name</th>
-            <th>Qty</th>
-            <th>Price</th>
+            <th>Calories</th>
+            <th>Other Information</th>
         </tr>
         </thead>
+        
         <tbody>
+            {% for items in inventory %}
         <tr>
-            <td>Apple</td>
-            <td>10</td>
-            <td>10</td>
+            <td>{{items.0}}</td>
+            <td>{{items.3}}</td>
+            <td>
+            <a href="{% url 'info' %}"><button name="{{items.0}}">Information</button></a> </td>
         </tr>
-        <tr>
-            <td>Pineapple</td>
-            <td>2</td>
-            <td>5</td>
-        </tr>
+        
+        {% endfor %}
         <tr>
             <td>...</td>
             <td>...</td>

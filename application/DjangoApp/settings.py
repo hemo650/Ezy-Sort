@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -37,9 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    'register.apps.RegisterConfig',
     "crispy_forms",
-    'django_tables2',
     
 ]
 
@@ -124,8 +123,9 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 STATIC_URL = '/static/'
-ALLOWED_HOSTS=['ec2-13-57-221-62.us-west-1.compute.amazonaws.com','127.0.0.1']
+ALLOWED_HOSTS=['ec2-13-57-221-62.us-west-1.compute.amazonaws.com', '127.0.0.1','10.143.188.165']
 
 CRISPY_TEMPLATE_PACK="bootstrap4"
 
-LOGIN_REDIRECT_URL = "home"
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'

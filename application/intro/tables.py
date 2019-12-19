@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import django_tables2 as tables
 from django_tables2.utils import A
 from django.utils.safestring import mark_safe
@@ -27,3 +28,5 @@ class ItemTable(tables.Table):
     class Meta:
         model = ItemModel
         fields = ('check', 'item_name', 'pur_date', 'exp_date', 'cal')
+=======
+>>>>>>> 48d64a94508b6a0127d5b4d9ce977544f134cfc6
