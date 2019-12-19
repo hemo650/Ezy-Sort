@@ -298,16 +298,11 @@
     <input class="col-lg-3 col-md-3 col-sm-5 col-xs-5 form-control" type="text" name="searchroleName" id="searchroleName" placeholder="Input Field" />
     </div>
 
-    <form action="searchbar" method="POST">
-            {% csrf_token %}
-            {{ searchform }} 
-    </form>
+
     
     <!--  ***************************** Testing Code**************************** -->
    
-    <div class="open-btn">
-      <button class="open-button" onclick="openForm()"><strong>Upload File</strong></button>
-    </div>
+
 
     <div class="login-popup">
       <div class="form-popup" id="popupForm">
@@ -406,9 +401,8 @@
         
     </div>
 
-    <img class="button button2" src="https://img.icons8.com/plasticine/100/000000/camera.png">
-    <img class="button button1" src="https://img.icons8.com/pastel-glyph/64/000000/barcode-scanner--v2.png">
-    <img class="button button3" src="https://img.icons8.com/cotton/64/000000/microphone.png">
+    <img class="button button2" onclick="openForm()" src="https://img.icons8.com/plasticine/100/000000/camera.png">
+
     
     
     <form action="" method="POST">
