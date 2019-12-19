@@ -113,8 +113,10 @@
 
 
     .navbar-nav .nav-item a:hover {
-        color: #999999;
-    }
+            color: #999999;
+            flex-direction: row;
+        }
+
 
     /**/
     .navbar {
@@ -442,7 +444,7 @@
         
 
     <nav class="navbar navbar-expand-sm navbar-custom fixed-bottom">
-        <ul class="navbar-nav navbar-center">
+        <ul class="navbar-nav nav-fill w-100">
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'home' %}">Home</a>
             </li>

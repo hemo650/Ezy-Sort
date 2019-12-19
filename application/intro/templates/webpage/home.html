@@ -7,42 +7,47 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
     <style>
         * {box-sizing: border-box}
         body {font-family: 'Josefin Sans', sans-serif, sans-serif;height: 100%;
             margin: 0;
             padding: 0;
         }
-
-         .navbar-custom {
+        .navbar-custom {
             background-color: #B3D8E0;
-            height: 12%;
+            height: 10%;
         }
-
-        .nav-item a {
+        .nav-item a{
             color: #484349;
-            font-size: large;
+            font-size: 20px;
             font-weight: 600;
             transition: .5s ease;
+            margin-right: 100px;
+            margin-left: 100px;
         }
-
-
-        .navbar-nav .nav-item a:hover {
+        .navbar-center {
+            position: absolute;
+            left: 50%;
+            transform: translatex(-50%);
+        }
+        .navbar-nav .nav-item a:hover{
             color: #999999;
         }
-
-        .navbar-nav {
-            flex-direction: row;
+        .nav-logo {
+            font-size: 20px;
+            font-weight: 600;
+            background-color: #EFF3F4;
         }
-
+        .container {
+            margin-top: 100px;
+        }
+        body {font-family: 'Josefin Sans', sans-serif, sans-serif;}
         .centered {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
         }
-
         .container {
             margin-top: 4%;
             width: 100%;
@@ -60,45 +65,28 @@ right: 0%;
  bottom: 2%;"
      id="piechart"></div>
 
-     <nav class="navbar navbar-expand-sm navbar-custom fixed-bottom">
-        <ul class="navbar-nav navbar-center">
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'home' %}">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'refrigerator' %}">Refrigerator</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'profile' %}">Profile</a>
-            </li>
-        </ul>
-    </nav>
 <div style="  position: fixed; max-width: 50%; height: auto;
   left: 5%;
   top: 3%;">
         <img src="{% static 'Carolyn/images/blue2.png' %}" width="190px" height="auto">
         <div class="centered">You Have:</div>
     </div>
-
 <div style="  position: fixed;
   right: 5%;
   top: 20%;max-width: 50%; height: auto;">
         <img src="{% static 'Carolyn/images/grey.png' %}" width="190px" height="auto">
         <div class="centered" style="color:#B3D8E0;">You Spent:</div>
-
 <div style="  position: fixed; max-width: 50%; height: auto;
   left: 10%;
   top: 40%;">
         <img src="{% static 'Carolyn/images/light.png' %}" width="190px" height="auto">
         <div class="centered">Closing Expire:</div>
     </div>
-
 <div style="position: fixed; max-width: 10%; height: auto;
   right: 0%;
   top: 0%;">
 <img src="{% static 'Carolyn/images/ez.JPG' %}" width="50px" height="auto">
   </div>
-
 <div style=" position: fixed; max-width: 30%; height: auto;
   left: 5%;
   bottom: 15%;">
@@ -106,38 +94,40 @@ right: 0%;
 <img src="{% static 'Carolyn/images/cart.jpg' %}" width="50px" height="auto">
   </a>
   </div>
-
-
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
+    <div>
+        <p><a href="{% url 'healthPage' %}">Health Information</a></p>
+    </div>
 <script type="text/javascript">
-
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
-
-
 function drawChart() {
-
   var data = google.visualization.arrayToDataTable([
   ['Food', 'Calories'],
   ['Sugar', 8],
   ['Fat', 2],
   ['Carbohydrates', 4],
   ['Dietry Fibers', 2],
-
 ]);
-
-
   var options = { 'width':250, 'height':250,};
-
-
   var chart = new google.visualization.PieChart(document.getElementById('piechart'));
   chart.draw(data, options);
 }
 </script>
-
+    <nav class="navbar navbar-expand-sm navbar-custom fixed-bottom">
+    <ul class="navbar-nav nav-fill w-100">
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'home' %}">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'refrigerator' %}">Refrigerator</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+        </li>
+    </ul>
+</nav>
 </body>
 </html>
-
