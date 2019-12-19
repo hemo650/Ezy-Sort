@@ -4,38 +4,41 @@
 <head>
     <meta charset="UTF-8">
     <title>EzySort</title>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
     <style>
-        .navbar-custom {
+  .navbar-custom {
             background-color: #B3D8E0;
-            height: 10%;
+            height: 12%;
         }
 
-        .nav-item a{
+        .nav-item a {
             color: #484349;
-            font-size: 20px;
+            font-size: large;
             font-weight: 600;
             transition: .5s ease;
-            margin-right: 100px;
-            margin-left: 100px;
         }
 
-        .navbar-center {
-            position: absolute;
-            left: 50%;
-            transform: translatex(-50%);
-        }
-
-        .navbar-nav .nav-item a:hover{
+        .navbar-nav .nav-item a:hover {
             color: #999999;
         }
+
+        .navbar-nav {
+            flex-direction: row;
+        }
+
+        .container {
+            margin-top: 30%;
+        }
+
+        .form-inline {
+            margin-bottom: 3%;
+        }
+        body {font-family: 'Josefin Sans', sans-serif, sans-serif;}
 
     </style>
 
@@ -45,31 +48,26 @@
 <body>
 
 <nav class="navbar navbar-expand-sm navbar-custom fixed-top">
-
-    <ul class="navbar-nav navbar-center">
+    <ul class="navbar-nav nav-fill w-100">
         <li class="nav-item">
-            <a class="nav-link" href="#">Share</a>
+            <a class="nav-link" href=#>Add Items</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Remove</a>
+            <a class="nav-link" href=#>Remove Items</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Edit</a>
+            <a class="nav-link" href=#>Edit Items</a>
         </li>
     </ul>
 </nav>
-<br><br><br>
-<center>
 
 
-<form class="form-inline active-cyan-4">
+<div class="container">
+    <form class="form-inline active-cyan-4">
     <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search"
            aria-label="Search">
     <i class="fas fa-search" aria-hidden="true"></i>
 </form>
-
-</center>
-<div class="container">
     <h2>Shopping List:</h2>
     <table class="table">
         <thead>
@@ -99,23 +97,18 @@
     </table>
 </div>
 
-
 <nav class="navbar navbar-expand-sm navbar-custom fixed-bottom">
-    <ul class="navbar-nav navbar-center">
+    <ul class="navbar-nav nav-fill w-100">
         <li class="nav-item">
             <a class="nav-link" href="{% url 'home' %}">Home</a>
         </li>
         <li class="nav-item">
-
             <a class="nav-link" href="{% url 'refrigerator' %}">Refrigerator</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="{% url 'profile' %}">Profile</a>
-
         </li>
     </ul>
-
-
 </nav>
 
 </body>
