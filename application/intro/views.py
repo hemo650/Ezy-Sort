@@ -1,5 +1,4 @@
-from django.shortcuts \
-    import HttpResponse, render, redirect
+from django.shortcuts import HttpResponse, render, redirect
 import json
 import requests
 import mysql.connector
