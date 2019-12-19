@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
+    "python.pythonPath": "/Users/ibrahimaboudamous/csc648-03-fa19-Team102/venv/bin/python3.7",
+=======
     "python.pythonPath": "/usr/local/bin/python3",
+>>>>>>> 6d1f4f955f18f67593b9c1dc57e2d1c9c1cf93ba
     "python.linting.enabled": true,
     "python.linting.pycodestyleEnabled" : true
 }

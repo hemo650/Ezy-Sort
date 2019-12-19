@@ -8,7 +8,8 @@ from attributedict.collections import AttributeDict
 
 class MaterializeCssCheckBoxColumn(tables.CheckBoxColumn):
     def render(self, value, bound_column, record):
-        default = {"type": "checkbox", "name": bound_column.name, "value": value}
+        default = {"type": "checkbox", "name": 
+bound_column.name, "value": value}
         if self.is_checked(value, record):
             default.update({"checked": "checked"})
 
