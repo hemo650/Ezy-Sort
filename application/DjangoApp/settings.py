@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -39,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'register.apps.RegisterConfig',
     "crispy_forms",
-    'django_tables2',
     
 ]
 
@@ -80,8 +80,12 @@ WSGI_APPLICATION = 'DjangoApp.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql', 
+        'NAME': 'accounts',
+        'USER': 'websitedb',
+        'PASSWORD': 'sql2019',
+        'HOST': 'localhost',   
+        'PORT': '3306',
     }
 }
 

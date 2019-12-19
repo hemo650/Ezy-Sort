@@ -4,49 +4,58 @@
 <head>
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <style>
+        * {box-sizing: border-box}
+        body {font-family: 'Josefin Sans', sans-serif, sans-serif;height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+         .navbar-custom {
+            background-color: #B3D8E0;
+            height: 12%;
+        }
+
+        .nav-item a {
+            color: #484349;
+            font-size: large;
+            font-weight: 600;
+            transition: .5s ease;
+        }
 
 
-<style>
-* {box-sizing: border-box}
-body {font-family: 'Josefin Sans', sans-serif, sans-serif;height: 100%;
-    margin: 0;
-    padding: 0; }
+        .navbar-nav .nav-item a:hover {
+            color: #999999;
+        }
 
-.navbar-custom {
-    background-color: #B3D8E0;
-    height: 10%;
-}
+        .navbar-nav {
+            flex-direction: row;
+        }
 
-.nav-item a {
-    color: #484349;
-    font-size: 20px;
-    font-weight: 600;
-    transition: .5s ease;
-    margin-right: 100px;
-    margin-left: 100px;
-}
-.navbar-nav .nav-item a:hover {
-    color: #999999;
-}
-.navbar-center {
-    position: absolute;
-    left: 50%;
-    transform: translatex(-50%);
-}
-.centered {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+        .centered {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
 
-
-
-</style>
+        .container {
+            margin-top: 4%;
+            width: 100%;
+        }
+        h6{
+            z-index: 999;
+        }
+    </style>
 </head>
 <body>
-<div style="  position: fixed; z-index: ;
+<h6>SFSU Software Engineering Project CSC 648-848, Fall 2019.  For Demonstration Only</h>
+<div class="container">
+    <div style="  position: fixed; z-index: ;
 right: 0%;
  bottom: 2%;"
      id="piechart"></div>
@@ -67,24 +76,43 @@ right: 0%;
 <div style="  position: fixed; max-width: 50%; height: auto;
   left: 5%;
   top: 3%;">
+<<<<<<< HEAD
 <img src="{% static 'Carolyn/images/blue.jpg' %}" width="200px" height="auto">
   <div class="centered">You Have:</div>
   </div>
+=======
+        <img src="{% static 'Carolyn/images/blue2.png' %}" width="190px" height="auto">
+        <div class="centered">You Have:</div>
+    </div>
+>>>>>>> ec4fa97bf645d6539a423fbe7efd207f07342852
 
 <div style="  position: fixed;
   right: 5%;
+<<<<<<< HEAD
   top: 17%;max-width: 50%; height: auto;">
 <img src="{% static 'Carolyn/images/grey.jpg' %}" width="200px" height="auto">
   <div class="centered" style="color:#B3D8E0;">You Spent:</div>
   
   </div>
+=======
+  top: 20%;max-width: 50%; height: auto;">
+        <img src="{% static 'Carolyn/images/grey.png' %}" width="190px" height="auto">
+        <div class="centered" style="color:#B3D8E0;">You Spent:</div>
+>>>>>>> ec4fa97bf645d6539a423fbe7efd207f07342852
 
 <div style="  position: fixed; max-width: 50%; height: auto;
   left: 10%;
+<<<<<<< HEAD
   top: 50%;">
 <img src="{% static 'Carolyn/images/light.jpg' %}" width="200px" height="auto">
   <div class="centered">Closing Expire:</div>
   </div>
+=======
+  top: 40%;">
+        <img src="{% static 'Carolyn/images/light.png' %}" width="190px" height="auto">
+        <div class="centered">Closing Expire:</div>
+    </div>
+>>>>>>> ec4fa97bf645d6539a423fbe7efd207f07342852
 
 <div style="position: fixed; max-width: 10%; height: auto;
   right: 0%;

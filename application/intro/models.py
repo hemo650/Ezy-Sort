@@ -1,5 +1,4 @@
 from django.db import models
-import django_tables2 as table
 import uuid
 from datetime import date
 

@@ -147,28 +147,177 @@
     float: right;
     }
 
+        /* Add a black background color to the top navigation */
+        body {font-family: 'Josefin Sans', sans-serif, sans-serif;}
+
+        /********************/
+        * {
+            box-sizing: border-box;
+        }
+        .b{
+            background-color: #B3D8E0;
+            display: inline-block;
+            font-size: 20px;
+            width: 33%;
+            padding: 14px 16px;
+            border:#B3D8E0 ;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        /* Style the search field */
+        form.example input[type=text] {
+            padding: 10px;
+            font-size: 17px;
+            border: 1px solid grey;
+            float: left;
+            width: 80%;
+            background: #f1f1f1;
+        }
+
+        /* Style the submit button */
+        form.example button {
+            float: left;
+            width: 20%;
+            padding: 10px;
+            background: #2196F3;
+            color: white;
+            font-size: 17px;
+            border: 1px solid grey;
+            border-left: none; /* Prevent double borders */
+            cursor: pointer;
+        }
+        form.example button:hover {
+            background: #0b7dda;
+        }
+
+        /* Clear floats */
+        form.example::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        /******************/
+
+        /*Style for table*/
+        table {
+            background-color: #EFF3F4;
+            width: 100%;
+        }
+
+        th {
+            font-size: 130%;
+            border: 1px solid #484349;
+            border-top: none;
+        }
+
+        td {
+            border: 1px solid #484349;
+            background-color: #EFF3F4;
+            width: 25%;
+            font-size: 110%;
+            border-bottom: none;
+        }
+
+        td:first-child,
+        th:first-child,
+        td:last-child,
+        th:last-child{
+            border-left: none;
+            border-right: none;
+        }
+
+
+
+        /*********************/
+        .navbar-custom {
+            background-color: #B3D8E0;
+            height: 12%;
+        }
+
+        .nav-item a {
+            color: #484349;
+            font-size: large;
+            font-weight: 600;
+            transition: .5s ease;
+        }
+
+        .navbar-nav .nav-item a:hover {
+            color: #999999;
+        }
+
+        .navbar-nav {
+            flex-direction: row;
+        }
+
+        /* ******************* */
+
+        input {
+            border: 0;
+            background: transparent;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+        input:focus{
+            outline: 0;
+        }
+        .input-placeholder{
+            margin: 20px 0px;
+            background-color: white;
+            display: inline-block;
+            padding: 10px;
+            border: 1px solid #DBDBDB;
+            float: left;
+            width: 100%;
+        }
+        .icon {
+            color: #DBDBDB;
+            float: right;
+        }
+
+        .container {
+            margin-top: 12%;
+        }
+
+
+        h6{
+            z-index: 999;
+        }
+
     </style>
 </head>
 
 <body>
-    <div class="topnav">
-        <a href="{% url 'addItem' %}">Add New Items</a>
-        <a href="{% url 'removeItem' %}" >Remove Items</a>
-        <a href="#editItems">Edit Items</a> 
-        
-    </div>
+<h6>SFSU Software Engineering Project CSC 648-848, Fall 2019.  For Demonstration Only</h>
+<nav class="navbar navbar-expand-sm navbar-custom fixed-top">
+    <form action="" method="POST" class="navbar-nav nav-fill w-100">
+            
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'addItem' %}">Add Items</a>
+                    </li>
+                    <li class="nav-item">
+                        <button  type="submit" class="b">Remove Items</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="b">Edit Items</button>
+                    </li>
+                
+    </form>
+    
+</nav>
 
-    <!-- Load icon library -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="container">
 
-    <!-- The form -->
-    <!-- <form class="example" action="action_page.php">
-        <input type="text" placeholder="Search.." name="search">
-        <button type="submit"><i class="fa fa-search"></i></button>
-    </form> -->
+<!-- The form -->
+<!-- <form class="example" action="action_page.php">
+    <input type="text" placeholder="Search.." name="search">
+    <button type="submit"><i class="fa fa-search"></i></button>
+</form> -->
 
-    <!-- ********************************* -->
-    <div class="input-placeholder">
+<!-- ********************************* -->
+<div class="input-placeholder">
     <input class="col-lg-3 col-md-3 col-sm-5 col-xs-5 form-control" type="text" name="searchroleName" id="searchroleName"/> <span class="icon"> <span class="fa fa-search form-control-feedback"></span> </span>
     </div>
     <!-- ******************************** -->

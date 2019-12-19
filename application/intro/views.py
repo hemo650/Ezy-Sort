@@ -9,7 +9,7 @@ import re
 from django_tables2 import RequestConfig
 from .forms import ReceiptForm, SearchForm, RegisterForm
 from .handlers import handleRecieptImage, handleSearchBar, insertToDatabase, removeFromDatabase, getInventory
-from .tables import ItemTable
+
 
 DB_NAME = 'test'
 table_description = "CREATE TABLE Refridgerator (Item_Name VARCHAR(100), ",
