@@ -81,18 +81,17 @@
             <th>Other Information</th>
         </tr>
         </thead>
+        
         <tbody>
+            {% for items in inventory %}
         <tr>
-            <td>Potatoes</td>
-            <td>10</td>
+            <td>{{items.0}}</td>
+            <td>{{items.3}}</td>
             <td>
-<a href="{% url 'info' %}"><button>Information</button></a> </td>
+            <a href="{% url 'info' %}"><button name="{{items.0}}">Information</button></a> </td>
         </tr>
-        <tr>
-            <td>Pizza</td>
-            <td>100</td>
-            <td><a href="{% url 'info' %}"><button>Information</button></a></td>
-        </tr>
+        
+        {% endfor %}
         <tr>
             <td>...</td>
             <td>...</td>

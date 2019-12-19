@@ -87,6 +87,19 @@ def shoppingList(request):
     return render(request, 'webpage/ShoppingList.html')
 
 
+def healthPage(request):
+
+    inventoryTable = getInventory()
+    return render(request, 'webpage/health.html', {'inventory': inventoryTable})
+
+
+def infoPage(request):
+
+    name = request.GET.get('name')
+    print(name)
+    return render(request, 'webpage/info.html')
+
+
 def register(response):
     if response.method == "POST":
         form = RegisterForm(response.POST)

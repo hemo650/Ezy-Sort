@@ -297,74 +297,6 @@
 </head>
 
 <body>
-<<<<<<< HEAD
-<h6>SFSU Software Engineering Project CSC 648-848, Fall 2019.  For Demonstration Only</h>
-<nav class="navbar navbar-expand-sm navbar-custom fixed-top">
-    <form action="" method="POST" class="navbar-nav nav-fill w-100">
-            
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'addItem' %}">Add Items</a>
-                    </li>
-                    <li class="nav-item">
-                        <button  type="submit" class="b">Remove Items</button>
-                    </li>
-                    <li class="nav-item">
-                        <button class="b">Edit Items</button>
-                    </li>
-                
-    </form>
-    
-</nav>
-
-<div class="container">
-
-<!-- The form -->
-<!-- <form class="example" action="action_page.php">
-    <input type="text" placeholder="Search.." name="search">
-    <button type="submit"><i class="fa fa-search"></i></button>
-</form> -->
-
-<!-- ********************************* -->
-<div class="input-placeholder">
-    <input class="col-lg-3 col-md-3 col-sm-5 col-xs-5 form-control" type="text" name="searchroleName" id="searchroleName"/> <span class="icon"> <span class="fa fa-search form-control-feedback"></span> </span>
-    </div>
-    <!-- ******************************** -->
-
-    <table id="myTable">
-         <!-- <tr>
-            <th>Name</th>
-            <th>Qty</th>
-            <th>Expiration Date</th>
-        </tr> -->
-        <tr class="tableRow">
-            <td>ID</td>
-            <td>Items</td>
-            <td>Purchase Date</td>
-            <td>Expiration Date</td>
-            <td>Calories</td>
-        </tr>
-        {% for key in inventory %}
-        <tr class="subRow">
-                <td><input style="font-size: 40px;" type="checkbox" id="sjk" value="{{key.item_id}}" name="boxes" unchecked>
-                    <label for="scales"> {{key.4}} </label></td>
-            <td>{{key.0}}</td>
-            <td>{{key.1}}</td>
-            <td>{{key.2}}</td>
-            <td>{{key.3}}</td>
-        </tr>
-        {% endfor %}
-    </table>
-<!-- 
-    <button onclick="myCreateFunction()">Create row</button>
-    <button onclick="myDeleteFunction()">Delete row</button>
-
- 
-
-
-
-    <nav class="navbar navbar-expand-sm navbar-custom fixed-bottom">
-        <ul class="navbar-nav navbar-center">
-=======
 <h6>SFSU Software Engineering Project CSC 648-848, Fall 2019. For Demonstration Only</h6>
     <nav class="navbar navbar-expand-sm navbar-custom fixed-top">
         <ul class="navbar-nav nav-fill w-100">
@@ -438,7 +370,6 @@
     </div>
     <nav class="navbar navbar-expand-sm navbar-custom fixed-bottom">
         <ul class="navbar-nav nav-fill w-100">
->>>>>>> 361a878f46cf08609a21cdb1844a98f10c738aa7
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'home' %}">Home</a>
             </li>
