@@ -26,62 +26,47 @@ scannedItems = {}
 def index(request):
     return render(request, 'intro/welcome.html')
 
-
 def anne(request):
     return render(request, 'intro/anne.html')
-
 
 def abdi(request):
     return render(request, 'intro/abdi.html')
 
-
 def carolyn(request):
     return render(request, 'intro/carolyn.html')
-
 
 def ibrahim(request):
     return render(request, 'intro/ibrahim.html')
 
-
 def john(request):
     return render(request, 'intro/john.html')
-
 
 def surabhi(request):
     return render(request, 'intro/surabhi.html')
 
-
 def tianrong(request):
     return render(request, 'intro/tianrong.html')
-
 
 def Note1(request):
     return render(request, 'intro/Note1.html')
 
-
 def Note2(request):
     return render(request, 'intro/Note2.html')
-
 
 def Note3(request):
     return render(request, 'intro/Note3.html')
 
-
 def main_page(request):
     return render(request, 'webpage/Welcome.html')
 
-
 def profile_page(request):
-    return render(request, 'webpage/profile.html')
-
+    return render(request,'webpage/profile.html')
 
 def home_page(request):
     return render(request, 'webpage/home.html')
 
-
 def refrigerator(request):
     return render(request, 'webpage/refrigerator.html')
-
 
 def shoppingList(request):
     return render(request, 'webpage/ShoppingList.html')
@@ -111,6 +96,7 @@ def create_database(cursor):
             "CREATE DATABASE {} DEFAULT CHARACTER SET 'utf8'".format(DB_NAME))
     except mysql.connector.Error as err:
         print("Failed creating database: {}".format(err))
+        
 
 
 def addItem(request):
