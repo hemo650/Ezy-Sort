@@ -70,6 +70,9 @@ def refrigerator(request):
 def shoppingList(request):
     return render(request, 'webpage/ShoppingList.html')
 
+def login(request):
+    return render(request, 'intro/login.html')
+
 def register(response):
 	if response.method == "POST":
 		form = RegisterForm(response.POST)
