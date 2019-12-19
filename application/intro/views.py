@@ -89,7 +89,6 @@ def refrigerator(request):
 def shoppingList(request):
     return render(request, 'webpage/ShoppingList.html')
 
-<<<<<<< HEAD
 
 def healthPage(request):
 
@@ -103,10 +102,10 @@ def infoPage(request):
     print(name)
     return render(request, 'webpage/info.html')
 
-=======
+
 def login(request):
     return render(request, 'intro/login.html')
->>>>>>> 4ea69613df13005fff384add31470924d07b31b1
+
 
 def register(response):
     if response.method == "POST":
