@@ -60,19 +60,19 @@ right: 0%;
  bottom: 2%;"
      id="piechart"></div>
 
-<nav class="navbar navbar-expand-sm navbar-custom fixed-bottom">
-    <ul class="navbar-nav navbar-center">
-        <li class="nav-item">
-            <a class="nav-link" href="{% url 'home' %}">Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{% url 'refrigerator' %}">Refrigerator</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{% url 'profile' %}">Profile</a>
-        </li>
-    </ul>
-</nav>
+     <nav class="navbar navbar-expand-sm navbar-custom fixed-bottom">
+        <ul class="navbar-nav navbar-center">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'refrigerator' %}">Refrigerator</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+            </li>
+        </ul>
+    </nav>
 <div style="  position: fixed; max-width: 50%; height: auto;
   left: 5%;
   top: 3%;">
@@ -119,6 +119,7 @@ google.charts.setOnLoadCallback(drawChart);
 
 
 function drawChart() {
+
   var data = google.visualization.arrayToDataTable([
   ['Food', 'Calories'],
   ['Sugar', 8],

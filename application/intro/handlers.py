@@ -261,8 +261,8 @@ def handleRecieptImage(image):
         # map.append([item, date, exp, nutr_data["foods"][0]["nf_calories"]])
         global i
         i += 1
-        # map[str(i)] = {"item_name": item, "pur_date": date, "exp_date": "2019-12-03", "cal": nutr_data["foods"][0]["nf_calories"], "item_id": i}
-        map[str(i)] = {"item_name": item, "pur_date": date, "exp_date": "2019-12-03", "cal": 0, "item_id": i}
+        map[str(i)] = {"item_name": item, "pur_date": date, "exp_date": "2019-12-03", "cal": nutr_data["foods"][0]["nf_calories"], "item_id": i}
+        # map[str(i)] = {"item_name": item, "pur_date": date, "exp_date": "2019-12-03", "cal": 0, "item_id": i}
       #   map.put(i: {"item_name": item, "pur_date": date, "exp_date": exp, "cal": 0, "item_id": i})
       #   map.append([item, date, exp, 0])
     
